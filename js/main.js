@@ -22,23 +22,17 @@ $(document).ready(function() {
     $hamMenu.toggleClass('active');
   });
 
-  // Toggle Facebook accordion box
-  $fbBox.click(function() {
-    $(this).toggleClass('active');
-    $fbPara.slideToggle('slow');
-  });
+  function toggleAccordion($box, $para) {
+    $box.click(function() {
+      $(this).toggleClass('active');
+      $para.slideToggle('slow');
+    });
+  }
 
-  // Toggle Google accordion box
-  $googleBox.click(function() {
-    $(this).toggleClass('active');
-    $googlePara.slideToggle('slow');
-  });
-
-  // Toggle LinkedIn accordion box
-  $linkedinBox.click(function() {
-    $(this).toggleClass('active');
-    $linkedinPara.slideToggle('slow');
-  });
+  // Toggle accordion boxes
+  toggleAccordion($fbBox, $fbPara);
+  toggleAccordion($googleBox, $googlePara);
+  toggleAccordion($linkedinBox, $linkedinPara);
 
   // Close navigation menu on link click
   $menuLink.click(function() {
