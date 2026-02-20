@@ -1,300 +1,312 @@
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Google fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-	<!-- aos animation -->
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	<!-- Main Stylesheet File -->
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/nav.css" rel="stylesheet">
-	<link href="css/home.css" rel="stylesheet">
-	<style>
-		.no-js #loader {
-			display: none;
-		}
-
-		.js #loader {
-			display: block;
-			position: absolute;
-			left: 100px;
-			top: 0;
-		}
-
-		.se-pre-con {
-			position: fixed;
-			left: 0px;
-			top: 0px;
-			width: 100%;
-			height: 100%;
-			z-index: 9999;
-			background: url(images/Preloader_3.gif) center no-repeat #fff;
-		}
-
-		@media(max-width: 768px) {
-			.se-pre-con {
-				background: url(images/Preloader_3-64px.gif) center no-repeat #fff;
-			}
-		}
-	</style>
-	<!-- preloder end -->
-	<title>Home</title>
-</head>
-
-<body>
-	<!-- <div class="se-pre-con"></div>
-	<input type="checkbox" id="ham-menu">
-	<label for="ham-menu">
-		<div class="hide-des">
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-		</div>
-	</label> -->
-	<div class="nav__toggler">
-		<span class="nav__icone nav__icone1"></span>
-		<span class="nav__icone nav__icone2"></span>
-		<span class="nav__icone nav__icone3"></span>
-		<span class="nav__icone nav__icone--small"></span>
-	</div>
-	<div class="ham-menu">
-		<ul class="centre-text bold-text">
-			<li>
-				<a href="#banner" class="menu__link wrapper al-center"> <span class="para1">(1)</span>Banner</a>
-			</li>
-			<li>
-				<a href="#about" class="menu__link wrapper al-center even"> <span class="para1">(2)</span>About</a>
-			</li>
-			<li>
-				<a href="#get-in-touch" class="menu__link wrapper al-center"> <span class="para1">(3)</span>Get in
-					touch</a>
-			</li>
-			<li>
-				<a href="#services" class="menu__link wrapper al-center even"> <span
-						class="para1">(4)</span>Services</a>
-			</li>
-			<li>
-				<a href="#contact" class="menu__link wrapper al-center"> <span class="para1">(5)</span>Contact</a>
-			</li>
-		</ul>
-	</div>
-	<main class="body-wrapper">
-		<section class="banner" id="banner">
-			<div class="container">
-				<div class="top-bar-wrapper wrapper al-center jst-center">
-					<a href="#" class="top-bar__link uppercase">get in touch</a>
-					<a href="#" class="top-bar__link uppercase">Marcy Studios</a>
-				</div>
-				<div class="banner-box center">
-					<div class="banner-heading-box">
-						<h1 class="main-heading banner__heading grey center">
-							TRUSTED &
-						</h1>
-						<h1 class="main-heading banner__heading grey center">
-							EXPERIENCED
-						</h1>
-					</div>
-					<img src="images/Digital Marketers.jpg" alt="Woman in a black suit holding a large yellow oval shape covering her face" width="566" height="575" class="banner__img">
-					<h2 class="main-heading banner__heading banner__heading2 meron center">
-						Digital Marketers
-					</h2>
-				</div>
-			</div>
-		</section>
-		<!-- banner end -->
-		<section class="about" id="about">
-			<div class="container">
-				<div class="section-top-box wrapper al-center">
-					<div class="circle white para">1</div>
-					<h6 class="section-top-box__heading uppercase grey">about us</h6>
-				</div>
-				<div class="about-wrapper wrapper jst-btw">
-					<div class="about-box">
-						<img src="images/Digital Marketers3.jpg" alt="Person holding a tablet displaying analytics" width="528" height="967" loading="lazy" class="about-box_img">
-						<div class="circle circle2"></div>
-					</div>
-					<div class="about-box about-box2 center">
-						<h1 class="about-box__heading sub-heading grey initial">Supporting Local <br>
-							business, <br>
-							Like Yours,
-						</h1>
-						<p class="desc grey about-box__desc initial">
-							We empower companies through thought-provoking advice and hassle-free marketing.   
-						</p>
-						<img src="images/Digital Marketers2.jpg" alt="Two women sitting in pink armchairs discussing work with a laptop between them" width="528" height="887" loading="lazy" class="about-box_img">
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- about end -->
-		<section class="get-in-touch" id="get-in-touch">
-			<div class="container">
-				<h1 class="get-in-touch main-heading grey center">GET IN TOUCH</h1>
-				<div class="form-box">
-					<h2 class="sub-heading form-box__sub-heading center grey">Reach Out</h2>
-					<form action="" class="form wrapper al-center">
-						<input type="text" class="input uppercase grey para" placeholder="Enter you email">
-						<button class="form-btn uppercase grey para" type="submit">Send</button>
-					</form>
-				</div>
-			</div>
-		</section>
-		<!-- get-in-touch end -->
-		<section class="services" id="services">
-			<div class="container">
-				<div class="section-top-box section-top-box2 wrapper al-center">
-					<div class="circle white para">2</div>
-					<h6 class="section-top-box__heading uppercase grey">Services</h6>
-				</div>
-				<div class="services-heading-box">
-					<h1 class="services__heading main-heading grey center uppercase">EXPERTISE</h1>
-					<div class="services__heading-hr"></div>
-				</div>
-				<div class="accordian wrapper jst-btw">
-					<div class="accordian-box accordian-box1">
-						<div class="section-top-box section-top-box-accordian wrapper al-center">
-							<div class="circle white para">01</div>
-						</div>
-					</div>
-					<div class="accordian-box accordian-box2 wrapper al-center jst-btw">
-						<h1 class="accordian-box__heading uppercase grey">facebook ads</h1>
-						<div class="plus-minus-box plus-minus-box--facebook">
-							<div class="plus-minus-box__line"></div>
-							<div class="plus-minus-box__line2"></div>
-						</div>
-					</div>
-					<p class="accordian-box__para accordian-box__para--facebbok grey">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptas alias odio quasi, maxime
-						fugiat necessitatibus velit iure, veritatis blanditiis debitis totam eaque ratione, voluptatibus
-						porro tenetur itaque soluta assumenda consequuntur accusamus fugit dolore aspernatur quidem
-						dolorem? Quo assumenda sed sapiente eligendi maxime adipisci debitis eos soluta iste aliquam?
-						Consectetur placeat labore accusamus vel nemo.
-					</p>
-				</div>
-				<div class="accordian wrapper jst-btw">
-					<div class="accordian-box accordian-box1">
-						<div class="section-top-box section-top-box-accordian wrapper al-center">
-							<div class="circle white para bg2">02</div>
-						</div>
-					</div>
-					<div class="accordian-box accordian-box2 wrapper al-center jst-btw">
-						<h1 class="accordian-box__heading uppercase grey">google ads</h1>
-						<div class="plus-minus-box plus-minus-box--google">
-							<div class="plus-minus-box__line"></div>
-							<div class="plus-minus-box__line2"></div>
-						</div>
-					</div>
-					<p class="accordian-box__para accordian-box__para--google grey">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptas alias odio quasi, maxime
-						fugiat necessitatibus velit iure, veritatis blanditiis debitis totam eaque ratione, voluptatibus
-						porro tenetur itaque soluta assumenda consequuntur accusamus fugit dolore aspernatur quidem
-						dolorem? Quo assumenda sed sapiente eligendi maxime adipisci debitis eos soluta iste aliquam?
-						Consectetur placeat labore accusamus vel nemo.
-					</p>
-				</div>
-				<div class="accordian wrapper jst-btw">
-					<div class="accordian-box accordian-box1">
-						<div class="section-top-box  section-top-box-accordian wrapper al-center">
-							<div class="circle white para">03</div>
-						</div>
-					</div>
-					<div class="accordian-box accordian-box2 wrapper al-center jst-btw">
-						<h1 class="accordian-box__heading uppercase grey">linkedin ads</h1>
-						<div class="plus-minus-box plus-minus-box--linkedin ">
-							<div class="plus-minus-box__line"></div>
-							<div class="plus-minus-box__line2"></div>
-						</div>
-					</div>
-					<p class="accordian-box__para accordian-box__para--linkedin grey">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptas alias odio quasi, maxime
-						fugiat necessitatibus velit iure, veritatis blanditiis debitis totam eaque ratione, voluptatibus
-						porro tenetur itaque soluta assumenda consequuntur accusamus fugit dolore aspernatur quidem
-						dolorem? Quo assumenda sed sapiente eligendi maxime adipisci debitis eos soluta iste aliquam?
-						Consectetur placeat labore accusamus vel nemo.
-					</p>
-				</div>
-			</div>
-		</section>
-		<!-- services end -->
-		<section class="contact" id="contact">
-			<div class="container">
-				<div class="contact-wrapper">
-					<div class="contact-wrapper__inner wrapper jst-btw">
-						<div class="contact-box">
-							
-							<img src="images/Digital Marketers4.jpg" alt="Person working at a desk with a laptop" width="725" height="891" loading="lazy" class="contact-box__img">
-						</div>
-						<div class="contact-box">
-							<p class=" contact-box-para">
-								Increase your brand awareness, grow your online following, and drive both website and foot traffic with the help
-								of our social media experts. We offer a variety of custom packages and pricing in order to meet your business’s
-								unique goal’s and markets.
-							</p>
-						</div>
-
-					</div>
-					<div class="contact-wrapper__inner contact-wrapper__inner2">
-						<h1 class="main-heading uppercase meron contact-wrapper__inner--heading">Contact</h1>
-					</div>
-				</div>
-				<div class="contact-wrapper contact-wrapper2">
-					<div class="contact-wrapper__inner wrapper jst-btw">
-						<div class="contact-wrapper-circle">SAY HELLO</div>
-						<div class="Nihil-box">
-							<p class="Nihil-box__heading grey">SPICY GROVE</p>
-							<p class="black Nihil-box__heading">
-								202, 215 MCLEOD AVENUE BOX 3497
-								SPICY GROVE, AB T7XX 3AAQ7
-								(780) 555-5555
-							</p>
-							<p class="Nihil-box__heading grey">INFO@KOOLEYTHEMES.COM</p>
-						</div>
-
-						<div class="Nihil-box Nihil-box3">
-							<p class="Nihil-box__heading grey">Farmington</p>
-							<p class="black Nihil-box__heading">
-								202, 215 2619 Chapmans Lane BOX 3497
-								Farmington, NM 87402
-								(505)-860-6973
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="contact-wrapper contact-wrapper3">
-					<div class="contact-wrapper__inner wrapper jst-btw">
-						<div class="contact-wrapper__inner-box black">
-							©2021
-						</div>
-						<div class="contact-wrapper__inner-box black">
-							Made By KooleyThemes
-						</div>
-						<a href="#banner" class="contact-wrapper__inner-box black">
-							(BACK TO TOP)
-						</a>
-						<div class="contact-wrapper__inner-box black">
-							ALL RIGHTS RESERVED
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
-</body>
-<script src="js/jquery.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marcy Studios - Awwwards Style V1</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #964F4C;
+            --secondary: #CCAA6E;
+            --background-light: #F2EFE9;
+            --background-dark: #1C1B1A;
+            --text-main: #2A2622;
+            --text-light: #EBE6DF;
+            --accent-terracotta: #B35A46;
+        }
+        .font-serif-display {
+            font-family: 'Bodoni Moda', serif;
+        }
+        .font-serif-italic {
+            font-family: 'Instrument Serif', serif;
+        }.hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.blend-multiply {
+            mix-blend-mode: multiply;
+        }
+        .staggered-grid > *:nth-child(even) {
+            margin-top: 4rem;
+        }.hover-reveal-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .hover-reveal-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--primary);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            mix-blend-mode: multiply;
+            opacity: 0.2;
+        }
+        .hover-reveal-wrapper:hover::after {
+            transform: scaleY(1);
+        }
+    </style>
 <script>
-	$(window).load(function () {
-		$(".se-pre-con").fadeOut("slow");
-	});
-</script>
-<script src="js/main.js"></script>
-</body>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                        background: "var(--background-light)",
+                        "background-dark": "var(--background-dark)",
+                        text: "var(--text-main)",
+                        "text-light": "var(--text-light)",
+                        accent: "var(--accent-terracotta)",
+                    },
+                    fontFamily: {
+                        serif: ['"Bodoni Moda"', 'serif'],
+                        display: ['"Instrument Serif"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    fontSize: {
+                        '10xl': '10rem',
+                        '11xl': '12rem',
+                    },
+                    letterSpacing: {
+                        'tighter-custom': '-0.04em',
+                    }
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white">
+<nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+<a class="font-serif font-bold text-2xl tracking-tight" href="#">Marcy.</a>
+<div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
+<a class="hover:underline decoration-1 underline-offset-4" href="#">Work</a>
+<a class="hover:underline decoration-1 underline-offset-4" href="#">Agency</a>
+<a class="hover:underline decoration-1 underline-offset-4" href="#">Philosophy</a>
+</div>
+<button class="group flex flex-col gap-1.5 w-8">
+<span class="w-full h-[1px] bg-current transition-all group-hover:w-1/2 ml-auto"></span>
+<span class="w-full h-[1px] bg-current"></span>
+<span class="w-full h-[1px] bg-current transition-all group-hover:w-3/4 ml-auto"></span>
+</button>
+</nav>
+<header class="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 overflow-hidden bg-[#1C1B1A] text-[#EBE6DF]">
+<div class="absolute inset-0 opacity-40">
+<img alt="Hero Texture" class="w-full h-full object-cover filter grayscale contrast-125 brightness-50" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZzrehhuLepjFAGkk15hYQlcjfRETwYpwPBtiJQhmxG6hxTN92JvWiOhi9hUoN_xpPsw0gsLUpjjocxAVrQ61urlTHVv0c8a2jJ3VCHtw6GbNYX0odkv8UNU-JMYnmhpiIlsYuXhcD6C9DD51s7diTmTGxOgwFK4U7p6dud6gnIQjq5s1qVtTkGPPyG71B0E8pDBfsiUDw29RrNWBhQacoYJ5hKrjaPuoK8GgNqKuJm86kS6G-2vODyeYm-4pq0I-BgS5eVWWjx9g"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1C1B1A] via-transparent to-transparent"></div>
+<div class="relative z-10 w-full max-w-[90vw] mx-auto">
+<div class="flex flex-col items-start">
+<p class="text-xs md:text-sm uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">Digital Experience Agency</p>
+<h1 class="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] leading-[0.85] tracking-tighter-custom mb-8">
+<span class="block ml-0 md:ml-12">Digital</span>
+<span class="block font-display italic font-light text-[#B35A46] text-7xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-4 md:-translate-y-8 translate-x-8 md:translate-x-32">Alchemy</span>
+<span class="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</span>
+</h1>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8">
+<div class="max-w-md text-sm md:text-base leading-relaxed text-gray-400 font-light">
+                    We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.
+                </div>
+<div class="mt-8 md:mt-0 flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl font-light animate-bounce">arrow_downward</span>
+</div>
+</div>
+</div>
+</header>
+<section class="py-24 bg-[#F2EFE9] overflow-hidden">
+<div class="px-6 md:px-12 mb-16 flex items-end justify-between">
+<h2 class="font-serif text-5xl md:text-7xl text-[#2A2622] leading-none">Selected <br/><span class="font-display italic text-[#B35A46]">Works</span></h2>
+<a class="hidden md:flex items-center gap-2 text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                View All Projects <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+<div class="flex gap-8 md:gap-16 overflow-x-auto hide-scrollbar px-6 md:px-12 pb-12 snap-x snap-mandatory">
+<div class="min-w-[85vw] md:min-w-[45vw] lg:min-w-[35vw] snap-center group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative hover-reveal-wrapper">
+<img alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8POr14IPCtnSNU5MEgwn12RCi3ltHaaJA7nB1f0a2tvtgnRb8LK8_l4xHzTjujbrGPxHa2y7dqhFC9tZ7FeQ_GJRc_Y_UT_AD6WL-xbUf72Yy639JM9kpwfTgBLuXobohXUcL-j245fz9FQ2wqSZBvk8nRai3wJVfkambcW-x27QYEhjj8vfb35toLivw6m5Kmd4V727UMM2N-qE6wfYWFErGSK0c0bKIyV7LnH3SZt-bWnubjPZUFByLX_W8Txhvr8sNGdip3s4"/>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-black w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+<div class="flex justify-between items-start border-t border-black/10 pt-4">
+<div>
+<h3 class="font-serif text-2xl mb-1 group-hover:text-[#B35A46] transition-colors">Vogue Essence</h3>
+<p class="text-xs uppercase tracking-widest text-gray-500">Editorial / Web Design</p>
+</div>
+<span class="text-xs font-serif italic text-gray-400">01</span>
+</div>
+</div>
+<div class="min-w-[85vw] md:min-w-[45vw] lg:min-w-[35vw] snap-center group cursor-pointer mt-0 md:mt-24">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative hover-reveal-wrapper">
+<img alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBodHFHpTewLOcOLlY8-eiEjQyxiu6vRsy43cnhpGZdSak9qVYAdp4G98SpCSmZtMZOn8q1sG_QDIbyNZwWFtUYX4irbxYC5CrOFDnHLWwur71otUy8b0a9UBg6APVlWHH7UxEaLYnRpz8QsehGsyLX6jNl9cf5JEUWrTA6bLX1N8NnY2rPABPcR27nU3Du01wjsTjPqgTqagg-aST1169b1MTYkuH_kHicpLclQI6xDsqzKgkQ4e5WtMRj4to_LftksFyoZlfimPQ"/>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-black w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+<div class="flex justify-between items-start border-t border-black/10 pt-4">
+<div>
+<h3 class="font-serif text-2xl mb-1 group-hover:text-[#B35A46] transition-colors">Urban Canvas</h3>
+<p class="text-xs uppercase tracking-widest text-gray-500">Branding / Identity</p>
+</div>
+<span class="text-xs font-serif italic text-gray-400">02</span>
+</div>
+</div>
+<div class="min-w-[85vw] md:min-w-[45vw] lg:min-w-[35vw] snap-center group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative hover-reveal-wrapper">
+<img alt="Project 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2KtpjBK40B__UwsmfYyUyt9RGbMPDVWt_W9bhIdz6b_u_kbASz7hUZrO9tiTkW-B8jz0NEfLX2R2JJ2dj-d_kli4-9l9RpfjoS5TxGMEx8pqiKuXjUK2TDHprDQwJqvzSWFPeLz1c5gSyOkLvhQvJZM7uUVQjYpm1tSVof_oAR7ln-yVySKnvq7vHcykf47lWXl9VLXNwd87Fx4DdrY8XV735HI63YM0kK-6tHPPtcqOMvZg6mGmUlDufEljUPkfxM7w2g0Emvw0"/>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-black w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+<div class="flex justify-between items-start border-t border-black/10 pt-4">
+<div>
+<h3 class="font-serif text-2xl mb-1 group-hover:text-[#B35A46] transition-colors">Silent Architecture</h3>
+<p class="text-xs uppercase tracking-widest text-gray-500">Photography / Strategy</p>
+</div>
+<span class="text-xs font-serif italic text-gray-400">03</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 md:px-12 bg-[#EBE6DF] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-[#E5E0D8] -z-0"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+<div class="lg:col-span-5">
+<p class="text-xs font-bold uppercase tracking-widest text-[#B35A46] mb-8">Our Philosophy</p>
+<h2 class="font-serif text-4xl md:text-6xl leading-[1.1] mb-12">
+                    We believe in the <br/> <span class="font-display italic font-light">power of silence</span> <br/> in a noisy world.
+                </h2>
+<div class="space-y-8">
+<p class="text-sm md:text-base leading-relaxed text-gray-600 max-w-sm">
+                        Minimalism isn't just an aesthetic; it's a tool for clarity. We strip away the non-essential to reveal the core of your brand's story.
+                    </p>
+<a class="inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-xs tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                        Read the Manifesto
+                    </a>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-8 items-center">
+<div class="pt-24">
+<div class="w-full aspect-[3/4] overflow-hidden relative">
+<img alt="Detail 1" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBodHFHpTewLOcOLlY8-eiEjQyxiu6vRsy43cnhpGZdSak9qVYAdp4G98SpCSmZtMZOn8q1sG_QDIbyNZwWFtUYX4irbxYC5CrOFDnHLWwur71otUy8b0a9UBg6APVlWHH7UxEaLYnRpz8QsehGsyLX6jNl9cf5JEUWrTA6bLX1N8NnY2rPABPcR27nU3Du01wjsTjPqgTqagg-aST1169b1MTYkuH_kHicpLclQI6xDsqzKgkQ4e5WtMRj4to_LftksFyoZlfimPQ"/>
+</div>
+</div>
+<div>
+<div class="w-full aspect-square overflow-hidden relative mb-8">
+<img alt="Detail 2" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" style="object-fit: cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8POr14IPCtnSNU5MEgwn12RCi3ltHaaJA7nB1f0a2tvtgnRb8LK8_l4xHzTjujbrGPxHa2y7dqhFC9tZ7FeQ_GJRc_Y_UT_AD6WL-xbUf72Yy639JM9kpwfTgBLuXobohXUcL-j245fz9FQ2wqSZBvk8nRai3wJVfkambcW-x27QYEhjj8vfb35toLivw6m5Kmd4V727UMM2N-qE6wfYWFErGSK0c0bKIyV7LnH3SZt-bWnubjPZUFByLX_W8Txhvr8sNGdip3s4"/>
+</div>
+<p class="text-right text-[10px] uppercase tracking-widest opacity-50 rotate-90 origin-top-right translate-y-full mr-[-1rem]">Est. 2021</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 md:px-12 bg-[#1C1B1A] text-[#EBE6DF]">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<div class="lg:col-span-1">
+<h2 class="font-serif text-5xl mb-6">Expertise</h2>
+<p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    Holistic digital solutions tailored for high-end brands. We cover every touchpoint of your digital presence.
+                </p>
+</div>
+<div class="lg:col-span-2">
+<div class="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
+<div class="flex justify-between items-baseline">
+<h3 class="font-serif text-3xl md:text-4xl group-hover:text-[#CCAA6E] transition-colors">Brand Identity</h3>
+<span class="text-xs text-gray-500 group-hover:text-[#CCAA6E]">01</span>
+</div>
+<p class="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
+                        Logo design, visual systems, and brand guidelines crafted to stand the test of time.
+                    </p>
+</div>
+<div class="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
+<div class="flex justify-between items-baseline">
+<h3 class="font-serif text-3xl md:text-4xl group-hover:text-[#CCAA6E] transition-colors">Web Design &amp; Dev</h3>
+<span class="text-xs text-gray-500 group-hover:text-[#CCAA6E]">02</span>
+</div>
+<p class="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
+                        Immersive websites that perform. Award-winning layouts and seamless user experiences.
+                    </p>
+</div>
+<div class="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
+<div class="flex justify-between items-baseline">
+<h3 class="font-serif text-3xl md:text-4xl group-hover:text-[#CCAA6E] transition-colors">Digital Strategy</h3>
+<span class="text-xs text-gray-500 group-hover:text-[#CCAA6E]">03</span>
+</div>
+<p class="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
+                        Data-driven marketing campaigns to amplify your voice across social and search channels.
+                    </p>
+</div>
+<div class="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
+<div class="flex justify-between items-baseline">
+<h3 class="font-serif text-3xl md:text-4xl group-hover:text-[#CCAA6E] transition-colors">Art Direction</h3>
+<span class="text-xs text-gray-500 group-hover:text-[#CCAA6E]">04</span>
+</div>
+<p class="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
+                        Visual storytelling through photography, video, and set design.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-[#151413] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5" id="contact">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24">
+<div>
+<h2 class="font-serif text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter mb-8">
+                    Let's<br/><span class="font-display italic text-[#CCAA6E] ml-16">Talk</span>
+</h2>
+<a class="inline-block mt-8 text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">hello@marcy.com</a>
+</div>
+<div class="flex flex-col justify-end">
+<div class="grid grid-cols-2 gap-8 mb-12">
+<div>
+<h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">New York</h4>
+<p class="text-sm text-gray-400 leading-relaxed">
+                            215 McLeod Avenue<br/>
+                            Brooklyn, NY 11222<br/>
+                            +1 (555) 123-4567
+                        </p>
+</div>
+<div>
+<h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">London</h4>
+<p class="text-sm text-gray-400 leading-relaxed">
+                            48 Charlotte Street<br/>
+                            Fitzrovia, London<br/>
+                            +44 20 7123 4567
+                        </p>
+</div>
+</div>
+<form class="w-full">
+<label class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
+<div class="flex border-b border-gray-700 pb-2">
+<input class="bg-transparent border-none p-0 w-full text-[#EBE6DF] placeholder-gray-600 focus:ring-0" placeholder="Your email address" type="email"/>
+<button class="text-xs uppercase tracking-widest hover:text-[#CCAA6E]" type="submit">Send</button>
+</div>
+</form>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+<div class="flex gap-6 mb-4 md:mb-0">
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">Behance</a>
+</div>
+<div>
+                © 2023 Marcy Studios. All Rights Reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple script to handle accordion functionality for Services (if JS was fully allowed for interaction, but using pure CSS for hover mostly in this design request)
+        // The accordion items are using CSS hover for expansion, but onclick can be added for mobile taps if needed.
+    </script>
 
-</html>
+</body></html>
