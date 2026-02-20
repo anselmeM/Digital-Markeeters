@@ -4,42 +4,45 @@ AOS.init({
 });
 
 $(document).ready(function() {
+  // Cache selectors
+  var $navToggler = $('.nav__toggler');
+  var $hamMenu = $('.ham-menu');
+  var $fbBox = $('.plus-minus-box--facebook');
+  var $fbPara = $('.accordian-box__para--facebook');
+  var $googleBox = $('.plus-minus-box--google');
+  var $googlePara = $('.accordian-box__para--google');
+  var $linkedinBox = $('.plus-minus-box--linkedin');
+  var $linkedinPara = $('.accordian-box__para--linkedin');
+  var $menuLink = $('.menu__link');
+  var $bodyWrapper = $('.body-wrapper');
+
   // Toggle navigation menu
-  $('.nav__toggler').click(function() {
+  $navToggler.click(function() {
     $(this).toggleClass('active');
-    $('.ham-menu').toggleClass('active');
+    $hamMenu.toggleClass('active');
   });
 
-  // Toggle Facebook accordion box
-  $('.plus-minus-box--facebook').click(function() {
-    $(this).toggleClass('active');
-    $('.accordian-box__para--facebook').slideToggle('slow');
-  });
+  function toggleAccordion($box, $para) {
+    $box.click(function() {
+      $(this).toggleClass('active');
+      $para.slideToggle('slow');
+    });
+  }
 
-  // Toggle Google accordion box
-  $('.plus-minus-box--google').click(function() {
-    $(this).toggleClass('active');
-    $('.accordian-box__para--google').slideToggle('slow');
-  });
-
-  // Toggle LinkedIn accordion box
-  $('.plus-minus-box--linkedin').click(function() {
-    $(this).toggleClass('active');
-    $('.accordian-box__para--linkedin').slideToggle('slow');
-  });
+  // Toggle accordion boxes
+  toggleAccordion($fbBox, $fbPara);
+  toggleAccordion($googleBox, $googlePara);
+  toggleAccordion($linkedinBox, $linkedinPara);
 
   // Close navigation menu on link click
-  $('.menu__link').click(function() {
-    $('.nav__toggler').removeClass('active');
-    $('.ham-menu').removeClass('active');
+  $menuLink.click(function() {
+    $navToggler.removeClass('active');
+    $hamMenu.removeClass('active');
   });
 
   // Close navigation menu on body wrapper click
-  $('.body-wrapper').click(function() {
-    $('.nav__toggler').removeClass('active');
-    $('.ham-menu').removeClass('active');
+  $bodyWrapper.click(function() {
+    $navToggler.removeClass('active');
+    $hamMenu.removeClass('active');
   });
 });
-
-
-		
