@@ -287,11 +287,17 @@
 		</section>
 	</main>
 </body>
-<script src="js/jquery.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-	$(window).load(function () {
-		$(".se-pre-con").fadeOut("slow");
+	window.addEventListener('load', function () {
+		var preloader = document.querySelector(".se-pre-con");
+		if (preloader) {
+			preloader.style.transition = 'opacity 0.6s';
+			preloader.style.opacity = '0';
+			setTimeout(function() {
+				preloader.style.display = 'none';
+			}, 600);
+		}
 	});
 </script>
 <script src="js/main.js"></script>
