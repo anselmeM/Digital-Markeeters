@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var googlePara = document.querySelector('.accordian-box__para--google');
   var linkedinBox = document.querySelector('.plus-minus-box--linkedin');
   var linkedinPara = document.querySelector('.accordian-box__para--linkedin');
-  var menuLinks = document.querySelectorAll('.menu__link');
+  // Optimization: Removed menuLinks selector to reduce DOM queries since we use event delegation
   var bodyWrapper = document.querySelector('.body-wrapper');
 
   // Toggle navigation menu
@@ -38,13 +38,15 @@ document.addEventListener('DOMContentLoaded', function() {
   toggleAccordion(googleBox, googlePara);
   toggleAccordion(linkedinBox, linkedinPara);
 
-  // Close navigation menu on link click
-  menuLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      if (navToggler) navToggler.classList.remove('active');
-      if (hamMenu) hamMenu.classList.remove('active');
+  // Close navigation menu on link click (Event Delegation optimization)
+  if (hamMenu) {
+    hamMenu.addEventListener('click', function(e) {
+      if (e.target.closest('.menu__link')) {
+        if (navToggler) navToggler.classList.remove('active');
+        hamMenu.classList.remove('active');
+      }
     });
-  });
+  }
 
   // Close navigation menu on body wrapper click
   if (bodyWrapper) {
