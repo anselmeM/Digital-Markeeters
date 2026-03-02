@@ -1,8 +1,3 @@
-AOS.init({
-  offset: 400,
-  duration: 1000,
-});
-
 document.addEventListener('DOMContentLoaded', function() {
   // Cache selectors
   var navToggler = document.querySelector('.nav__toggler');

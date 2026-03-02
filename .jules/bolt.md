@@ -1,0 +1,3 @@
+## 2024-03-02 - [Found Unused Animation Library with Expensive Scroll Listeners]
+**Learning:** Initializing an animation library like AOS (Animate on Scroll) attaches expensive scroll event listeners to the window. Even if the library is completely unused in the DOM (no `data-aos` attributes), the script is downloaded, parsed, executed, and the event listeners fire continuously during scrolling, severely impacting scroll performance and tying up the main thread.
+**Action:** Always search for usages of a library (e.g. `data-aos`) in the project if the library is loaded and initialized. Remove entire libraries if they are loaded but functionally dormant to save network requests and avoid unneeded scroll handlers.
