@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Marcy Studios — Expertise</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:    "#964F4C",
+            accent:     "#B35A46",
+            secondary:  "#CCAA6E",
+            background: "#F2EFE9",
+            dark:       "#1C1B1A",
+          },
+          fontFamily: {
+            serif:   ['"Bodoni Moda"', 'serif'],
+            display: ['"Instrument Serif"', 'serif'],
+            sans:    ['"Inter"', 'sans-serif'],
+          },
+          letterSpacing: {
+            'tighter-custom': '-0.04em',
+          }
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    .font-serif-display { font-family: 'Bodoni Moda', serif; }
+    .font-serif-italic  { font-family: 'Instrument Serif', serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Accordion styles */
+    .service-details {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    details[open] .service-details {
+      max-height: 1000px;
+      opacity: 1;
+      padding-bottom: 2rem;
+    }
+    details > summary {
+      list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .service-image {
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    details[open] .service-image {
+      clip-path: inset(0 0 0 0);
+    }
+  </style>
+</head>
+
+<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen">
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+    <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
+    <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
+      <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
+    </div>
+    <button class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" aria-label="Open menu" onclick="toggleMenu()">
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#76323F] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
+      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      
+      const isOpen = menu.classList.contains('opacity-100');
+      
+      if (isOpen) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+        
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      } else {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+        
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      }
+    }
+  </script>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="relative w-full pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+    
+    <!-- Hero Section -->
+    <section class="mb-20 md:mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mt-12">
+      <div class="max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">What we do best</p>
+        <h1 class="font-serif text-6xl md:text-9xl font-normal text-[#2A2622] leading-[0.85] tracking-tighter-custom mb-8">
+          <span class="font-display italic text-[#B35A46]">Expertise</span>
+        </h1>
+        <p class="text-xl md:text-3xl font-light text-[#2A2622] max-w-xl leading-relaxed">
+          We merge data with design to build brands that matter in a digital-first world.
+        </p>
+      </div>
+      <div class="hidden md:block pb-2 animate-[spin_10s_linear_infinite]">
+        <span class="material-symbols-outlined text-6xl text-[#CCAA6E] opacity-50">asterisk</span>
+      </div>
+    </section>
+
+    <!-- Services Accordion List -->
+    <section class="flex flex-col border-t border-[#2A2622]/20">
+      
+      <!-- Service Item 01 -->
+      <details class="group border-b border-[#2A2622]/20 cursor-pointer" open>
+        <summary class="flex items-center justify-between py-10 md:py-14 select-none transition-colors duration-300 hover:bg-black/5 px-2 md:px-6 -mx-2 md:-mx-6 rounded-lg">
+          <div class="flex items-baseline gap-6 md:gap-12">
+            <span class="text-xs font-sans text-gray-400 w-6">01</span>
+            <h3 class="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:translate-x-4 transition-transform duration-500 ease-out">Digital Strategy</h3>
+          </div>
+          <div class="size-10 rounded-full border border-[#2A2622]/20 flex items-center justify-center group-open:bg-[#B35A46] group-open:border-[#B35A46] group-open:text-white transition-all duration-300">
+            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">arrow_downward</span>
+          </div>
+        </summary>
+        <div class="service-details grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4 px-2 md:px-6 -mx-2 md:-mx-6">
+          <div class="lg:col-span-4 lg:col-start-2 flex flex-col gap-6">
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-light">
+              We don't just build websites; we build roadmaps for growth. Our strategy team dives deep into your market to uncover opportunities that others miss.
+            </p>
+            <ul class="space-y-4 mt-4 font-sans text-sm text-[#2A2622]">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Market Research &amp; Audits
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                User Persona Development
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                KPI Definition &amp; Analytics
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Campaign Roadmap
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
+            <img alt="Data analytics methodology" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers2.jpg" loading="lazy" />
+          </div>
+        </div>
+      </details>
+
+      <!-- Service Item 02 -->
+      <details class="group border-b border-[#2A2622]/20 cursor-pointer">
+        <summary class="flex items-center justify-between py-10 md:py-14 select-none transition-colors duration-300 hover:bg-black/5 px-2 md:px-6 -mx-2 md:-mx-6 rounded-lg">
+          <div class="flex items-baseline gap-6 md:gap-12">
+            <span class="text-xs font-sans text-gray-400 w-6">02</span>
+            <h3 class="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:translate-x-4 transition-transform duration-500 ease-out">Brand Identity</h3>
+          </div>
+          <div class="size-10 rounded-full border border-[#2A2622]/20 flex items-center justify-center group-open:bg-[#B35A46] group-open:border-[#B35A46] group-open:text-white transition-all duration-300">
+            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">arrow_downward</span>
+          </div>
+        </summary>
+        <div class="service-details grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4 px-2 md:px-6 -mx-2 md:-mx-6">
+          <div class="lg:col-span-4 lg:col-start-2 flex flex-col gap-6">
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-light">
+              A brand is more than a logo. It’s a feeling. We craft cohesive visual identities that resonate emotionally and stand out in crowded marketplaces.
+            </p>
+            <ul class="space-y-4 mt-4 font-sans text-sm text-[#2A2622]">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Logo Design &amp; Systems
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Typography &amp; Color Theory
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Brand Guidelines
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Packaging Design
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
+            <img alt="Brand Identity" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers3.jpg" loading="lazy" />
+          </div>
+        </div>
+      </details>
+
+      <!-- Service Item 03 -->
+      <details class="group border-b border-[#2A2622]/20 cursor-pointer">
+        <summary class="flex items-center justify-between py-10 md:py-14 select-none transition-colors duration-300 hover:bg-black/5 px-2 md:px-6 -mx-2 md:-mx-6 rounded-lg">
+          <div class="flex items-baseline gap-6 md:gap-12">
+            <span class="text-xs font-sans text-gray-400 w-6">03</span>
+            <h3 class="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:translate-x-4 transition-transform duration-500 ease-out">Web Design &amp; Dev</h3>
+          </div>
+          <div class="size-10 rounded-full border border-[#2A2622]/20 flex items-center justify-center group-open:bg-[#B35A46] group-open:border-[#B35A46] group-open:text-white transition-all duration-300">
+            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">arrow_downward</span>
+          </div>
+        </summary>
+        <div class="service-details grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4 px-2 md:px-6 -mx-2 md:-mx-6">
+          <div class="lg:col-span-4 lg:col-start-2 flex flex-col gap-6">
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-light">
+              Seamless, responsive, and blazingly fast. We build digital experiences that look beautiful on the surface and work tirelessly under the hood.
+            </p>
+            <ul class="space-y-4 mt-4 font-sans text-sm text-[#2A2622]">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                UI/UX Design
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Full-Stack Development
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                E-commerce Solutions
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                CMS Integration
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
+            <img alt="Web Design and Development" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers.jpg" loading="lazy" />
+          </div>
+        </div>
+      </details>
+
+      <!-- Service Item 04 -->
+      <details class="group border-b border-[#2A2622]/20 cursor-pointer">
+        <summary class="flex items-center justify-between py-10 md:py-14 select-none transition-colors duration-300 hover:bg-black/5 px-2 md:px-6 -mx-2 md:-mx-6 rounded-lg">
+          <div class="flex items-baseline gap-6 md:gap-12">
+            <span class="text-xs font-sans text-gray-400 w-6">04</span>
+            <h3 class="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:translate-x-4 transition-transform duration-500 ease-out">Content Production</h3>
+          </div>
+          <div class="size-10 rounded-full border border-[#2A2622]/20 flex items-center justify-center group-open:bg-[#B35A46] group-open:border-[#B35A46] group-open:text-white transition-all duration-300">
+            <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">arrow_downward</span>
+          </div>
+        </summary>
+        <div class="service-details grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4 px-2 md:px-6 -mx-2 md:-mx-6">
+          <div class="lg:col-span-4 lg:col-start-2 flex flex-col gap-6">
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed font-light">
+              Storytelling is at the heart of connection. From high-end video production to punchy copywriting, we create content that stops the scroll.
+            </p>
+            <ul class="space-y-4 mt-4 font-sans text-sm text-[#2A2622]">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Video Production &amp; Editing
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Photography
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Copywriting
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#B35A46]"></span>
+                Social Media Assets
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+                View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
+            <img alt="Content Production" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers4.jpg" loading="lazy" />
+          </div>
+        </div>
+      </details>
+
+    </section>
+  </main>
+
+  <!-- Accordion Script for exclusivity -->
+  <script>
+    const detailsElements = document.querySelectorAll('details');
+    detailsElements.forEach((targetDetail) => {
+      targetDetail.addEventListener('click', (e) => {
+        // Prevent default toggle behavior if it is already open, or let it work but close others
+        if (!targetDetail.open) {
+            detailsElements.forEach((detail) => {
+            if (detail !== targetDetail && detail.open) {
+                detail.removeAttribute('open');
+            }
+            });
+        }
+      });
+    });
+  </script>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[#1C1B1A] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5 mt-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24 max-w-7xl mx-auto">
+      <div>
+        <h2 class="font-serif text-6xl md:text-8xl leading-none tracking-tighter mb-8">
+          Marcy.
+        </h2>
+        <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-8">
+          Digital experiences crafted with silence, strategy, and precision.
+        </p>
+        <a class="inline-block text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+          hello@marcy.com
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 md:gap-16 justify-end pt-4">
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-6">Social</h4>
+          <div class="flex flex-col gap-4 text-sm text-gray-400">
+            <a class="hover:text-white transition-colors" href="#">Instagram</a>
+            <a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+            <a class="hover:text-white transition-colors" href="#">Twitter</a>
+            <a class="hover:text-white transition-colors" href="#">Behance</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-6">Company</h4>
+          <div class="flex flex-col gap-4 text-sm text-gray-400">
+            <a class="hover:text-white transition-colors" href="work.html">Work</a>
+            <a class="hover:text-white transition-colors" href="about.html">Agency</a>
+            <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
+            <a class="hover:text-white transition-colors" href="index.html#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+      </div>
+      <div>© 2024 Marcy Studios. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

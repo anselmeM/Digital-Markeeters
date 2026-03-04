@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Marcy Studios — About</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:    "#964F4C",
+            accent:     "#B35A46",
+            secondary:  "#CCAA6E",
+            background: "#F2EFE9",
+            dark:       "#1C1B1A",
+          },
+          fontFamily: {
+            serif:   ['"Bodoni Moda"', 'serif'],
+            display: ['"Instrument Serif"', 'serif'],
+            sans:    ['"Inter"', 'sans-serif'],
+          },
+          letterSpacing: {
+            'tighter-custom': '-0.04em',
+          }
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    .font-serif-display { font-family: 'Bodoni Moda', serif; }
+    .font-serif-italic  { font-family: 'Instrument Serif', serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Masonry grid adapted for this site */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .masonry-grid { column-count: 2; }
+    }
+    @media (min-width: 1024px) {
+      .masonry-grid { column-count: 3; }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+    
+    .hover-reveal-wrapper { position: relative; overflow: hidden; }
+    .hover-reveal-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var(--primary);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      mix-blend-mode: multiply;
+      opacity: 0.2;
+    }
+    .hover-reveal-wrapper:hover::after { transform: scaleY(1); }
+  </style>
+</head>
+
+<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen">
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+    <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
+    <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
+      <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="index.html#philosophy">Agency</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="index.html#expertise">Expertise</a>
+    </div>
+    <button class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" aria-label="Open menu" onclick="toggleMenu()">
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#76323F] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
+      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      
+      const isOpen = menu.classList.contains('opacity-100');
+      
+      if (isOpen) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+        
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      } else {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+        
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      }
+    }
+  </script>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="relative w-full pt-28 md:pt-40 pb-20 px-6 md:px-12 overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto py-12 md:py-24">
+      <div class="flex flex-col gap-6 items-start">
+        <p class="text-xs md:text-sm uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">Established 2018</p>
+        <h1 class="font-serif text-5xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter-custom text-[#2A2622]">
+          Our <span class="block font-display italic font-light text-[#B35A46] md:-translate-y-4">Philosophy</span>
+          is simply complex.
+        </h1>
+      </div>
+
+      <div class="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5 flex flex-col justify-end">
+          <div class="h-[1px] w-full bg-[#2A2622]/10 mb-8 border-b border-[#2A2622]/10"></div>
+          <div class="flex items-end justify-between">
+            <div class="flex flex-col gap-1">
+              <span class="font-display text-5xl font-light italic text-[#B35A46]">04</span>
+              <span class="font-sans text-xs uppercase tracking-widest text-gray-500">Offices Worldwide</span>
+            </div>
+            <div class="flex flex-col gap-1 text-right">
+              <span class="font-display text-5xl font-light italic text-[#B35A46]">50+</span>
+              <span class="font-sans text-xs uppercase tracking-widest text-gray-500">Digital Awards</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-7">
+          <p class="text-2xl md:text-3xl lg:text-4xl leading-snug font-light text-[#2A2622]">
+            We craft digital legacies through the intersection of <span class="font-display italic font-normal text-[#B35A46]">data</span> and <span class="font-display italic font-normal text-[#B35A46]">art</span>. Founded on the belief that digital experiences should be as tactile as they are functional, we operate at the bleeding edge of design.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Collective / Mosaic -->
+    <section class="py-24 border-t border-[#2A2622]/10">
+      <div class="max-w-7xl mx-auto mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <h2 class="font-serif text-5xl md:text-7xl leading-none">
+          The <span class="font-display italic text-[#B35A46]">Collective</span>
+        </h2>
+        <p class="text-gray-500 max-w-sm text-sm md:text-base leading-relaxed hidden md:block text-right">
+          A multidisciplinary team of dreamers, thinkers, and makers obsessed with the details.
+        </p>
+      </div>
+
+      <div class="masonry-grid max-w-7xl mx-auto">
+        <!-- Item 1: Large Portrait -->
+        <div class="masonry-item group relative overflow-hidden bg-gray-100 hover-reveal-wrapper">
+          <div class="aspect-[3/4] w-full">
+            <img alt="Creative Director" class="w-full h-full object-cover filter grayscale opacity-90 transition-transform duration-700 group-hover:scale-105" src="images/Digital Marketers2.jpg" loading="lazy" />
+          </div>
+          <div class="absolute bottom-6 left-6 text-[#2A2622] md:text-white md:bg-black/50 md:p-4 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans text-[10px] uppercase tracking-widest text-[#B35A46] md:text-[#CCAA6E]">Creative Director</p>
+            <p class="font-serif text-2xl">Elena Rostova</p>
+          </div>
+        </div>
+
+        <!-- Item 2: Quote -->
+        <div class="masonry-item bg-[#EBE6DF] p-12 min-h-[350px] flex flex-col justify-center items-center text-center border border-[#2A2622]/5">
+          <span class="font-serif text-6xl text-[#CCAA6E] mb-6 leading-none">"</span>
+          <p class="font-serif text-2xl md:text-3xl leading-snug text-[#2A2622]">
+            Beauty means nothing if it doesn't convert. We design for <span class="font-display italic text-[#B35A46]">impact</span>.
+          </p>
+        </div>
+
+        <!-- Item 3: Square -->
+        <div class="masonry-item group relative overflow-hidden bg-gray-100 hover-reveal-wrapper">
+          <div class="aspect-square w-full">
+            <img alt="Lead Strategist" class="w-full h-full object-cover filter grayscale opacity-90 transition-transform duration-700 group-hover:scale-105" src="images/Digital Marketers3.jpg" loading="lazy" />
+          </div>
+          <div class="absolute bottom-6 left-6 text-[#2A2622] md:text-white md:bg-black/50 md:p-4 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans text-[10px] uppercase tracking-widest text-[#B35A46] md:text-[#CCAA6E]">Lead Strategist</p>
+            <p class="font-serif text-2xl">Marcus Chen</p>
+          </div>
+        </div>
+
+        <!-- Item 4: Landscape -->
+        <div class="masonry-item group relative overflow-hidden bg-gray-100 hover-reveal-wrapper">
+          <div class="aspect-[4/3] w-full">
+            <img alt="Head of Design" class="w-full h-full object-cover filter grayscale opacity-90 transition-transform duration-700 group-hover:scale-105" src="images/Digital Marketers.jpg" loading="lazy" />
+          </div>
+          <div class="absolute bottom-6 left-6 text-[#2A2622] md:text-white md:bg-black/50 md:p-4 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans text-[10px] uppercase tracking-widest text-[#B35A46] md:text-[#CCAA6E]">Head of Design</p>
+            <p class="font-serif text-2xl">Sarah Jenkins</p>
+          </div>
+        </div>
+
+        <!-- Item 5: Tall Portrait -->
+        <div class="masonry-item group relative overflow-hidden bg-gray-100 hover-reveal-wrapper">
+          <div class="aspect-[2/3] w-full">
+            <img alt="CTO" class="w-full h-full object-cover filter grayscale opacity-90 transition-transform duration-700 group-hover:scale-105" src="images/Digital Marketers4.jpg" loading="lazy" />
+          </div>
+          <div class="absolute bottom-6 left-6 text-[#2A2622] md:text-white md:bg-black/50 md:p-4 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans text-[10px] uppercase tracking-widest text-[#B35A46] md:text-[#CCAA6E]">CTO</p>
+            <p class="font-serif text-2xl">David O'Reilly</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology / Process -->
+    <section class="py-24 max-w-7xl mx-auto border-t border-[#2A2622]/10">
+      <div class="mb-16">
+        <p class="text-xs uppercase tracking-[0.2em] mb-4 text-[#CCAA6E]">Methodology</p>
+        <h2 class="font-serif text-4xl md:text-6xl text-[#2A2622]">Our Process</h2>
+      </div>
+
+      <div class="relative">
+        <div class="absolute top-[32px] left-0 w-full h-[1px] bg-[#2A2622]/10 hidden md:block"></div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 relative z-10">
+          
+          <!-- Step 1 -->
+          <div class="group">
+            <div class="hidden md:flex items-center gap-4 mb-8">
+              <span class="w-3 h-3 block bg-[#F2EFE9] border border-[#2A2622] group-hover:bg-[#B35A46] group-hover:border-[#B35A46] transition-colors rounded-full relative ml-px z-20"></span>
+            </div>
+            <div class="transition-transform duration-300 group-hover:-translate-y-2">
+              <span class="font-display italic text-5xl md:text-6xl text-[#2A2622]/20 group-hover:text-[#B35A46]/40 transition-colors block mb-4">01</span>
+              <h3 class="font-serif text-2xl mb-4 group-hover:text-[#B35A46] transition-colors">Listen</h3>
+              <p class="text-sm leading-relaxed text-gray-500">Discovery phase where we ask the hard questions to find the true soul of a brand.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="group">
+            <div class="hidden md:flex items-center gap-4 mb-8">
+              <span class="w-3 h-3 block bg-[#F2EFE9] border border-[#2A2622] group-hover:bg-[#B35A46] group-hover:border-[#B35A46] transition-colors rounded-full relative ml-px z-20"></span>
+            </div>
+            <div class="transition-transform duration-300 group-hover:-translate-y-2">
+              <span class="font-display italic text-5xl md:text-6xl text-[#2A2622]/20 group-hover:text-[#B35A46]/40 transition-colors block mb-4">02</span>
+              <h3 class="font-serif text-2xl mb-4 group-hover:text-[#B35A46] transition-colors">Curate</h3>
+              <p class="text-sm leading-relaxed text-gray-500">Strategy phase. We distill insights into a potent creative direction.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="group">
+            <div class="hidden md:flex items-center gap-4 mb-8">
+              <span class="w-3 h-3 block bg-[#F2EFE9] border border-[#2A2622] group-hover:bg-[#B35A46] group-hover:border-[#B35A46] transition-colors rounded-full relative ml-px z-20"></span>
+            </div>
+            <div class="transition-transform duration-300 group-hover:-translate-y-2">
+              <span class="font-display italic text-5xl md:text-6xl text-[#2A2622]/20 group-hover:text-[#B35A46]/40 transition-colors block mb-4">03</span>
+              <h3 class="font-serif text-2xl mb-4 group-hover:text-[#B35A46] transition-colors">Build</h3>
+              <p class="text-sm leading-relaxed text-gray-500">Execution phase. Every pixel placed with intention and obsession.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="group">
+            <div class="hidden md:flex items-center gap-4 mb-8">
+              <span class="w-3 h-3 block bg-[#F2EFE9] border border-[#2A2622] group-hover:bg-[#B35A46] group-hover:border-[#B35A46] transition-colors rounded-full relative ml-px z-20"></span>
+            </div>
+            <div class="transition-transform duration-300 group-hover:-translate-y-2">
+              <span class="font-display italic text-5xl md:text-6xl text-[#2A2622]/20 group-hover:text-[#B35A46]/40 transition-colors block mb-4">04</span>
+              <h3 class="font-serif text-2xl mb-4 group-hover:text-[#B35A46] transition-colors">Amplify</h3>
+              <p class="text-sm leading-relaxed text-gray-500">Launch phase. We ensure the world sees what we've built.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section class="py-24 max-w-4xl mx-auto border-t border-[#2A2622]/10">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+        <h2 class="font-serif text-5xl md:text-6xl font-normal leading-none">
+          Recognition
+        </h2>
+        <a class="text-xs uppercase tracking-widest text-[#B35A46] border-b border-[#B35A46] pb-1 hover:text-[#2A2622] hover:border-[#2A2622] transition-colors mt-6 md:mt-0" href="#">View All</a>
+      </div>
+
+      <div class="flex flex-col">
+        <!-- Award 1 -->
+        <div class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-[#2A2622]/10 hover:border-[#B35A46] transition-colors">
+          <div class="flex items-baseline gap-6 md:gap-16">
+            <span class="font-sans text-xs text-gray-400 font-medium">2024</span>
+            <div>
+              <h3 class="font-serif text-3xl mb-1 group-hover:text-[#B35A46] transition-colors">Awwwards</h3>
+              <p class="font-display italic text-xl text-gray-500">Site of the Day</p>
+            </div>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <span class="font-sans text-[10px] uppercase tracking-widest bg-white/50 px-4 py-1.5 rounded-full text-gray-500 group-hover:text-[#B35A46] group-hover:bg-[#B35A46]/10 transition-colors">Web Design</span>
+          </div>
+        </div>
+
+        <!-- Award 2 -->
+        <div class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-[#2A2622]/10 hover:border-[#B35A46] transition-colors">
+          <div class="flex items-baseline gap-6 md:gap-16">
+            <span class="font-sans text-xs text-gray-400 font-medium">2023</span>
+            <div>
+              <h3 class="font-serif text-3xl mb-1 group-hover:text-[#B35A46] transition-colors">ADC Awards</h3>
+              <p class="font-display italic text-xl text-gray-500">Gold Cube — Digital Craft</p>
+            </div>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <span class="font-sans text-[10px] uppercase tracking-widest bg-white/50 px-4 py-1.5 rounded-full text-gray-500 group-hover:text-[#B35A46] group-hover:bg-[#B35A46]/10 transition-colors">Development</span>
+          </div>
+        </div>
+
+        <!-- Award 3 -->
+        <div class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-[#2A2622]/10 hover:border-[#B35A46] transition-colors">
+          <div class="flex items-baseline gap-6 md:gap-16">
+            <span class="font-sans text-xs text-gray-400 font-medium">2022</span>
+            <div>
+              <h3 class="font-serif text-3xl mb-1 group-hover:text-[#B35A46] transition-colors">Webby Awards</h3>
+              <p class="font-display italic text-xl text-gray-500">Best User Interface</p>
+            </div>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <span class="font-sans text-[10px] uppercase tracking-widest bg-white/50 px-4 py-1.5 rounded-full text-gray-500 group-hover:text-[#B35A46] group-hover:bg-[#B35A46]/10 transition-colors">UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="mt-40 mb-20 text-center">
+      <p class="font-sans text-xs uppercase tracking-[0.2em] text-gray-500 mb-6 border-l-2 border-[#CCAA6E] pl-4 inline-block">Start a Project</p>
+      <a class="group relative inline-block mx-auto" href="index.html#contact">
+        <h2 class="font-serif text-6xl md:text-9xl font-normal leading-none text-[#2A2622] hover:text-[#B35A46] transition-colors duration-300">
+          Ready to <span class="font-display italic">history?</span>
+        </h2>
+        <span class="absolute -right-10 top-0 md:top-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#B35A46]">
+          <span class="material-symbols-outlined text-4xl md:text-6xl">north_east</span>
+        </span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[#1C1B1A] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24">
+      <div>
+        <h2 class="font-serif text-6xl md:text-8xl leading-none tracking-tighter mb-8">
+          Marcy.
+        </h2>
+        <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-8">
+          Digital experiences crafted with silence, strategy, and precision.
+        </p>
+        <a class="inline-block text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+          hello@marcy.com
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 md:gap-16 justify-end pt-4">
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-6">Social</h4>
+          <div class="flex flex-col gap-4 text-sm text-gray-400">
+            <a class="hover:text-white transition-colors" href="#">Instagram</a>
+            <a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+            <a class="hover:text-white transition-colors" href="#">Twitter</a>
+            <a class="hover:text-white transition-colors" href="#">Behance</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-6">Company</h4>
+          <div class="flex flex-col gap-4 text-sm text-gray-400">
+            <a class="hover:text-white transition-colors" href="work.html">Work</a>
+            <a class="hover:text-white transition-colors" href="about.html">Agency</a>
+            <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
+            <a class="hover:text-white transition-colors" href="index.html#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+      </div>
+      <div>© 2024 Marcy Studios. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

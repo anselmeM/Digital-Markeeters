@@ -79,15 +79,52 @@
     <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
     <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
       <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="#philosophy">Agency</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="#expertise">Expertise</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
+      <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
     </div>
-    <button class="group flex flex-col gap-1.5 w-8" aria-label="Open menu">
-      <span class="w-full h-[1px] bg-current transition-all group-hover:w-1/2 ml-auto"></span>
-      <span class="w-full h-[1px] bg-current"></span>
-      <span class="w-full h-[1px] bg-current transition-all group-hover:w-3/4 ml-auto"></span>
+    <button class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" aria-label="Open menu" onclick="toggleMenu()">
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
     </button>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#76323F] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
+      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
+      <a class="hover:text-[#B35A46] transition-colors" href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      
+      const isOpen = menu.classList.contains('opacity-100');
+      
+      if (isOpen) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+        
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      } else {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+        
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      }
+    }
+  </script>
 
   <!-- ═══ HERO ═══ -->
   <header class="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 overflow-hidden bg-[#1C1B1A] text-[#EBE6DF]">
@@ -106,9 +143,9 @@
         <p class="text-xs md:text-sm uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">
           Digital Experience Agency
         </p>
-        <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] leading-[0.85] tracking-tighter-custom mb-8">
+        <h1 class="font-serif text-5xl md:text-8xl lg:text-9xl xl:text-[11rem] leading-[0.85] tracking-tighter-custom mb-8 overflow-hidden pr-4">
           <span class="block ml-0 md:ml-12">Digital</span>
-          <span class="block font-display italic font-light text-[#B35A46] text-7xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-4 md:-translate-y-8 translate-x-8 md:translate-x-32">Alchemy</span>
+          <span class="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-2 md:-translate-y-8 translate-x-4 md:translate-x-32">Alchemy</span>
           <span class="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</span>
         </h1>
       </div>
