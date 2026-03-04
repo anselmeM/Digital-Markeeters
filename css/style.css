@@ -45,24 +45,68 @@ Requires PHP: 7.0
 .initial{
 	text-align: left;
 }
+/*
+
+Theme Name: Kooleythemes
+Theme URI: www.kooleythemes.com
+Author: Othello
+Author URI: www.kooleythemes.com
+Description:  DigiMarketeers.
+Version: 0.1
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+*/
+
+
+
+:root {
+	--border-color: #709680;
+	--lightest-green: #86a58d;
+	--dark-green: rgba(52, 74, 57, 0.86);
+	--body-background: #D7CEC7;
+	--grey: #707070;
+	--meron: #76323F;
+	--sub-bg: #C09F80;
+	--white: #FFF;
+	--black: #000;
+}
+.grey{
+	color: var(--grey);
+}
+.meron{
+	color: var(--meron);
+}
+.sub-bg{
+	color: var(--sub-bg);
+}
+.white{
+	color: var(--white);
+}
+.black{
+	color: var(--black);
+}
+.center{
+	text-align: center;
+}
+.initial{
+	text-align: left;
+}
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	list-style: none;
 }
-body,
 html {
-	font-size: 10px;
-	font-family: 'Roboto', sans-serif;
-	font-family: 'Elsie', cursive;
+	font-size: 10px; /* Base 10px so 1rem = 10px. Important for legacy spacing. */
+}
+body {
 	background: var(--body-background);
 }
 img{
 	max-width: 100%;
 	height: auto;
-}
-ul{
 	list-style: none;
 }
 a{

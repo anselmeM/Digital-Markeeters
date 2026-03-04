@@ -9,6 +9,7 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
   <style type="text/tailwindcss">
     :root {
@@ -53,6 +54,7 @@
             text: "var(--text-main)",
             "text-light": "var(--text-light)",
             accent: "var(--accent-terracotta)",
+            meron: "var(--meron)",
           },
           fontFamily: {
             serif: ['"Bodoni Moda"', 'serif'],
@@ -77,12 +79,18 @@
   <!-- ═══ NAV ═══ -->
   <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
     <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
-    <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-sm uppercase tracking-widest font-medium">
       <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
     </div>
-    <button class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" aria-label="Open menu" onclick="toggleMenu()">
+    <button 
+      class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="mobile-menu" 
+      onclick="toggleMenu()"
+    >
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
@@ -90,7 +98,7 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#76323F] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="mobile-menu" class="fixed inset-0 bg-meron z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
       <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
       <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
@@ -102,6 +110,7 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
+      const button = document.querySelector('[aria-controls="mobile-menu"]');
       const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
       
       const isOpen = menu.classList.contains('opacity-100');
@@ -109,6 +118,7 @@
       if (isOpen) {
         menu.classList.remove('opacity-100', 'pointer-events-auto');
         menu.classList.add('opacity-0', 'pointer-events-none');
+        button.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         
         lines[0].style.transform = 'none';
@@ -117,6 +127,7 @@
       } else {
         menu.classList.remove('opacity-0', 'pointer-events-none');
         menu.classList.add('opacity-100', 'pointer-events-auto');
+        button.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
         
         lines[0].style.transform = 'translateY(7px) rotate(45deg)';
@@ -140,10 +151,10 @@
 
     <div class="relative z-10 w-full max-w-[90vw] mx-auto">
       <div class="flex flex-col items-start">
-        <p class="text-xs md:text-sm uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">
+        <p class="text-sm md:text-base uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">
           Digital Experience Agency
         </p>
-        <h1 class="font-serif text-5xl md:text-8xl lg:text-9xl xl:text-[11rem] leading-[0.85] tracking-tighter-custom mb-8 overflow-hidden pr-4">
+        <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] leading-[0.85] tracking-tighter-custom mb-8 pr-4">
           <span class="block ml-0 md:ml-12">Digital</span>
           <span class="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-2 md:-translate-y-8 translate-x-4 md:translate-x-32">Alchemy</span>
           <span class="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</span>
@@ -151,7 +162,7 @@
       </div>
 
       <div class="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8">
-        <div class="max-w-md text-sm md:text-base leading-relaxed text-gray-400 font-light">
+        <div class="max-w-xl text-lg md:text-xl leading-relaxed text-gray-400 font-light">
           We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.
         </div>
         <div class="mt-8 md:mt-0 flex items-center gap-4">
@@ -164,7 +175,7 @@
   <!-- ═══ SELECTED WORKS ═══ -->
   <section class="py-24 bg-[#F2EFE9] overflow-hidden" id="works">
     <div class="px-6 md:px-12 mb-16 flex items-end justify-between">
-      <h2 class="font-serif text-5xl md:text-7xl text-[#2A2622] leading-none">
+      <h2 class="font-serif text-6xl md:text-8xl text-[#2A2622] leading-none">
         Selected <br />
         <span class="font-display italic text-[#B35A46]">Works</span>
       </h2>
@@ -232,14 +243,14 @@
     <div class="absolute top-0 right-0 w-1/3 h-full bg-[#E5E0D8] -z-0"></div>
     <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
       <div class="lg:col-span-5">
-        <p class="text-xs font-bold uppercase tracking-widest text-[#B35A46] mb-8">Our Philosophy</p>
-        <h2 class="font-serif text-4xl md:text-6xl leading-[1.1] mb-12">
+        <p class="text-sm font-bold uppercase tracking-widest text-[#B35A46] mb-8">Our Philosophy</p>
+        <h2 class="font-serif text-5xl md:text-7xl leading-[1.1] mb-12">
           We believe in the <br />
           <span class="font-display italic font-light">power of silence</span> <br />
           in a noisy world.
         </h2>
         <div class="space-y-8">
-          <p class="text-sm md:text-base leading-relaxed text-gray-600 max-w-sm">
+          <p class="text-lg md:text-xl leading-relaxed text-gray-600 max-w-sm">
             Minimalism isn't just an aesthetic; it's a tool for clarity. We strip away the non-essential to reveal the core of your brand's story.
           </p>
           <a class="inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-xs tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
@@ -264,8 +275,8 @@
   <section class="py-24 px-6 md:px-12 bg-[#1C1B1A] text-[#EBE6DF]" id="expertise">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
       <div class="lg:col-span-1">
-        <h2 class="font-serif text-5xl mb-6">Expertise</h2>
-        <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+        <h2 class="font-serif text-6xl mb-6">Expertise</h2>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-sm">
           Holistic digital solutions tailored for high-end brands. We cover every touchpoint of your digital presence.
         </p>
       </div>
@@ -273,8 +284,8 @@
       <div class="lg:col-span-2">
         <div class="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
           <div class="flex justify-between items-baseline">
-            <h3 class="font-serif text-3xl md:text-4xl group-hover:text-[#CCAA6E] transition-colors">Brand Identity</h3>
-            <span class="text-xs text-gray-500 group-hover:text-[#CCAA6E]">01</span>
+            <h3 class="font-serif text-4xl md:text-5xl group-hover:text-[#CCAA6E] transition-colors">Brand Identity</h3>
+            <span class="text-sm text-gray-500 group-hover:text-[#CCAA6E]">01</span>
           </div>
           <p class="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
             Logo design, visual systems, and brand guidelines crafted to stand the test of time.
@@ -330,16 +341,16 @@
       <div class="flex flex-col justify-end">
         <div class="grid grid-cols-2 gap-8 mb-12">
           <div>
-            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
-            <p class="text-sm text-gray-400 leading-relaxed">
+            <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
+            <p class="text-base text-gray-400 leading-relaxed">
               215 McLeod Avenue<br />
               Box 3497, AB T7XX<br />
               +1 (780) 555-5555
             </p>
           </div>
           <div>
-            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
-            <p class="text-sm text-gray-400 leading-relaxed">
+            <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
+            <p class="text-base text-gray-400 leading-relaxed">
               2619 Chapmans Lane<br />
               Farmington, NM 87402<br />
               +1 (505) 860-6973
@@ -361,7 +372,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
       <div class="flex gap-6 mb-4 md:mb-0">
         <a class="hover:text-white transition-colors" href="#">Instagram</a>
         <a class="hover:text-white transition-colors" href="#">LinkedIn</a>

@@ -10,23 +10,32 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
   <script>
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            primary:    "#964F4C",
-            accent:     "#B35A46",
-            secondary:  "#CCAA6E",
-            background: "#F2EFE9",
-            dark:       "#1C1B1A",
+            primary: "var(--primary)",
+            secondary: "var(--secondary)",
+            background: "var(--background-light)",
+            "background-dark": "var(--background-dark)",
+            text: "var(--text-main)",
+            "text-light": "var(--text-light)",
+            accent: "var(--accent-terracotta)",
+            meron: "var(--meron)",
           },
           fontFamily: {
-            serif:   ['"Bodoni Moda"', 'serif'],
+            serif: ['"Bodoni Moda"', 'serif'],
             display: ['"Instrument Serif"', 'serif'],
-            sans:    ['"Inter"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            '10xl': '10rem',
+            '11xl': '12rem',
           },
           letterSpacing: {
             'tighter-custom': '-0.04em',
@@ -74,12 +83,18 @@
   <!-- ═══ NAV ═══ -->
   <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
     <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
-    <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-sm uppercase tracking-widest font-medium">
       <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
     </div>
-    <button class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" aria-label="Open menu" onclick="toggleMenu()">
+    <button 
+      class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="mobile-menu" 
+      onclick="toggleMenu()"
+    >
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
       <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
@@ -87,7 +102,7 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#76323F] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="mobile-menu" class="fixed inset-0 bg-meron z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
       <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
       <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
@@ -99,6 +114,7 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
+      const button = document.querySelector('[aria-controls="mobile-menu"]');
       const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
       
       const isOpen = menu.classList.contains('opacity-100');
@@ -106,6 +122,7 @@
       if (isOpen) {
         menu.classList.remove('opacity-100', 'pointer-events-auto');
         menu.classList.add('opacity-0', 'pointer-events-none');
+        button.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         
         lines[0].style.transform = 'none';
@@ -114,6 +131,7 @@
       } else {
         menu.classList.remove('opacity-0', 'pointer-events-none');
         menu.classList.add('opacity-100', 'pointer-events-auto');
+        button.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
         
         lines[0].style.transform = 'translateY(7px) rotate(45deg)';
