@@ -308,12 +308,22 @@
       const img = row.querySelector('.project-image');
       if (!img) return;
 
-      // Move image with mouse
-      row.addEventListener('mousemove', e => {
+      let cachedOffsetY = 0;
+
+      const handleMouseMove = (e) => {
         const offsetX = 24;
-        const offsetY = -img.offsetHeight / 2;
-        img.style.left = (e.clientX + offsetX) + 'px';
-        img.style.top  = (e.clientY + offsetY) + 'px';
+        img.style.left = `${e.clientX + offsetX}px`;
+        img.style.top  = `${e.clientY + cachedOffsetY}px`;
+      };
+
+      row.addEventListener('mouseenter', () => {
+        // Optimization: calculate expensive offsetHeight only once per hover
+        cachedOffsetY = -img.offsetHeight / 2;
+        row.addEventListener('mousemove', handleMouseMove);
+      });
+
+      row.addEventListener('mouseleave', () => {
+        row.removeEventListener('mousemove', handleMouseMove);
       });
     });
   </script>
