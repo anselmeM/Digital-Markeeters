@@ -5,12 +5,36 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Marcy Studios — About</title>
+  <meta name="description" content="Learn about Marcy Studios, a digital experience agency founded in 2018. Meet our team of creative directors, strategists, and designers.">
+  <link rel="canonical" href="https://marcy.com/about.html">
+  <meta property="og:title" content="Marcy Studios — About">
+  <meta property="og:description" content="Learn about our philosophy and meet the team behind award-winning digital experiences.">
+  <meta property="og:image" content="https://marcy.com/images/og-default.jpg">
+  <meta property="og:url" content="https://marcy.com/about.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marcy Studios — About">
+  <meta name="twitter:description" content="Learn about our philosophy and meet the team.">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Marcy Studios",
+    "description": "Digital experience agency founded in 2018.",
+    "url": "https://marcy.com/about.html"
+  }
+  </script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
   <script>
@@ -79,15 +103,33 @@
       opacity: 0.2;
     }
     .hover-reveal-wrapper:hover::after { transform: scaleY(1); }
+    /* Accessibility: Skip link */
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; padding: 1rem; background: #fff; color: #000; }
+    .skip-link:focus { position: fixed; left: 0; }
+    /* Accessibility: Focus visible */
+    *:focus-visible { outline: 3px solid #B35A46; outline-offset: 2px; }
+    /* Accessibility: Reduced motion */
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    /* Mobile: Nav contrast fix */
+    @media (max-width: 767px) {
+      nav { mix-blend-mode: normal !important; background: #1C1B1A !important; }
+    }
+    /* Mobile: Touch targets */
+    @media (pointer: coarse) {
+      button, a[href], [role="button"] { min-height: 44px; min-width: 44px; }
+    }
   </style>
 </head>
 
 <body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen">
 
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ═══ NAV ═══ -->
-  <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+  <nav role="navigation" aria-label="Main navigation" class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
     <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
-    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-sm uppercase tracking-widest font-medium">
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-lg uppercase tracking-widest font-medium">
       <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
       <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
@@ -115,38 +157,8 @@
     </div>
   </div>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const button = document.querySelector('[aria-controls="mobile-menu"]');
-      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
-      
-      const isOpen = menu.classList.contains('opacity-100');
-      
-      if (isOpen) {
-        menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none');
-        button.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        
-        lines[0].style.transform = 'none';
-        lines[1].style.opacity = '1';
-        lines[2].style.transform = 'none';
-      } else {
-        menu.classList.remove('opacity-0', 'pointer-events-none');
-        menu.classList.add('opacity-100', 'pointer-events-auto');
-        button.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        
-        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-        lines[1].style.opacity = '0';
-        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      }
-    }
-  </script>
-
   <!-- ═══ MAIN ═══ -->
-  <main class="relative w-full pt-28 md:pt-40 pb-20 px-6 md:px-12 overflow-x-hidden">
+  <main id="main-content" role="main" class="relative w-full pt-28 md:pt-40 pb-20 px-6 md:px-12 overflow-x-hidden">
 
     <!-- Hero Section -->
     <section class="max-w-7xl mx-auto py-12 md:py-24">
@@ -315,7 +327,7 @@
         <h2 class="font-serif text-6xl md:text-8xl font-normal leading-none">
           Recognition
         </h2>
-        <a class="text-sm uppercase tracking-widest text-[#B35A46] border-b border-[#B35A46] pb-1 hover:text-[#2A2622] hover:border-[#2A2622] transition-colors mt-6 md:mt-0" href="#">View All</a>
+        <a class="text-sm uppercase tracking-widest text-[#B35A46] border-b border-[#B35A46] pb-1 hover:text-[#2A2622] hover:border-[#2A2622] transition-colors mt-6 md:mt-0 cursor-not-allowed opacity-50" href="javascript:void(0)">View All</a>
       </div>
 
       <div class="flex flex-col">
@@ -397,10 +409,10 @@
         <div>
           <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-6">Social</h4>
           <div class="flex flex-col gap-4 text-base text-gray-400">
-            <a class="hover:text-white transition-colors" href="#">Instagram</a>
-            <a class="hover:text-white transition-colors" href="#">LinkedIn</a>
-            <a class="hover:text-white transition-colors" href="#">Twitter</a>
-            <a class="hover:text-white transition-colors" href="#">Behance</a>
+            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Instagram</a>
+            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">LinkedIn</a>
+            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Twitter</a>
+            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Behance</a>
           </div>
         </div>
         <div>
@@ -415,10 +427,10 @@
       </div>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+    <div class="flex flex-col md:flex-row justify-between items-center text-base uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
       <div class="flex gap-6 mb-4 md:mb-0">
-        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+        <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Privacy Policy</a>
+        <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Terms of Service</a>
       </div>
       <div>© 2024 Marcy Studios. All Rights Reserved.</div>
     </div>
