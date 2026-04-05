@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/components/Button';
 import ContactForm from '@/components/ContactForm';
+import ProjectShowcase from '@/components/ProjectShowcase';
 
 export default function Home() {
   const [parallaxOffset, setParallaxOffset] = useState(0);
@@ -17,31 +17,6 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Sample project data
-  const projects = [
-    {
-      id: 1,
-      title: 'Vogue Essence',
-      category: 'Editorial / Web Design',
-      image: '/images/Digital Marketers2.jpg',
-      slug: 'vogue-essence',
-    },
-    {
-      id: 2,
-      title: 'Urban Canvas',
-      category: 'Branding / Identity',
-      image: '/images/Digital Marketers3.jpg',
-      slug: 'urban-canvas',
-    },
-    {
-      id: 3,
-      title: 'Silent Architecture',
-      category: 'Photography / Strategy',
-      image: '/images/Digital Marketers4.jpg',
-      slug: 'silent-architecture',
-    },
-  ];
 
   const expertiseItems = [
     {
@@ -103,48 +78,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Selected Works */}
-      <section className="py-24 bg-[#F2EFE9] overflow-hidden" id="works">
-        <div className="px-6 md:px-12 mb-16 flex items-end justify-between">
-          <h2 className="font-serif text-6xl md:text-8xl text-[#2A2622] leading-none">
-            Selected <br />
-            <span className="font-display italic text-[#B35A46]">Works</span>
-          </h2>
-          <Link className="hidden md:flex items-center gap-2 text-sm uppercase tracking-widest border-b border-black pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="/work">
-            View All Projects →
-          </Link>
-        </div>
-
-        <div className="flex gap-8 md:gap-16 overflow-x-auto hide-scrollbar px-6 md:px-12 pb-12 snap-x snap-mandatory">
-          {projects.map((project, index) => (
-            <Link 
-              key={project.id}
-              href={`/work/${project.slug}`}
-              className={`min-w-[85vw] md:min-w-[45vw] lg:min-w-[35vw] snap-center group cursor-pointer block ${index % 2 !== 0 ? 'mt-0 md:mt-24' : ''}`}
-            >
-              <div className="aspect-[4/5] overflow-hidden mb-6 relative hover-reveal-wrapper">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} project`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 35vw"
-                />
-                <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-black w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  →
-                </div>
-              </div>
-              <div className="flex justify-between items-start border-t border-black/10 pt-4">
-                <div>
-                  <h3 className="font-serif text-2xl mb-1 group-hover:text-[#B35A46] transition-colors">{project.title}</h3>
-                  <p className="text-xs uppercase tracking-widest text-gray-500">{project.category}</p>
-                </div>
-                  <span className="text-xs font-serif italic text-gray-400">0{index + 1}</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* Selected Works - New Project Showcase */}
+      <ProjectShowcase />
 
       {/* Philosophy */}
       <section className="py-32 px-6 md:px-12 bg-[#EBE6DF] relative overflow-hidden" id="philosophy">
@@ -162,7 +97,7 @@ export default function Home() {
             </h2>
             <div className="space-y-8">
               <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-sm">
-                Minimalism isn't just an aesthetic; it's a tool for clarity. We strip away the non-essential to reveal the core of your brand's story.
+                Minimalism isn&apos;t just an aesthetic; it&apos;s a tool for clarity. We strip away the non-essential to reveal the core of your brand&apos;s story.
               </p>
               <Link className="cta-button inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-sm tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="/about">
                 Read the Manifesto
@@ -225,7 +160,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
           <div>
             <h2 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter mb-8">
-              Let's<br />
+              Let&apos;s<br />
               <span className="font-display italic text-[#CCAA6E] ml-16">Talk</span>
             </h2>
             <a className="cta-button inline-block mt-8 text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">

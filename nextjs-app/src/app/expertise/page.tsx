@@ -134,7 +134,7 @@ export default function Expertise() {
           Ready to <span className="font-display italic text-[#B35A46]">start</span>?
         </h2>
         <Link href="/#contact" className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base">
-          Let's Talk
+          Let&apos;s Talk
         </Link>
       </div>
     </main>

@@ -12,10 +12,10 @@ export default function Footer({ id = 'contact' }: FooterProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24">
         <div>
           <h2 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter mb-8">
-            Let's Talk
+            Let&apos;s Talk
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-md">
-            Have a project in mind? We'd love to hear about it.
+            Have a project in mind? We&apos;d love to hear about it.
           </p>
         </div>
 

@@ -35,7 +35,7 @@ export default function About() {
             <p className="text-xl md:text-2xl leading-relaxed text-gray-600">
               Marcy Studios is a digital experience agency that blends strategy with avant-garde design. 
               We believe in the power of silence in a noisy world, stripping away the non-essential to 
-              reveal the core of your brand's story.
+              reveal the core of your brand&apos;s story.
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function About() {
           <div className="masonry-item bg-[#EBE6DF] p-12 min-h-[350px] flex flex-col justify-center items-center text-center border border-[#2A2622]/5">
             <h3 className="font-serif text-3xl md:text-4xl mb-6">Clarity</h3>
             <p className="text-gray-600 max-w-sm">
-              We believe in clear, purposeful design that communicates your brand's essence without distraction.
+              We believe in clear, purposeful design that communicates your brand&apos;s essence without distraction.
             </p>
           </div>
           <div className="masonry-item group relative overflow-hidden bg-gray-100 hover-reveal-wrapper">
@@ -200,7 +200,7 @@ export default function About() {
               <span className="text-sm font-serif italic text-gray-400">03</span>
               <div>
                 <h3 className="font-serif text-2xl md:text-3xl">Context is Everything</h3>
-                <p className="text-gray-600 mt-2 max-w-xl">Design doesn't exist in a vacuum. We consider every touchpoint, every moment, every user journey.</p>
+                <p className="text-gray-600 mt-2 max-w-xl">Design doesn&apos;t exist in a vacuum. We consider every touchpoint, every moment, every user journey.</p>
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function About() {
       <div className="mt-40 mb-20 text-center">
         <Link className="group relative inline-block mx-auto" href="/#contact">
           <span className="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:text-[#B35A46] transition-colors">
-            Let's create something <span className="font-display italic">together</span>
+            Let&apos;s create something <span className="font-display italic">together</span>
           </span>
         </Link>
       </div>

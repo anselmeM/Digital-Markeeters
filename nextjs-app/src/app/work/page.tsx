@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Work() {
@@ -12,7 +12,6 @@ export default function Work() {
       id: 1,
       title: 'Vogue Essence',
       category: 'editorial',
-      image: '/images/Digital Marketers2.jpg',
       slug: 'vogue-essence',
       year: '2024',
       services: 'Editorial / Web Design',
@@ -21,7 +20,6 @@ export default function Work() {
       id: 2,
       title: 'Urban Canvas',
       category: 'branding',
-      image: '/images/Digital Marketers3.jpg',
       slug: 'urban-canvas',
       year: '2024',
       services: 'Branding / Identity',
@@ -30,7 +28,6 @@ export default function Work() {
       id: 3,
       title: 'Silent Architecture',
       category: 'photography',
-      image: '/images/Digital Marketers4.jpg',
       slug: 'silent-architecture',
       year: '2023',
       services: 'Photography / Strategy',
@@ -39,7 +36,6 @@ export default function Work() {
       id: 4,
       title: 'Fashion Forward',
       category: 'web-design',
-      image: '/images/Digital Marketers.jpg',
       slug: 'fashion-forward',
       year: '2023',
       services: 'Web Design / Art Direction',
@@ -48,7 +44,6 @@ export default function Work() {
       id: 5,
       title: 'Brand Evolution',
       category: 'strategy',
-      image: '/images/Digital Marketers2.jpg',
       slug: 'brand-evolution',
       year: '2023',
       services: 'Strategy / Branding',
@@ -57,22 +52,54 @@ export default function Work() {
       id: 6,
       title: 'Visual Narrative',
       category: 'art-direction',
-      image: '/images/Digital Marketers3.jpg',
       slug: 'visual-narrative',
-      year: '2022',
+      year: '2023',
       services: 'Art Direction / Photography',
     },
   ];
 
-  const filters = ['all', 'editorial', 'branding', 'photography', 'web-design', 'strategy', 'art-direction'];
+  const filters = ['all', 'branding', 'web-design', 'art-direction', 'photography', 'strategy'];
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(p => p.category === activeFilter);
 
+  // Animation variants - using as const to avoid type issues
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  } as const;
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+    },
+    exit: { 
+      opacity: 0, 
+      y: -20,
+    },
+  } as const;
+
   return (
     <main id="main-content" role="main" className="relative w-full pt-28 pb-20 px-6 md:px-12">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-black/20 pb-5">
+      {/* Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-black/20 pb-5"
+      >
         <div>
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-[#2A2622]">
             Our <span className="font-display italic text-[#B35A46]">Work</span>
@@ -82,67 +109,113 @@ export default function Work() {
           </p>
         </div>
         <div className="text-right mt-4 md:mt-0">
-          <span className="text-sm uppercase tracking-widest text-gray-500">6 Projects</span>
+          <span className="text-sm uppercase tracking-widest text-gray-500">
+            {filteredProjects.length} Projects
+          </span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-3 md:gap-4 mb-12" id="project-filters">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="flex flex-wrap gap-3 md:gap-4 mb-12"
+      >
         {filters.map((filter) => (
-          <button
+          <motion.button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`px-4 py-2 text-sm uppercase tracking-widest border transition-colors ${
+            className={`px-4 py-2 text-sm uppercase tracking-widest border transition-all duration-200 ease-out ${
               activeFilter === filter
-                ? 'border-[#B35A46] text-[#B35A46]'
+                ? 'border-[#B35A46] text-[#B35A46] bg-[#B35A46]/5'
                 : 'border-black/20 text-gray-500 hover:border-[#B35A46] hover:text-[#B35A46]'
             }`}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {filter === 'all' ? 'All' : filter.replace('-', ' ')}
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Project List */}
-      <div className="flex flex-col w-full" id="project-list">
-        {filteredProjects.map((project, index) => (
-          <Link
-            key={project.id}
-            href={`/work/${project.slug}`}
-            className="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block"
-            data-index={index}
-            data-category={project.category}
-          >
-            <div className="flex flex-col md:flex-row items-baseline md:items-center justify-between">
-              <div className="flex items-baseline gap-4 md:gap-8 flex-1">
-                <span className="text-sm font-serif italic text-gray-400">0{index + 1}</span>
-                <div>
-                  <h2 className="font-serif text-3xl md:text-5xl group-hover:text-[#B35A46] transition-colors">
-                    {project.title}
-                  </h2>
-                  <p className="text-sm uppercase tracking-widest text-gray-500 mt-1">
-                    {project.services}
-                  </p>
+      {/* Project List with Framer Motion */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col w-full"
+      >
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              variants={itemVariants}
+              exit="exit"
+              layout
+            >
+              <Link
+                href={`/work/${project.slug}`}
+                className="group relative w-full border-b border-black/10 py-10 md:py-14 block transition-all duration-300 ease-out hover:bg-black/[0.02]"
+                style={{ transitionDelay: `${index * 30}ms` }}
+              >
+                <div className="flex flex-col md:flex-row items-baseline md:items-center justify-between">
+                  <div className="flex items-baseline gap-4 md:gap-8 flex-1">
+                    <motion.span 
+                      className="text-sm font-serif italic text-gray-400"
+                      whileHover={{ color: '#B35A46' }}
+                    >
+                      0{index + 1}
+                    </motion.span>
+                    <div>
+                      <motion.h2 
+                        className="font-serif text-3xl md:text-5xl group-hover:text-[#B35A46] transition-colors duration-200"
+                        whileHover={{ x: 8 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {project.title}
+                      </motion.h2>
+                      <p className="text-sm uppercase tracking-widest text-gray-500 mt-1">
+                        {project.services}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-8 md:gap-16 mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end">
+                    <motion.span 
+                      className="text-sm uppercase tracking-widest text-gray-400 group-hover:text-[#2A2622] transition-colors duration-200"
+                    >
+                      {project.year}
+                    </motion.span>
+                    <motion.span 
+                      className="text-2xl"
+                      whileHover={{ x: 8, color: '#B35A46' }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      →
+                    </motion.span>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-8 md:gap-16 mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end opacity-50 group-hover:opacity-100 transition-opacity">
-                <span className="text-sm uppercase tracking-widest text-gray-400">{project.year}</span>
-                <span className="text-2xl transform group-hover:translate-x-2 transition-transform">→</span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+              </Link>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       {/* CTA */}
-      <div className="mt-40 mb-20">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="mt-40 mb-20"
+      >
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="font-serif text-4xl md:text-6xl mb-8">Have a project in mind?</h2>
           <Link className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base font-medium" href="/#contact">
-            Let's Talk
+            Let&apos;s Talk
           </Link>
         </div>
-      </div>
+      </motion.div>
     </main>
   );
 }
