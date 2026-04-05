@@ -102,6 +102,33 @@
     0%, 100% { transform: scale(0.98); }
     50% { transform: scale(1.02); }
   }
+
+  /* Skeleton Loading */
+  .skeleton {
+    @apply relative overflow-hidden bg-gray-200;
+  }
+
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+
+  /* Accessibility improvements */
+  .text-gray-400-dark-bg {
+    @apply text-gray-300; /* Improved contrast on dark backgrounds */
+  }
   
   /* Parallax section */
   .parallax-section {
