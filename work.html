@@ -93,14 +93,24 @@
                   transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       position: fixed;
       top: 0; left: 0;
-      transform: scale(0.9);
-      z-index: 30;
+      transform: translate(-50%, -50%) scale(0.9);
+      z-index: 50;
       pointer-events: none;
+      margin-top: 0;
     }
     .project-row:hover .project-image {
       opacity: 1;
       visibility: visible;
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Prevent image from being hidden behind elements */
+    .project-row {
+      position: relative;
+      z-index: 1;
+    }
+    .project-row:hover {
+      z-index: 10;
     }
 
     /* Title slide on hover */
@@ -376,17 +386,13 @@
       const img = row.querySelector('.project-image');
       if (!img) return;
 
-      let cachedOffsetY = 0;
-
       const handleMouseMove = (e) => {
-        const offsetX = 24;
-        img.style.left = `${e.clientX + offsetX}px`;
-        img.style.top  = `${e.clientY + cachedOffsetY}px`;
+        // Transform is handled by CSS, just set position
+        img.style.left = `${e.clientX}px`;
+        img.style.top  = `${e.clientY}px`;
       };
 
       row.addEventListener('mouseenter', () => {
-        // Optimization: calculate expensive offsetHeight only once per hover
-        cachedOffsetY = -img.offsetHeight / 2;
         row.addEventListener('mousemove', handleMouseMove);
       });
 

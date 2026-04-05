@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -75,13 +75,25 @@ const projects: Project[] = [
 interface ProjectCardProps {
   project: Project;
   index: number;
-  onHover: (id: number | null) => void;
-  isHovered: boolean;
 }
 
-function ProjectCard({ project, index, onHover, isHovered }: ProjectCardProps) {
+function ProjectCard({ project, index }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      setMousePosition({ x, y });
+    }
+  };
+
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ 
@@ -90,26 +102,39 @@ function ProjectCard({ project, index, onHover, isHovered }: ProjectCardProps) {
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
       className="relative group"
-      onMouseEnter={() => onHover(project.id)}
-      onMouseLeave={() => onHover(null)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
     >
-      {/* Project Image Reveal */}
+      {/* Project Image Reveal - Shows on hover */}
       <div 
         className={`absolute inset-0 overflow-hidden rounded-lg transition-all duration-500 ${
-          isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          isHovered ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ 
-          zIndex: 10,
-          transformOrigin: 'center center',
+          zIndex: 30,
+          pointerEvents: 'none',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         }}
       >
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <motion.div
+          className="w-full h-full relative"
+          style={{
+            transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+          }}
+          initial={{ scale: 1.15 }}
+          animate={{ scale: isHovered ? 1 : 1.15 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <Image
+            src={project.image}
+            alt={`${project.title} - ${project.category} project thumbnail`}
+            fill
+            className="object-cover"
+            priority={index < 2}
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         
         {/* Floating project info on image */}
         <div className="absolute bottom-6 left-6 right-6">
@@ -121,7 +146,10 @@ function ProjectCard({ project, index, onHover, isHovered }: ProjectCardProps) {
       </div>
 
       {/* Project Content */}
-      <Link href={`/work/${project.slug}`} className="block relative z-20 py-8 border-b border-black/10 group-hover:border-transparent transition-colors duration-300">
+      <Link 
+        href={`/work/${project.slug}`} 
+        className="block relative z-20 py-8 border-b border-black/10 group-hover:border-transparent transition-colors duration-300"
+      >
         <div className="flex items-start justify-between">
           <div className="flex items-baseline gap-6">
             <span className="text-sm font-serif italic text-gray-400 group-hover:text-[#B35A46] transition-colors duration-300">
@@ -159,9 +187,6 @@ function ProjectCard({ project, index, onHover, isHovered }: ProjectCardProps) {
 }
 
 export default function ProjectShowcase() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section className="py-24 px-6 md:px-12 bg-[#F2EFE9]">
       <div className="max-w-7xl mx-auto">
@@ -181,17 +206,12 @@ export default function ProjectShowcase() {
         </motion.div>
 
         {/* Project Grid */}
-        <div 
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
               index={index}
-              onHover={setHoveredProject}
-              isHovered={hoveredProject === project.id}
             />
           ))}
         </div>

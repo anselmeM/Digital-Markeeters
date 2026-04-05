@@ -106,5 +106,15 @@ export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const project = projectsData[slug] || projectsData['vogue-essence'];
   
-  return <ProjectContent project={project} />;
+  // Calculate next project for circular navigation
+  const slugs = Object.keys(projectsData);
+  const currentIndex = slugs.indexOf(slug);
+  const nextIndex = (currentIndex + 1) % slugs.length;
+  const nextSlug = slugs[nextIndex];
+  const nextProject = {
+    title: projectsData[nextSlug].title,
+    slug: nextSlug
+  };
+  
+  return <ProjectContent project={project} nextProject={nextProject} />;
 }

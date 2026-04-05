@@ -16,6 +16,10 @@ interface ProjectContentProps {
     solution: string;
     images: string[];
   };
+  nextProject: {
+    title: string;
+    slug: string;
+  };
 }
 
 // Animation variants
@@ -29,7 +33,7 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 } as const;
 
-export default function ProjectContent({ project }: ProjectContentProps) {
+export default function ProjectContent({ project, nextProject }: ProjectContentProps) {
   return (
     <main id="main-content" role="main" className="relative w-full pt-32 pb-20 px-6 md:px-12">
       {/* Hero */}
@@ -174,11 +178,16 @@ export default function ProjectContent({ project }: ProjectContentProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center py-16 border-t border-black/10"
+        className="text-center py-24 border-t border-black/10"
       >
         <p className="text-sm uppercase tracking-widest text-gray-500 mb-4">Next Project</p>
-        <Link href="/work" className="font-serif text-4xl md:text-6xl text-[#2A2622] hover:text-[#B35A46] transition-colors">
-          View All Projects →
+        <Link href={`/work/${nextProject.slug}`} className="group inline-block">
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-8xl text-[#2A2622] group-hover:text-[#B35A46] transition-colors mb-4">
+            {nextProject.title}
+          </h2>
+          <span className="inline-block text-2xl group-hover:translate-x-4 transition-transform duration-300">
+            →
+          </span>
         </Link>
       </motion.section>
     </main>

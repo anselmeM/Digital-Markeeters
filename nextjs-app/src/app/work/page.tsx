@@ -1,62 +1,162 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  slug: string;
+  year: string;
+  services: string;
+  image: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Vogue Essence',
+    category: 'editorial',
+    slug: 'vogue-essence',
+    year: '2024',
+    services: 'Editorial / Web Design',
+    image: '/images/Digital Marketers2.jpg',
+  },
+  {
+    id: 2,
+    title: 'Urban Canvas',
+    category: 'branding',
+    slug: 'urban-canvas',
+    year: '2024',
+    services: 'Branding / Identity',
+    image: '/images/Digital Marketers3.jpg',
+  },
+  {
+    id: 3,
+    title: 'Silent Architecture',
+    category: 'photography',
+    slug: 'silent-architecture',
+    year: '2023',
+    services: 'Photography / Strategy',
+    image: '/images/Digital Marketers4.jpg',
+  },
+  {
+    id: 4,
+    title: 'Fashion Forward',
+    category: 'web-design',
+    slug: 'fashion-forward',
+    year: '2023',
+    services: 'Web Design / Art Direction',
+    image: '/images/Digital Marketers.jpg',
+  },
+  {
+    id: 5,
+    title: 'Brand Evolution',
+    category: 'strategy',
+    slug: 'brand-evolution',
+    year: '2023',
+    services: 'Strategy / Branding',
+    image: '/images/Digital Marketers2.jpg',
+  },
+  {
+    id: 6,
+    title: 'Visual Narrative',
+    category: 'art-direction',
+    slug: 'visual-narrative',
+    year: '2023',
+    services: 'Art Direction / Photography',
+    image: '/images/Digital Marketers3.jpg',
+  },
+];
+
+function ProjectListItem({ project, index, itemVariants }: { project: Project; index: number; itemVariants: Variants }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      exit="exit"
+      layout
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      className="relative group"
+    >
+      <Link
+        href={`/work/${project.slug}`}
+        className="group relative w-full border-b border-black/10 py-10 md:py-14 block transition-all duration-300 ease-out hover:bg-black/[0.02]"
+      >
+        <div className="flex flex-col md:flex-row items-baseline md:items-center justify-between">
+          <div className="flex items-baseline gap-4 md:gap-8 flex-1">
+            <span className="text-sm font-serif italic text-gray-400 group-hover:text-[#B35A46]">
+              0{index + 1}
+            </span>
+            <div>
+              <motion.h2 
+                className="font-serif text-3xl md:text-5xl group-hover:text-[#B35A46] transition-colors duration-200"
+                whileHover={{ x: 8 }}
+                transition={{ duration: 0.2 }}
+              >
+                {project.title}
+              </motion.h2>
+              <p className="text-sm uppercase tracking-widest text-gray-500 mt-1">
+                {project.services}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-8 md:gap-16 mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end">
+            <span className="text-sm uppercase tracking-widest text-gray-400 group-hover:text-[#2A2622]">
+              {project.year}
+            </span>
+            <motion.span 
+              className="text-2xl"
+              whileHover={{ x: 8, color: '#B35A46' }}
+              transition={{ duration: 0.2 }}
+            >
+              →
+            </motion.span>
+          </div>
+        </div>
+      </Link>
+
+      {/* Floating Image Reveal */}
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed pointer-events-none z-50 w-64 h-80 overflow-hidden rounded-lg shadow-2xl"
+            style={{
+              left: mousePosition.x,
+              top: mousePosition.y,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('all');
-
-  const projects = [
-    {
-      id: 1,
-      title: 'Vogue Essence',
-      category: 'editorial',
-      slug: 'vogue-essence',
-      year: '2024',
-      services: 'Editorial / Web Design',
-    },
-    {
-      id: 2,
-      title: 'Urban Canvas',
-      category: 'branding',
-      slug: 'urban-canvas',
-      year: '2024',
-      services: 'Branding / Identity',
-    },
-    {
-      id: 3,
-      title: 'Silent Architecture',
-      category: 'photography',
-      slug: 'silent-architecture',
-      year: '2023',
-      services: 'Photography / Strategy',
-    },
-    {
-      id: 4,
-      title: 'Fashion Forward',
-      category: 'web-design',
-      slug: 'fashion-forward',
-      year: '2023',
-      services: 'Web Design / Art Direction',
-    },
-    {
-      id: 5,
-      title: 'Brand Evolution',
-      category: 'strategy',
-      slug: 'brand-evolution',
-      year: '2023',
-      services: 'Strategy / Branding',
-    },
-    {
-      id: 6,
-      title: 'Visual Narrative',
-      category: 'art-direction',
-      slug: 'visual-narrative',
-      year: '2023',
-      services: 'Art Direction / Photography',
-    },
-  ];
 
   const filters = ['all', 'branding', 'web-design', 'art-direction', 'photography', 'strategy'];
 
@@ -64,7 +164,7 @@ export default function Work() {
     ? projects 
     : projects.filter(p => p.category === activeFilter);
 
-  // Animation variants - using as const to avoid type issues
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -74,7 +174,7 @@ export default function Work() {
         delayChildren: 0.1,
       },
     },
-  } as const;
+  };
 
   const itemVariants = {
     hidden: { 
@@ -89,7 +189,7 @@ export default function Work() {
       opacity: 0, 
       y: -20,
     },
-  } as const;
+  };
 
   return (
     <main id="main-content" role="main" className="relative w-full pt-28 pb-20 px-6 md:px-12">
@@ -148,55 +248,12 @@ export default function Work() {
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
-            <motion.div
+            <ProjectListItem
               key={project.id}
-              variants={itemVariants}
-              exit="exit"
-              layout
-            >
-              <Link
-                href={`/work/${project.slug}`}
-                className="group relative w-full border-b border-black/10 py-10 md:py-14 block transition-all duration-300 ease-out hover:bg-black/[0.02]"
-                style={{ transitionDelay: `${index * 30}ms` }}
-              >
-                <div className="flex flex-col md:flex-row items-baseline md:items-center justify-between">
-                  <div className="flex items-baseline gap-4 md:gap-8 flex-1">
-                    <motion.span 
-                      className="text-sm font-serif italic text-gray-400"
-                      whileHover={{ color: '#B35A46' }}
-                    >
-                      0{index + 1}
-                    </motion.span>
-                    <div>
-                      <motion.h2 
-                        className="font-serif text-3xl md:text-5xl group-hover:text-[#B35A46] transition-colors duration-200"
-                        whileHover={{ x: 8 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {project.title}
-                      </motion.h2>
-                      <p className="text-sm uppercase tracking-widest text-gray-500 mt-1">
-                        {project.services}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-8 md:gap-16 mt-4 md:mt-0 w-full md:w-auto justify-between md:justify-end">
-                    <motion.span 
-                      className="text-sm uppercase tracking-widest text-gray-400 group-hover:text-[#2A2622] transition-colors duration-200"
-                    >
-                      {project.year}
-                    </motion.span>
-                    <motion.span 
-                      className="text-2xl"
-                      whileHover={{ x: 8, color: '#B35A46' }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      →
-                    </motion.span>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+              project={project}
+              index={index}
+              itemVariants={itemVariants}
+            />
           ))}
         </AnimatePresence>
       </motion.div>
@@ -211,7 +268,7 @@ export default function Work() {
       >
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="font-serif text-4xl md:text-6xl mb-8">Have a project in mind?</h2>
-          <Link className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base font-medium" href="/#contact">
+          <Link className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base font-medium hover:bg-[#963D30] transition-colors" href="/#contact">
             Let&apos;s Talk
           </Link>
         </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, type Variants } from 'framer-motion';
 import ContactForm from '@/components/ContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
 
@@ -41,41 +42,92 @@ export default function Home() {
     },
   ];
 
+  // Hero animation variants
+  const heroContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const heroItem: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' }
+    },
+  };
+
+  const imageZoom: Variants = {
+    hidden: { scale: 1.1, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 0.4,
+      transition: { duration: 1.5, ease: 'easeOut' }
+    },
+  };
+
   return (
     <>
       {/* Hero Section */}
       <header className="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 overflow-hidden bg-[#1C1B1A] text-[#EBE6DF]">
-        <div className="absolute inset-0 opacity-40">
+        <motion.div 
+          className="absolute inset-0"
+          initial="hidden"
+          animate="visible"
+          variants={imageZoom}
+        >
           <Image
             src="/images/Digital Marketers.jpg"
-            alt="Marcy Studios background"
+            alt="Marcy Studios hero background - abstract digital texture showing the agency's creative environment"
             fill
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
         
-        <div className="relative z-10 w-full max-w-[90vw] mx-auto">
+        <motion.div 
+          className="relative z-10 w-full max-w-[90vw] mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={heroContainer}
+        >
           <div className="flex flex-col items-start">
-            <p className="text-sm md:text-base uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">
+            <motion.p 
+              variants={heroItem}
+              className="text-sm md:text-base uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4"
+            >
               Digital Experience Agency
-            </p>
+            </motion.p>
             <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] leading-[0.85] tracking-tighter-custom mb-8 pr-4">
-              <span className="block ml-0 md:ml-12">Digital</span>
-              <span className="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-2 md:-translate-y-8 translate-x-4 md:translate-x-32">Alchemy</span>
-              <span className="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</span>
+              <motion.span variants={heroItem} className="block ml-0 md:ml-12">Digital</motion.span>
+              <motion.span 
+                variants={heroItem}
+                className="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-2 md:-translate-y-8 translate-x-4 md:translate-x-32"
+              >
+                Alchemy
+              </motion.span>
+              <motion.span variants={heroItem} className="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</motion.span>
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8">
+          <motion.div 
+            variants={heroItem}
+            className="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8"
+          >
             <div className="max-w-xl text-lg md:text-xl leading-relaxed text-gray-400 font-light">
               We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.
             </div>
             <div className="mt-8 md:mt-0 flex items-center gap-4">
               <span className="text-4xl font-light animate-bounce">↓</span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </header>
 
       {/* Selected Works - New Project Showcase */}
@@ -163,9 +215,9 @@ export default function Home() {
               Let&apos;s<br />
               <span className="font-display italic text-[#CCAA6E] ml-16">Talk</span>
             </h2>
-            <a className="cta-button inline-block mt-8 text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
-              hello@marcy.com
-            </a>
+            <div className="max-w-md mt-12">
+              <ContactForm variant="full" />
+            </div>
           </div>
 
           <div className="flex flex-col justify-end">
