@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="Marcy Studios — About">
   <meta name="twitter:description" content="Learn about our philosophy and meet the team.">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style">
   <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +69,51 @@
       },
     };
   </script>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.querySelector('[aria-controls="mobile-menu"]');
+      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      const menuItems = document.querySelectorAll('.mobile-menu-item');
+      
+      const isOpen = menu.classList.contains('opacity-100');
+      
+      if (isOpen) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+        button.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(menuItems.length - index) * 50}ms`;
+          item.classList.remove('opacity-100', 'translate-y-0');
+          item.classList.add('opacity-0', 'translate-y-4');
+        });
+        
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      } else {
+        menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        button.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(index + 1) * 50}ms`;
+          item.classList.remove('opacity-0', 'translate-y-4');
+          item.classList.add('opacity-100', 'translate-y-0');
+        });
+        
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      }
+    }
+  </script>
+
   <style type="text/tailwindcss">
     .font-serif-display { font-family: 'Bodoni Moda', serif; }
     .font-serif-italic  { font-family: 'Instrument Serif', serif; }
@@ -148,12 +194,12 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-meron z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
-      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-[#1C1B1A] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-400 ease-out">
+    <div class="flex flex-col gap-6 text-center text-4xl font-display italic text-[#EBE6DF]">
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="work.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 100ms">Work</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="about.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 150ms">Agency</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="expertise.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 200ms">Expertise</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="index.html#contact" onclick="toggleMenu()" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 250ms">Contact</a>
     </div>
   </div>
 
@@ -327,7 +373,7 @@
         <h2 class="font-serif text-6xl md:text-8xl font-normal leading-none">
           Recognition
         </h2>
-        <a class="text-sm uppercase tracking-widest text-[#B35A46] border-b border-[#B35A46] pb-1 hover:text-[#2A2622] hover:border-[#2A2622] transition-colors mt-6 md:mt-0 cursor-not-allowed opacity-50" href="javascript:void(0)">View All</a>
+        <a class="text-sm uppercase tracking-widest text-[#B35A46] border-b border-[#B35A46] pb-1 hover:text-[#2A2622] hover:border-[#2A2622] transition-colors mt-6 md:mt-0" href="work.html">View All</a>
       </div>
 
       <div class="flex flex-col">
@@ -409,10 +455,10 @@
         <div>
           <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-6">Social</h4>
           <div class="flex flex-col gap-4 text-base text-gray-400">
-            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Instagram</a>
-            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">LinkedIn</a>
-            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Twitter</a>
-            <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Behance</a>
+            <a class="hover:text-white transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="hover:text-white transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="hover:text-white transition-colors" href="https://twitter.com/marcy" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a class="hover:text-white transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
           </div>
         </div>
         <div>
@@ -429,8 +475,8 @@
 
     <div class="flex flex-col md:flex-row justify-between items-center text-base uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
       <div class="flex gap-6 mb-4 md:mb-0">
-        <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Privacy Policy</a>
-        <a class="hover:text-white transition-colors opacity-50 cursor-not-allowed" href="javascript:void(0)">Terms of Service</a>
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
       </div>
       <div>© 2024 Marcy Studios. All Rights Reserved.</div>
     </div>

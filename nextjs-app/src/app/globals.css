@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #964F4C;
+  --color-secondary: #CCAA6E;
+  --color-background: #F2EFE9;
+  --color-background-dark: #1C1B1A;
+  --color-text-main: #2A2622;
+  --color-text-light: #EBE6DF;
+  --color-accent: #B35A46;
+  --color-meron: #76323F;
+  
+  --font-serif: 'Bodoni Moda', serif;
+  --font-display: 'Instrument Serif', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --tracking-tighter-custom: -0.04em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#F2EFE9] text-[#2A2622] font-sans antialiased;
+    @apply selection:bg-[#B35A46] selection:text-white;
+    @apply overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  .font-serif-display {
+    font-family: 'Bodoni Moda', serif;
+  }
+  
+  .font-serif-italic {
+    font-family: 'Instrument Serif', serif;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .blend-multiply {
+    mix-blend-mode: multiply;
+  }
+  
+  .staggered-grid > *:nth-child(even) {
+    margin-top: 4rem;
+  }
+  
+  .hover-reveal-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hover-reveal-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #964F4C;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    mix-blend-mode: multiply;
+    opacity: 0.2;
+  }
+  
+  .hover-reveal-wrapper:hover::after {
+    transform: scaleY(1);
+  }
+  
+  /* Focus visible styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-[#B35A46];
+  }
+  
+  /* CTA Button micro-interactions */
+  .cta-button {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(179, 90, 70, 0.3);
+  }
+  
+  .cta-button:active {
+    transform: scale(0.98);
+    animation: cta-bounce 0.3s ease;
+  }
+  
+  @keyframes cta-bounce {
+    0%, 100% { transform: scale(0.98); }
+    50% { transform: scale(1.02); }
+  }
+  
+  /* Parallax section */
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+/* Skip link for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  @apply bg-[#B35A46] text-white px-4 py-2 rounded;
+}

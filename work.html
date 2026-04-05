@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="Marcy Studios — Selected Works">
   <meta name="twitter:description" content="Explore our portfolio of award-winning digital experiences.">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style">
   <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,10 +112,55 @@
       color: #B35A46;
       transform: translateX(1.25rem);
     }
+    /* Filter buttons */
+    .filter-btn {
+      background-color: transparent;
+    }
+    .filter-btn.active {
+      background-color: #B35A46;
+      color: white !important;
+      border-color: #B35A46;
+    }
+    .project-row.hidden {
+      display: none;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      background-color: #B35A46;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 100;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(179, 90, 70, 0.3);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background-color: #964F4C;
+    }
+    @media (max-width: 767px) {
+      .back-to-top {
+        display: none;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen">
+<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen overflow-x-hidden">
   <!-- Skip link for keyboard accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -140,12 +186,12 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-meron z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
-      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-[#1C1B1A] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-400 ease-out">
+    <div class="flex flex-col gap-6 text-center text-4xl font-display italic text-[#EBE6DF]">
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="work.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 100ms">Work</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="about.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 150ms">Agency</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="expertise.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 200ms">Expertise</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="index.html#contact" onclick="toggleMenu()" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 250ms">Contact</a>
     </div>
   </div>
 
@@ -163,11 +209,22 @@
       </div>
     </div>
 
+    <!-- Project Filters -->
+    <div class="flex flex-wrap gap-3 md:gap-4 mb-12" id="project-filters">
+      <button class="filter-btn active text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="all">All</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="editorial">Editorial</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="branding">Branding</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="photography">Photography</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="web-design">Web Design</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="strategy">Strategy</button>
+      <button class="filter-btn text-xs md:text-sm uppercase tracking-widest px-4 py-2 border border-[#2A2622]/20 rounded-full hover:border-[#B35A46] hover:text-[#B35A46] transition-colors" data-filter="art-direction">Art Direction</button>
+    </div>
+
     <!-- Project List -->
     <div class="flex flex-col w-full" id="project-list">
 
       <!-- Row 1 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="0">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="0" data-category="editorial">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">01</span>
@@ -188,7 +245,7 @@
       </a>
 
       <!-- Row 2 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="1">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="1" data-category="branding">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">02</span>
@@ -208,7 +265,7 @@
       </a>
 
       <!-- Row 3 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="2">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="2" data-category="photography">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">03</span>
@@ -228,7 +285,7 @@
       </a>
 
       <!-- Row 4 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="3">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="3" data-category="web-design">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">04</span>
@@ -248,7 +305,7 @@
       </a>
 
       <!-- Row 5 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="4">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="4" data-category="strategy">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">05</span>
@@ -268,7 +325,7 @@
       </a>
 
       <!-- Row 6 -->
-      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="5">
+      <a href="project.html" class="project-row group relative w-full border-b border-black/10 py-10 md:py-14 block" data-index="5" data-category="art-direction">
         <div class="flex flex-col md:flex-row items-baseline md:items-center justify-between">
           <div class="flex items-baseline gap-4 md:gap-8 flex-1">
             <span class="font-sans text-sm md:text-base text-gray-400 w-8 shrink-0">06</span>
@@ -302,9 +359,9 @@
           </span>
         </a>
         <div class="mt-12 flex gap-8">
-          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="javascript:void(0)">Instagram</a>
-          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="javascript:void(0)">LinkedIn</a>
-          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="javascript:void(0)">Behance</a>
+          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="text-sm uppercase tracking-widest text-gray-400 hover:text-[#2A2622] transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
         </div>
         <p class="mt-10 text-sm text-gray-400 font-sans">© 2024 Marcy Studios. All Rights Reserved.</p>
       </div>
@@ -337,7 +394,95 @@
         row.removeEventListener('mousemove', handleMouseMove);
       });
     });
+
+    // Project Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectRows = document.querySelectorAll('.project-row');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter projects
+        projectRows.forEach(row => {
+          const category = row.dataset.category;
+          if (filter === 'all' || category === filter) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.querySelector('[aria-controls="mobile-menu"]');
+      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      const menuItems = document.querySelectorAll('.mobile-menu-item');
+      
+      const isOpen = menu.classList.contains('opacity-100');
+      
+      if (isOpen) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+        button.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(menuItems.length - index) * 50}ms`;
+          item.classList.remove('opacity-100', 'translate-y-0');
+          item.classList.add('opacity-0', 'translate-y-4');
+        });
+        
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      } else {
+        menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        button.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(index + 1) * 50}ms`;
+          item.classList.remove('opacity-0', 'translate-y-4');
+          item.classList.add('opacity-100', 'translate-y-0');
+        });
+        
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      }
+    }
+  </script>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
 
 </body>
 </html>

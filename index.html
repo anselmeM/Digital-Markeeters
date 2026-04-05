@@ -5,10 +5,36 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Marcy Studios - Digital Experience Agency</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <meta name="description" content="Marcy Studios is a digital experience agency crafting immersive digital experiences for brands that dare to be different. We blend strategy with avant-garde design.">
+  <meta property="og:title" content="Marcy Studios - Digital Experience Agency">
+  <meta property="og:description" content="We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.">
+  <meta property="og:image" content="https://marcy.com/images/og-default.jpg">
+  <meta property="og:url" content="https://marcy.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marcy Studios - Digital Experience Agency">
+  <meta name="twitter:description" content="We craft immersive digital experiences for brands that dare to be different.">
+  <link rel="canonical" href="https://marcy.com/">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Marcy Studios",
+      "description": "Digital Experience Agency - crafting immersive digital experiences for brands that dare to be different",
+      "url": "https://marcy.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://marcy.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
   <style type="text/tailwindcss">
@@ -74,10 +100,15 @@
   </script>
 </head>
 
-<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white">
+<body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white overflow-x-hidden">
+
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#B35A46] focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to main content
+  </a>
 
   <!-- ═══ NAV ═══ -->
-  <nav class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+  <nav role="navigation" aria-label="Main navigation" class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
     <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
     <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-sm uppercase tracking-widest font-medium">
       <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
@@ -98,12 +129,12 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-meron z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="flex flex-col gap-8 text-center text-3xl font-serif text-[#EBE6DF]">
-      <a class="hover:text-[#B35A46] transition-colors" href="work.html">Work</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="about.html">Agency</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="expertise.html">Expertise</a>
-      <a class="hover:text-[#B35A46] transition-colors" href="#contact" onclick="toggleMenu()">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-[#1C1B1A] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-400 ease-out">
+    <div class="flex flex-col gap-6 text-center text-4xl font-display italic text-[#EBE6DF]">
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="work.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 100ms">Work</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="about.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 150ms">Agency</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="expertise.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 200ms">Expertise</a>
+      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="#contact" onclick="toggleMenu()" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 250ms">Contact</a>
     </div>
   </div>
 
@@ -112,36 +143,101 @@
       const menu = document.getElementById('mobile-menu');
       const button = document.querySelector('[aria-controls="mobile-menu"]');
       const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
+      const menuItems = document.querySelectorAll('.mobile-menu-item');
       
       const isOpen = menu.classList.contains('opacity-100');
       
       if (isOpen) {
+        // Close menu - reverse animation
         menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
         button.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        
+        // Hide menu items with staggered delay (reverse)
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(menuItems.length - index) * 50}ms`;
+          item.classList.remove('opacity-100', 'translate-y-0');
+          item.classList.add('opacity-0', 'translate-y-4');
+        });
         
         lines[0].style.transform = 'none';
         lines[1].style.opacity = '1';
         lines[2].style.transform = 'none';
       } else {
-        menu.classList.remove('opacity-0', 'pointer-events-none');
-        menu.classList.add('opacity-100', 'pointer-events-auto');
+        // Open menu - entrance animation
+        menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
         button.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
+        
+        // Show menu items with staggered delay
+        menuItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(index + 1) * 50}ms`;
+          item.classList.remove('opacity-0', 'translate-y-4');
+          item.classList.add('opacity-100', 'translate-y-0');
+        });
         
         lines[0].style.transform = 'translateY(7px) rotate(45deg)';
         lines[1].style.opacity = '0';
         lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
       }
     }
+
+    function validateEmail(form) {
+      const email = form.querySelector('input[type="email"]').value;
+      const errorMsg = form.querySelector('#email-error');
+      const spinner = form.querySelector('#newsletter-spinner');
+      const submitBtn = form.querySelector('#newsletter-submit');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(email)) {
+        errorMsg.classList.remove('hidden');
+        return false;
+      }
+      
+      // Hide error if any
+      errorMsg.classList.add('hidden');
+      
+      // Show loading spinner and disable button
+      spinner.classList.remove('hidden');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      
+      // Simulate loading (in production, this would be an API call)
+      setTimeout(function() {
+        // Hide spinner and re-enable button
+        spinner.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        
+        // Show success message
+        alert('Thank you for subscribing!');
+        
+        // Clear input
+        form.querySelector('input[type="email"]').value = '';
+      }, 1500);
+      
+      return false;
+    }
+
+    // Parallax effect for philosophy section
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.dataset.speed) || 0.3;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
   </script>
 
+  <main id="main-content">
   <!-- ═══ HERO ═══ -->
   <header class="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 overflow-hidden bg-[#1C1B1A] text-[#EBE6DF]">
     <div class="absolute inset-0 opacity-40">
       <img
-        alt="Hero background texture"
+        alt="Marcy Studios hero background - abstract digital texture"
         class="w-full h-full object-cover filter grayscale contrast-125 brightness-50"
         src="images/Digital Marketers.jpg"
         fetchpriority="high"
@@ -179,7 +275,7 @@
         Selected <br />
         <span class="font-display italic text-[#B35A46]">Works</span>
       </h2>
-      <a class="hidden md:flex items-center gap-2 text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="work.html">
+      <a class="hidden md:flex items-center gap-2 text-sm uppercase tracking-widest border-b border-black pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="work.html">
         View All Projects <span class="material-symbols-outlined text-base">arrow_forward</span>
       </a>
     </div>
@@ -239,8 +335,8 @@
   </section>
 
   <!-- ═══ PHILOSOPHY ═══ -->
-  <section class="py-32 px-6 md:px-12 bg-[#EBE6DF] relative overflow-hidden" id="philosophy">
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-[#E5E0D8] -z-0"></div>
+  <section class="py-32 px-6 md:px-12 bg-[#EBE6DF] relative overflow-hidden parallax-section" id="philosophy">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-[#E5E0D8] -z-0 parallax-bg" data-speed="0.3"></div>
     <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
       <div class="lg:col-span-5">
         <p class="text-sm font-bold uppercase tracking-widest text-[#B35A46] mb-8">Our Philosophy</p>
@@ -253,7 +349,7 @@
           <p class="text-lg md:text-xl leading-relaxed text-gray-600 max-w-sm">
             Minimalism isn't just an aesthetic; it's a tool for clarity. We strip away the non-essential to reveal the core of your brand's story.
           </p>
-          <a class="inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-xs tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="#">
+          <a class="cta-button inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-sm tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="about.html">
             Read the Manifesto
           </a>
         </div>
@@ -261,7 +357,7 @@
 
       <div class="lg:col-span-7 grid grid-cols-2 gap-8 items-center">
         <div class="pt-24">
-          <img alt="Agency detail shot 1" class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-500" src="images/Digital Marketers3.jpg" loading="lazy" />
+          <img alt="Agency philosophy section - team collaboration and creative workspace" class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-500" src="images/Digital Marketers3.jpg" loading="lazy" />
         </div>
         <div>
           <img alt="Agency detail shot 2" class="w-full aspect-square object-cover mb-8 grayscale hover:grayscale-0 transition-all duration-500" src="images/Digital Marketers2.jpg" loading="lazy" />
@@ -333,7 +429,7 @@
           Let's<br />
           <span class="font-display italic text-[#CCAA6E] ml-16">Talk</span>
         </h2>
-        <a class="inline-block mt-8 text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+        <a class="cta-button inline-block mt-8 text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
           hello@marcy.com
         </a>
       </div>
@@ -341,7 +437,7 @@
       <div class="flex flex-col justify-end">
         <div class="grid grid-cols-2 gap-8 mb-12">
           <div>
-            <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
+            <h4 class="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
             <p class="text-base text-gray-400 leading-relaxed">
               215 McLeod Avenue<br />
               Box 3497, AB T7XX<br />
@@ -349,7 +445,7 @@
             </p>
           </div>
           <div>
-            <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
+            <h4 class="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
             <p class="text-base text-gray-400 leading-relaxed">
               2619 Chapmans Lane<br />
               Farmington, NM 87402<br />
@@ -358,19 +454,30 @@
           </div>
         </div>
 
-        <form class="w-full">
-          <label class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
-          <div class="flex border-b border-gray-700 pb-2">
+        <form class="w-full relative" aria-label="Newsletter signup" onsubmit="return validateEmail(this)">
+          <label for="newsletter-email" class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
+          <div class="flex border-b border-gray-700 pb-2 items-center">
             <input
+              id="newsletter-email"
               class="bg-transparent border-none p-0 w-full text-[#EBE6DF] placeholder-gray-600 focus:ring-0"
               placeholder="Your email address"
               type="email"
               name="email"
               autocomplete="email"
               required
+              aria-describedby="email-hint"
             />
-            <button class="text-xs uppercase tracking-widest hover:text-[#CCAA6E]" type="submit">Send</button>
+            <button class="cta-button text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors disabled:opacity-50" type="submit" id="newsletter-submit">Send</button>
           </div>
+          <!-- Loading Spinner -->
+          <div id="newsletter-spinner" class="hidden absolute right-0 top-1/2 -translate-y-1/2">
+            <svg class="animate-spin h-4 w-4 text-[#CCAA6E]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </div>
+          <span id="email-hint" class="sr-only">Enter your email address to subscribe to our newsletter</span>
+          <p id="email-error" class="text-red-500 text-xs mt-1 hidden" role="alert" aria-live="polite">Please enter a valid email address.</p>
         </form>
       </div>
     </div>
@@ -384,6 +491,7 @@
       <div>© 2024 Marcy Studios. All Rights Reserved.</div>
     </div>
   </footer>
+</main>
 
 </body>
 </html>

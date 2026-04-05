@@ -1,281 +1,232 @@
-/*
+/* 
+ * Marcy Studios - Custom Styles
+ * Digital Experience Agency Website
+ */
 
-Theme Name: Kooleythemes
-Theme URI: www.kooleythemes.com
-Author: Othello
-Author URI: www.kooleythemes.com
-Description:  DigiMarketeers.
-Version: 0.1
-Requires at least: 5.0
-Tested up to: 5.4
-Requires PHP: 7.0
-*/
-
-
-
+/* CSS Custom Properties */
 :root {
-	--border-color: #709680;
-	--lightest-green: #86a58d;
-	--dark-green: rgba(52, 74, 57, 0.86);
-	--body-background: #D7CEC7;
-	--grey: #707070;
-	--meron: #76323F;
-	--sub-bg: #C09F80;
-	--white: #FFF;
-	--black: #000;
+  --primary: #964F4C;
+  --secondary: #CCAA6E;
+  --background-light: #F2EFE9;
+  --background-dark: #1C1B1A;
+  --text-main: #2A2622;
+  --text-light: #EBE6DF;
+  --accent-terracotta: #B35A46;
+  --meron: #76323F;
 }
-.grey{
-	color: var(--grey);
-}
-.meron{
-	color: var(--meron);
-}
-.sub-bg{
-	color: var(--sub-bg);
-}
-.white{
-	color: var(--white);
-}
-.black{
-	color: var(--black);
-}
-.center{
-	text-align: center;
-}
-.initial{
-	text-align: left;
-}
-/*
 
-Theme Name: Kooleythemes
-Theme URI: www.kooleythemes.com
-Author: Othello
-Author URI: www.kooleythemes.com
-Description:  DigiMarketeers.
-Version: 0.1
-Requires at least: 5.0
-Tested up to: 5.4
-Requires PHP: 7.0
-*/
+/* Accessibility Styles */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background: #B35A46;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
 
+.skip-link:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
 
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #B35A46;
+  outline-offset: 2px;
+}
 
-:root {
-	--border-color: #709680;
-	--lightest-green: #86a58d;
-	--dark-green: rgba(52, 74, 57, 0.86);
-	--body-background: #D7CEC7;
-	--grey: #707070;
-	--meron: #76323F;
-	--sub-bg: #C09F80;
-	--white: #FFF;
-	--black: #000;
+/* Ensure focus is visible on all interactive elements */
+*:focus-visible {
+  outline: 2px solid #B35A46;
+  outline-offset: 2px;
 }
-.grey{
-	color: var(--grey);
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-.meron{
-	color: var(--meron);
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.sub-bg{
-	color: var(--sub-bg);
+
+/* Micro-interactions for CTA buttons */
+.cta-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.white{
-	color: var(--white);
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(179, 90, 70, 0.3);
 }
-.black{
-	color: var(--black);
+.cta-button:active {
+  transform: scale(0.98);
+  animation: cta-bounce 0.3s ease;
 }
-.center{
-	text-align: center;
+@keyframes cta-bounce {
+  0%, 100% { transform: scale(0.98); }
+  50% { transform: scale(1.02); }
 }
-.initial{
-	text-align: left;
+
+/* Parallax wrapper for philosophy section */
+.parallax-section {
+  position: relative;
+  overflow: hidden;
 }
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	list-style: none;
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
 }
-html {
-	font-size: 10px; /* Base 10px so 1rem = 10px. Important for legacy spacing. */
+
+/* Hover reveal wrapper for work.html */
+.hover-reveal-wrapper {
+  position: relative;
+  overflow: hidden;
 }
-body {
-	background: var(--body-background);
+.hover-reveal-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  mix-blend-mode: multiply;
+  opacity: 0.2;
 }
-img{
-	max-width: 100%;
-	height: auto;
-	list-style: none;
+.hover-reveal-wrapper:hover::after {
+  transform: scaleY(1);
 }
-a{
-	text-decoration: none;
-	color: #000;
+
+/* Utility Classes */
+.font-serif-display {
+  font-family: 'Bodoni Moda', serif;
 }
-.wrapper{
-	display: flex;
+
+.font-serif-italic {
+  font-family: 'Instrument Serif', serif;
 }
-.al-center{
-	align-items: center;
+
+.blend-multiply {
+  mix-blend-mode: multiply;
 }
-.jst-center{
-	justify-content: center;
+
+/* Masonry Grid */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 2rem;
 }
-.jst-btw{
-	justify-content: space-between;
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
 }
-.mgb-0{
-	margin-bottom: 0;
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
 }
-.mgt-0{
-	margin-top: 0;
+
+.masonry-grid > * {
+  break-inside: avoid;
+  margin-bottom: 2rem;
 }
-.mgr-0{
-	margin-right: 0;
+
+/* Staggered Grid */
+.staggered-grid > *:nth-child(even) {
+  margin-top: 4rem;
 }
-.mgl-0{
-	margin-left: 0;
+
+/* Hover Reveal Wrapper */
+.hover-reveal-wrapper {
+  position: relative;
+  overflow: hidden;
 }
-.uppercase{
-	text-transform: uppercase;
+
+.hover-reveal-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  mix-blend-mode: multiply;
+  opacity: 0.2;
 }
-.capitalize{
-	text-transform: capitalize;
+
+.hover-reveal-wrapper:hover::after {
+  transform: scaleY(1);
 }
-.main-heading{
-	font-size: 14rem;
-	font-family: 'Elsie', cursive;
-	font-weight: 400;
+
+/* Responsive Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
-.sub-heading{
-	font-size: 8.5rem;
-	font-family: 'Elsie', cursive;
-	font-weight: 400;
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 900px;
+  }
 }
-.para{
-	font-family: 'Roboto', sans-serif;
-	font-size: 2rem;
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 600px;
+  }
 }
-.desc{
-	font-family: 'Roboto', sans-serif;
-	font-size: 4.4rem;
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 400px;
+  }
 }
-.top-bar__link{
-  font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
+
+/* Responsive Typography */
+.sub-heading {
+  font-size: 3rem;
 }
-.section-top-box__heading{
-	font-size: 3rem;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+
+.main-heading {
+  font-size: 4rem !important;
 }
-.accordian-box__heading{
-	font-size: 4.8rem;
-	font-weight: 400;
+
+/* Accordion Styles */
+.accordian-box__heading {
+  font-size: 2.5rem;
 }
+
 .accordian-box__para,
-.contact-box-para{
-	font-size: 3.6rem;
-	font-family: 'Roboto', sans-serif;
-	line-height: 1.5;
+.contact-box-para {
+  font-size: 1.6rem;
 }
-.container{
-	max-width: 1280px;
-	margin:0 auto;
-	padding: 0 15px;
-}
-@media (min-width:2001px){
-	.container{
-		max-width: 1900px;
-	}
-}
-@media (min-width:1801px){
-	.container{
-		max-width: 1700px;
-	}
-}
-@media (max-width:1800px){
-	.container{
-		max-width: 1500px;
-	}
-}
-@media (max-width:1600px){
-	.container{
-		max-width: 1280px;
-	}
-	.main-heading {
-		font-size: 10rem;
-	}
-	.sub-heading {
-		font-size: 5.5rem;
-	}
-	.desc {
-		font-size: 2.4rem;
-	}
-	.section-top-box__heading {
-		font-size: 2rem;
-	}
-	.accordian-box__heading {
-		font-size: 3.5rem;
-	}
-	.accordian-box__para, .contact-box-para {
-		font-size: 2.6rem;
-	}
-}
-@media (max-width:1400px){
-	.container{
-		max-width: 1200px;
-	}
-	.top-bar__link {
-		font-size: 1.4rem;
-	}
-	.main-heading {
-		font-size: 8rem;
-	}
-	.sub-heading {
-		font-size: 4.5rem;
-	}
-	.desc {
-		font-size: 2.0rem;
-	}
-	.accordian-box__heading {
-		font-size: 3rem;
-	}
-	.accordian-box__para, .contact-box-para {
-		font-size: 2rem;
-	}
 
-}
-@media (max-width: 1200px){
-	.container{
-		max-width: 900px;
-	}
-	.accordian-box__heading {
-		font-size: 2.5rem;
-	}
-	.accordian-box__para, .contact-box-para {
-		font-size: 1.6rem;
-	}
-}
-@media (max-width: 900px){
-	.container{
-		max-width: 600px;
-	}
-}
-@media (max-width: 600px){
-	.container{
-		max-width: 400px;
-	}
-	.sub-heading {
-		font-size: 3rem;
-	}
-	.main-heading{
-		font-size: 4rem !important;
-	}
-}
-@media (max-width: 400px){
-	.container{
-		max-width: 360px;
-	}
+/* Print Styles */
+@media print {
+  .skip-link {
+    display: none;
+  }
+  
+  nav,
+  footer {
+    display: none;
+  }
 }
