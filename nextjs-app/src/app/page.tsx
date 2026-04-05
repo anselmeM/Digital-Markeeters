@@ -120,7 +120,7 @@ export default function Home() {
             variants={heroItem}
             className="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8"
           >
-            <div className="max-w-xl text-lg md:text-xl leading-relaxed text-gray-400 font-light">
+            <div className="max-w-xl text-lg md:text-xl leading-relaxed text-gray-300 font-light">
               We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.
             </div>
             <div className="mt-8 md:mt-0 flex items-center gap-4">
@@ -186,19 +186,19 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="lg:col-span-1">
             <h2 className="font-serif text-6xl mb-6">Expertise</h2>
-            <p className="text-gray-400 text-lg leading-relaxed max-w-sm">
+            <p className="text-gray-300 text-lg leading-relaxed max-w-sm font-light">
               Holistic digital solutions tailored for high-end brands. We cover every touchpoint of your digital presence.
             </p>
           </div>
 
           <div className="lg:col-span-2">
             {expertiseItems.map((item) => (
-              <div key={item.number} className="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300">
+              <div key={item.number} className="group border-b border-white/20 py-8 cursor-pointer hover:pl-4 transition-all duration-300 min-h-[112px] flex flex-col justify-center">
                 <div className="flex justify-between items-baseline">
                   <h3 className="font-serif text-4xl md:text-5xl group-hover:text-[#CCAA6E] transition-colors">{item.title}</h3>
                   <span className="text-sm text-gray-500 group-hover:text-[#CCAA6E]">{item.number}</span>
                 </div>
-                <p className="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-400 text-sm mt-0 group-hover:mt-4">
+                <p className="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 text-gray-300 text-base mt-0 group-hover:mt-4 font-light">
                   {item.description}
                 </p>
               </div>
@@ -224,7 +224,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-8 mb-12">
               <div>
                 <h4 className="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
-                <p className="text-base text-gray-400 leading-relaxed">
+                <p className="text-base text-gray-300 leading-relaxed font-light">
                   215 McLeod Avenue<br />
                   Box 3497, AB T7XX<br />
                   +1 (780) 555-5555
@@ -232,7 +232,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
-                <p className="text-base text-gray-400 leading-relaxed">
+                <p className="text-base text-gray-300 leading-relaxed font-light">
                   123 Design Street<br />
                   New York, NY 10001<br />
                   +1 (234) 567-890
