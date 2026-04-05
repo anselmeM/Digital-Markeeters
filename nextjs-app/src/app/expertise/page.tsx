@@ -128,15 +128,6 @@ export default function Expertise() {
         ))}
       </section>
 
-      {/* CTA */}
-      <div className="mt-20 text-center">
-        <h2 className="font-serif text-4xl md:text-6xl mb-8 text-[#2A2622]">
-          Ready to <span className="font-display italic text-[#B35A46]">start</span>?
-        </h2>
-        <Link href="/#contact" className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base">
-          Let&apos;s Talk
-        </Link>
-      </div>
     </main>
   );
 }

@@ -148,6 +148,17 @@ This document outlines the complete enhancement plan for the Digital-Markeeters 
 | 15 | Micro-interactions on CTAs | None |
 | 16 | Parallax in philosophy section | Phase 1 complete |
 
+### Phase 5: Premium Polish (Immediate Focus)
+
+| Order | Enhancement | Implementation Details | Status |
+|-------|-------------|------------------------|--------|
+| 17 | Smooth Scrolling (Lenis) ✅ | Integrate Lenis for inertial scrolling. Sync with ScrollTrigger/Framer Motion. | ✅ |
+| 18 | Cinematic Route Transitions ✅ | Implement Page Transitions using AnimatePresence. Add curtain or slide effects. | ✅ |
+| 19 | Magnetic UI Elements ✅ | Create a useMagnetic hook for buttons and arrows to pull toward cursor. | ✅ |
+| 20 | Interactive Hero Alchemy ✅ | Add mouse-reactive distortion or gradient to the "Alchemy" text. | ✅ |
+| 21 | Case Study Deep Dives ✅ | Create reusable content blocks (Parallax Image, Split Text) for project pages. | ✅ |
+| 22 | Dynamic SEO & Metadata ✅ | Implement sitemap.ts, robots.ts and dynamic OG images for projects. | ✅ |
+
 ---
 
 ## 6. Long-Term Architecture Timeline

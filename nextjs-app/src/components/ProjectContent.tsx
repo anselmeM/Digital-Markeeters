@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ParallaxImage, SplitSection, Quote } from './ProjectBlocks';
 
 interface ProjectContentProps {
   project: {
@@ -73,23 +74,8 @@ export default function ProjectContent({ project, nextProject }: ProjectContentP
         </motion.div>
       </motion.section>
 
-      {/* Main Image */}
-      <motion.section 
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="mb-16 md:mb-24"
-      >
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
-          <Image
-            src={project.images[0]}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </motion.section>
+      {/* Hero Parallax Image */}
+      <ParallaxImage src={project.images[0]} alt={project.title} />
 
       {/* Project Info */}
       <motion.section 
@@ -97,7 +83,7 @@ export default function ProjectContent({ project, nextProject }: ProjectContentP
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="mb-16 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-12"
+        className="mb-16 md:mb-32 grid grid-cols-1 lg:grid-cols-12 gap-12"
       >
         <motion.div variants={fadeInUp} className="lg:col-span-4">
           <h2 className="font-serif text-4xl md:text-5xl text-[#2A2622] mb-8">
@@ -140,37 +126,47 @@ export default function ProjectContent({ project, nextProject }: ProjectContentP
         </div>
       </motion.section>
 
-      {/* Gallery */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="mb-16 md:mb-24"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {project.images.slice(1).map((image, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="relative aspect-[4/5] overflow-hidden"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full"
-              >
-                <Image
-                  src={image}
-                  alt={`${project.title} - Image ${index + 2}`}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+      {/* Dynamic Deep Dive Sections */}
+      <div className="max-w-7xl mx-auto mb-24">
+        <SplitSection 
+          title="The Approach" 
+          imageSrc={project.images[1] || project.images[0]} 
+          imageAlt="Design Process"
+          imageSide="right"
+        >
+          <p>
+            Our process began with deep discovery into the brand&apos;s heritage and future aspirations. 
+            We focused on creating a visual language that felt both timeless and contemporary, 
+            avoiding trends in favor of enduring design principles.
+          </p>
+          <p>
+            Through iterative prototyping and continuous feedback loops, we refined every interaction 
+            to ensure it aligned with the core project objectives while pushing the boundaries of what&apos;s 
+            possible in the digital realm.
+          </p>
+        </SplitSection>
+
+        <Quote 
+          text="Design is not just what it looks like and feels like. Design is how it works." 
+          author="Steve Jobs" 
+        />
+
+        <SplitSection 
+          title="Attention to Detail" 
+          imageSrc={project.images[2] || project.images[0]} 
+          imageAlt="Details"
+          imageSide="left"
+        >
+          <p>
+            Every pixel was considered. From the custom typography pairings to the subtle micro-interactions, 
+            we ensured that the user journey was seamless and delightful at every touchpoint.
+          </p>
+          <p>
+            The resulting experience doesn&apos;t just communicate information; it evokes an emotional 
+            response and builds a lasting connection between the brand and its audience.
+          </p>
+        </SplitSection>
+      </div>
 
       {/* Next Project CTA */}
       <motion.section 

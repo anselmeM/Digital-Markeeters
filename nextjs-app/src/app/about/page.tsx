@@ -277,14 +277,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <div className="mt-40 mb-20 text-center">
-        <Link className="group relative inline-block mx-auto" href="/#contact">
-          <span className="font-serif text-4xl md:text-6xl text-[#2A2622] group-hover:text-[#B35A46] transition-colors">
-            Let&apos;s create something <span className="font-display italic">together</span>
-          </span>
-        </Link>
-      </div>
     </main>
   );
 }

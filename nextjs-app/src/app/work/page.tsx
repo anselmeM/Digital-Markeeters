@@ -258,21 +258,6 @@ export default function Work() {
         </AnimatePresence>
       </motion.div>
 
-      {/* CTA */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-40 mb-20"
-      >
-        <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="font-serif text-4xl md:text-6xl mb-8">Have a project in mind?</h2>
-          <Link className="cta-button bg-[#B35A46] text-white px-8 py-4 text-base font-medium hover:bg-[#963D30] transition-colors" href="/#contact">
-            Let&apos;s Talk
-          </Link>
-        </div>
-      </motion.div>
     </main>
   );
 }

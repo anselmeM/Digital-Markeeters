@@ -6,9 +6,22 @@ import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import ContactForm from '@/components/ContactForm';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import Magnetic from '@/components/Magnetic';
 
 export default function Home() {
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleAlchemyMouseMove = (e: React.MouseEvent) => {
+    const target = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - target.left) / target.width - 0.5;
+    const y = (e.clientY - target.top) / target.height - 0.5;
+    setMousePosition({ x, y });
+  };
+
+  const resetAlchemyMouse = () => {
+    setMousePosition({ x: 0, y: 0 });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,7 +121,15 @@ export default function Home() {
               <motion.span variants={heroItem} className="block ml-0 md:ml-12">Digital</motion.span>
               <motion.span 
                 variants={heroItem}
-                className="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] transform -translate-y-2 md:-translate-y-8 translate-x-4 md:translate-x-32"
+                onMouseMove={handleAlchemyMouseMove}
+                onMouseLeave={resetAlchemyMouse}
+                animate={{ 
+                  x: mousePosition.x * 60 + 128, 
+                  y: mousePosition.y * 60 - 32,
+                }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+                className="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] cursor-default"
               >
                 Alchemy
               </motion.span>
@@ -151,9 +172,11 @@ export default function Home() {
               <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-sm">
                 Minimalism isn&apos;t just an aesthetic; it&apos;s a tool for clarity. We strip away the non-essential to reveal the core of your brand&apos;s story.
               </p>
-              <Link className="cta-button inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-sm tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="/about">
-                Read the Manifesto
-              </Link>
+              <Magnetic strength={0.3}>
+                <Link className="cta-button inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-sm tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="/about">
+                  Read the Manifesto
+                </Link>
+              </Magnetic>
             </div>
           </div>
 
@@ -207,52 +230,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-24 px-6 md:px-12 bg-[#151413] text-[#EBE6DF]" id="contact">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-          <div>
-            <h2 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter mb-8">
-              Let&apos;s<br />
-              <span className="font-display italic text-[#CCAA6E] ml-16">Talk</span>
-            </h2>
-            <div className="max-w-md mt-12">
-              <ContactForm variant="full" />
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-end">
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              <div>
-                <h4 className="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
-                <p className="text-base text-gray-300 leading-relaxed font-light">
-                  215 McLeod Avenue<br />
-                  Box 3497, AB T7XX<br />
-                  +1 (780) 555-5555
-                </p>
-              </div>
-              <div>
-                <h4 className="text-md uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
-                <p className="text-base text-gray-300 leading-relaxed font-light">
-                  123 Design Street<br />
-                  New York, NY 10001<br />
-                  +1 (234) 567-890
-                </p>
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <h4 className="text-sm uppercase tracking-widest text-gray-500 mb-4">Newsletter</h4>
-              <ContactForm variant="newsletter" />
-            </div>
-
-            <div className="flex gap-6">
-              <a href="#" className="text-sm uppercase tracking-widest text-gray-500 hover:text-[#B35A46] transition-colors">Instagram</a>
-              <a href="#" className="text-sm uppercase tracking-widest text-gray-500 hover:text-[#B35A46] transition-colors">LinkedIn</a>
-              <a href="#" className="text-sm uppercase tracking-widest text-gray-500 hover:text-[#B35A46] transition-colors">Twitter</a>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

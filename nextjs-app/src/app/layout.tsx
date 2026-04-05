@@ -4,6 +4,8 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import SmoothScroll from "@/components/SmoothScroll";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,14 +65,18 @@ export default function RootLayout({
           Skip to main content
         </a>
         
-        <Navigation />
-        
-        <main id="main-content">
-          {children}
-        </main>
-        
-        <Footer />
-        <BackToTop />
+        <SmoothScroll>
+          <Navigation />
+          
+          <main id="main-content">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          
+          <Footer />
+          <BackToTop />
+        </SmoothScroll>
       </body>
     </html>
   );
