@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import ProjectContent from '@/components/ProjectContent';
 
 // Sample project data - in production this would come from a CMS
@@ -79,12 +80,38 @@ const projectsData: Record<string, {
     solution: 'Developed a flexible visual framework that adapts to different contexts while maintaining brand consistency.',
     images: ['/images/Digital Marketers3.jpg', '/images/Digital Marketers.jpg', '/images/Digital Marketers4.jpg'],
   },
+  'glass-pavilion': {
+    title: 'Glass Pavilion',
+    category: 'Photography / Architecture',
+    client: 'Nordic Living',
+    year: '2024',
+    services: ['Art Direction', 'Photography', 'Architectural Design'],
+    description: 'An architectural photography study capturing a minimalist modern glass and concrete pavilion in a serene natural environment during golden hour.',
+    challenge: 'Successfully capture the interplay between structural steel/glass transparency, concrete weight, and warm natural sunlight without unwanted glare.',
+    solution: 'Used specialized architectural lenses and polarization techniques, shooting during narrow lighting windows to create clean contrast, soft shadows, and visual depth.',
+    images: ['/images/minimalist_glass_pavilion.png', '/images/Digital Marketers4.jpg', '/images/Digital Marketers3.jpg'],
+  },
+};
+
+export const unstable_instant = {
+  prefetch: 'static',
+  samples: [
+    {
+      params: { slug: 'vogue-essence' },
+    },
+  ],
 };
 
 interface Props {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  return Object.keys(projectsData).map((slug) => ({
+    slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -102,7 +129,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ProjectPage({ params }: Props) {
+async function ProjectPageContent({ params }: Props) {
   const { slug } = await params;
   const project = projectsData[slug] || projectsData['vogue-essence'];
   
@@ -117,4 +144,12 @@ export default async function ProjectPage({ params }: Props) {
   };
   
   return <ProjectContent project={project} nextProject={nextProject} />;
+}
+
+export default function ProjectPage({ params }: Props) {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F2EFE9]" />}>
+      <ProjectPageContent params={params} />
+    </Suspense>
+  );
 }

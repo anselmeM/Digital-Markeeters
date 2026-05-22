@@ -1,0 +1,6 @@
+node_modules/
+.next/
+nextjs-app/node_modules/
+nextjs-app/.next/
+.DS_Store
+Thumbs.db

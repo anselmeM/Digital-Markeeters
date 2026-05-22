@@ -1,212 +1,61 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
-import ContactForm from '@/components/ContactForm';
+import type { Metadata } from 'next';
+import HomeHero from '@/components/HomeHero';
 import ProjectShowcase from '@/components/ProjectShowcase';
-import Magnetic from '@/components/Magnetic';
+import PhilosophySection from '@/components/PhilosophySection';
+import ContactForm from '@/components/ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Marcy Studios | Digital Experience Agency',
+  description: 'We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design in New York.',
+  openGraph: {
+    title: 'Marcy Studios | Digital Experience Agency',
+    description: 'We craft immersive digital experiences for brands that dare to be different.',
+    type: 'website',
+  },
+};
+
+export const unstable_instant = {
+  prefetch: 'static',
+};
+
+const expertiseItems = [
+  {
+    title: 'Brand Identity',
+    description: 'Logo design, visual systems, and brand guidelines crafted to stand the test of time.',
+    number: '01',
+  },
+  {
+    title: 'Web Design & Dev',
+    description: 'Immersive websites that perform. Award-winning layouts and seamless user experiences.',
+    number: '02',
+  },
+  {
+    title: 'Digital Strategy',
+    description: 'Data-driven marketing campaigns to amplify your voice across social and search channels.',
+    number: '03',
+  },
+  {
+    title: 'Art Direction',
+    description: 'Visual storytelling through photography, video, and set design.',
+    number: '04',
+  },
+];
 
 export default function Home() {
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleAlchemyMouseMove = (e: React.MouseEvent) => {
-    const target = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - target.left) / target.width - 0.5;
-    const y = (e.clientY - target.top) / target.height - 0.5;
-    setMousePosition({ x, y });
-  };
-
-  const resetAlchemyMouse = () => {
-    setMousePosition({ x: 0, y: 0 });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setParallaxOffset(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const expertiseItems = [
-    {
-      title: 'Brand Identity',
-      description: 'Logo design, visual systems, and brand guidelines crafted to stand the test of time.',
-      number: '01',
-    },
-    {
-      title: 'Web Design & Dev',
-      description: 'Immersive websites that perform. Award-winning layouts and seamless user experiences.',
-      number: '02',
-    },
-    {
-      title: 'Digital Strategy',
-      description: 'Data-driven marketing campaigns to amplify your voice across social and search channels.',
-      number: '03',
-    },
-    {
-      title: 'Art Direction',
-      description: 'Visual storytelling through photography, video, and set design.',
-      number: '04',
-    },
-  ];
-
-  // Hero animation variants
-  const heroContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const heroItem: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' }
-    },
-  };
-
-  const imageZoom: Variants = {
-    hidden: { scale: 1.1, opacity: 0 },
-    visible: { 
-      scale: 1, 
-      opacity: 0.4,
-      transition: { duration: 1.5, ease: 'easeOut' }
-    },
-  };
-
   return (
-    <>
+    <main id="main-content" role="main" className="relative w-full">
       {/* Hero Section */}
-      <header className="relative min-h-screen flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 overflow-hidden bg-[#1C1B1A] text-[#EBE6DF]">
-        <motion.div 
-          className="absolute inset-0"
-          initial="hidden"
-          animate="visible"
-          variants={imageZoom}
-        >
-          <Image
-            src="/images/Digital Marketers.jpg"
-            alt="Marcy Studios hero background - abstract digital texture showing the agency's creative environment"
-            fill
-            className="object-cover"
-            priority
-          />
-        </motion.div>
-        
-        <motion.div 
-          className="relative z-10 w-full max-w-[90vw] mx-auto"
-          initial="hidden"
-          animate="visible"
-          variants={heroContainer}
-        >
-          <div className="flex flex-col items-start">
-            <motion.p 
-              variants={heroItem}
-              className="text-sm md:text-base uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4"
-            >
-              Digital Experience Agency
-            </motion.p>
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] leading-[0.85] tracking-tighter-custom mb-8 pr-4">
-              <motion.span variants={heroItem} className="block ml-0 md:ml-12">Digital</motion.span>
-              <motion.span 
-                variants={heroItem}
-                onMouseMove={handleAlchemyMouseMove}
-                onMouseLeave={resetAlchemyMouse}
-                animate={{ 
-                  x: mousePosition.x * 60 + 128, 
-                  y: mousePosition.y * 60 - 32,
-                }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-                className="block font-display italic font-light text-[#B35A46] text-6xl md:text-9xl lg:text-[10rem] xl:text-[13rem] cursor-default"
-              >
-                Alchemy
-              </motion.span>
-              <motion.span variants={heroItem} className="block text-right self-end w-full pr-0 md:pr-24 mt-[-1rem] md:mt-[-3rem]">Makers</motion.span>
-            </h1>
-          </div>
-
-          <motion.div 
-            variants={heroItem}
-            className="flex flex-col md:flex-row justify-between items-end mt-12 md:mt-24 border-t border-white/10 pt-8"
-          >
-            <div className="max-w-xl text-lg md:text-xl leading-relaxed text-gray-300 font-light">
-              We craft immersive digital experiences for brands that dare to be different. Merging strategy with avant-garde design.
-            </div>
-            <div className="mt-8 md:mt-0 flex items-center gap-4">
-              <span className="text-4xl font-light animate-bounce">↓</span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </header>
+      <HomeHero />
 
       {/* Selected Works - New Project Showcase */}
       <ProjectShowcase />
 
       {/* Philosophy */}
-      <section className="py-32 px-6 md:px-12 bg-[#EBE6DF] relative overflow-hidden" id="philosophy">
-        <div 
-          className="absolute top-0 right-0 w-1/3 h-full bg-[#E5E0D8] -z-0"
-          style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}
-        ></div>
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-          <div className="lg:col-span-5">
-            <p className="text-sm font-bold uppercase tracking-widest text-[#B35A46] mb-8">Our Philosophy</p>
-            <h2 className="font-serif text-5xl md:text-7xl leading-[1.1] mb-12">
-              We believe in the <br />
-              <span className="font-display italic font-light">power of silence</span> <br />
-              in a noisy world.
-            </h2>
-            <div className="space-y-8">
-              <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-sm">
-                Minimalism isn&apos;t just an aesthetic; it&apos;s a tool for clarity. We strip away the non-essential to reveal the core of your brand&apos;s story.
-              </p>
-              <Magnetic strength={0.3}>
-                <Link className="cta-button inline-flex items-center gap-2 border-b border-black pb-1 uppercase text-sm tracking-widest hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="/about">
-                  Read the Manifesto
-                </Link>
-              </Magnetic>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 grid grid-cols-2 gap-8 items-center">
-            <div className="pt-24">
-              <Image 
-                src="/images/Digital Marketers3.jpg" 
-                alt="Agency philosophy section - team collaboration and creative workspace" 
-                width={400} 
-                height={533}
-                className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
-            <div>
-              <Image 
-                src="/images/Digital Marketers2.jpg" 
-                alt="Agency detail shot 2" 
-                width={400} 
-                height={400}
-                className="w-full aspect-square object-cover mb-8 grayscale hover:grayscale-0 transition-all duration-500"
-              />
-              <p className="text-right text-[10px] uppercase tracking-widest opacity-50 rotate-90 origin-top-right translate-y-full mr-[-1rem]">Est. 2021</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PhilosophySection />
 
       {/* Expertise */}
-      <section className="py-24 px-6 md:px-12 bg-[#1C1B1A] text-[#EBE6DF]" id="expertise">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+      <section className="py-24 px-6 md:px-12 bg-[#1C1B1A] text-[#EBE6DF] font-sans" id="expertise">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="lg:col-span-1">
             <h2 className="font-serif text-6xl mb-6">Expertise</h2>
             <p className="text-gray-300 text-lg leading-relaxed max-w-sm font-light">
@@ -230,6 +79,36 @@ export default function Home() {
         </div>
       </section>
 
-    </>
+      {/* Contact Section */}
+      <section className="py-24 px-6 md:px-12 bg-[#EBE6DF] text-[#2A2622] border-t border-[#2A2622]/10 font-sans" id="contact">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-widest text-[#B35A46] mb-6">Get in Touch</p>
+              <h2 className="font-serif text-5xl md:text-7xl leading-[1.1] mb-8">
+                Let&apos;s start a <br />
+                <span className="font-display italic font-light text-[#B35A46]">conversation</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-sm leading-relaxed mb-8 font-light">
+                We&apos;re always looking to collaborate with forward-thinking brands and individuals. Let&apos;s build something memorable together.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-gray-400">Email Us</p>
+                <a href="mailto:hello@marcystudios.com" className="font-serif text-xl hover:text-[#B35A46] transition-colors">hello@marcystudios.com</a>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-gray-400">Visit Us</p>
+                <p className="font-serif text-xl">New York, NY 10013</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-7 bg-[#1C1B1A] p-8 md:p-12 rounded-2xl shadow-xl text-[#EBE6DF]">
+            <ContactForm variant="full" />
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Bodoni_Moda, Instrument_Serif } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import SmoothScroll from "@/components/SmoothScroll";
 import PageTransition from "@/components/PageTransition";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,6 +45,9 @@ export const metadata: Metadata = {
     title: "Marcy Studios - Digital Experience Agency",
     description: "We craft immersive digital experiences for brands that dare to be different.",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
   robots: {
     index: true,
     follow: true,
@@ -57,9 +62,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bodoni.variable} ${instrument.variable}`}>
       <body className="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white overflow-x-hidden">
+        <CustomCursor />
+        
         {/* Skip to main content link for accessibility */}
         <a 
           href="#main-content" 
+          data-cursor="pointer"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#B35A46] focus:text-white focus:px-4 focus:py-2 focus:rounded"
         >
           Skip to main content
@@ -69,9 +77,11 @@ export default function RootLayout({
           <Navigation />
           
           <main id="main-content">
-            <PageTransition>
-              {children}
-            </PageTransition>
+            <Suspense fallback={<div className="min-h-screen bg-[#F2EFE9]" />}>
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </Suspense>
           </main>
           
           <Footer />

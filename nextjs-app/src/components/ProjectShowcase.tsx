@@ -70,6 +70,15 @@ const projects: Project[] = [
     image: '/images/Digital Marketers3.jpg',
     slug: 'visual-narrative',
   },
+  {
+    id: 7,
+    number: '07',
+    title: 'Glass Pavilion',
+    category: 'Photography / Architecture',
+    year: '2024',
+    image: '/images/minimalist_glass_pavilion.png',
+    slug: 'glass-pavilion',
+  },
 ];
 
 interface ProjectCardProps {
@@ -148,6 +157,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       {/* Project Content */}
       <Link 
         href={`/work/${project.slug}`} 
+        data-cursor="view"
         className="block relative z-20 py-8 border-b border-black/10 group-hover:border-transparent transition-colors duration-300"
       >
         <div className="flex items-start justify-between">
@@ -226,6 +236,7 @@ export default function ProjectShowcase() {
         >
           <Link 
             href="/work" 
+            data-cursor="pointer"
             className="cta-button inline-block bg-[#B35A46] text-white px-8 py-4 text-base font-medium"
           >
             View All Projects

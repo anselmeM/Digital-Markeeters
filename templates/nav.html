@@ -1,0 +1,101 @@
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#B35A46] focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to main content
+  </a>
+
+  <!-- ═══ NAV ═══ -->
+  <nav role="navigation" aria-label="Main navigation" class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
+    <a class="font-serif font-bold text-2xl tracking-tight logo-magnetic" href="index.html" style="cursor: none;">Marcy.</a>
+    
+    <!-- Desktop navigation with sliding hover pill -->
+    <div class="desktop-nav-wrapper hidden md:flex items-center absolute left-1/2 -translate-x-1/2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 gap-2">
+      <!-- Hover pill follower -->
+      <div class="nav-hover-pill absolute bg-white/10 border border-white/20 rounded-full h-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-0 scale-95" style="left: 0; width: 0;"></div>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="work.html" style="cursor: none;">Work</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="about.html" style="cursor: none;">Agency</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="expertise.html" style="cursor: none;">Expertise</a>
+    </div>
+
+    <!-- Mobile menu button toggle -->
+    <button 
+      class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="mobile-menu" 
+      onclick="toggleMenu()"
+    >
+      <span class="w-full h-[1px] bg-current menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current menu-line-3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[40] pointer-events-none" style="display: none;">
+    <!-- Curtain Accent Panel -->
+    <div class="menu-curtain-accent absolute inset-0 bg-[#B35A46] transform -translate-y-full"></div>
+    
+    <!-- Curtain Main Panel -->
+    <div class="menu-curtain-main absolute inset-0 bg-[#1C1B1A] flex flex-col justify-between p-6 md:p-12 transform -translate-y-full text-[#EBE6DF] overflow-hidden">
+      <!-- Gridlines inside menu -->
+      <div class="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 md:px-12 w-full max-w-[90vw] left-1/2 -translate-x-1/2 opacity-5">
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+      </div>
+      
+      <!-- Top spacing for nav header clearance -->
+      <div class="h-20"></div>
+      
+      <!-- Menu Contents -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-grow">
+        <!-- Links column -->
+        <div class="lg:col-span-7 flex flex-col items-start gap-4">
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="work.html">Work</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="about.html">Agency</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="expertise.html">Expertise</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="#contact" onclick="toggleMenu()">Contact</a>
+          </div>
+        </div>
+        
+        <!-- Info Column -->
+        <div class="lg:col-span-5 flex flex-col gap-8 md:gap-12 border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-12 opacity-0 transform translate-y-8 mobile-menu-info">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Offices</h4>
+            <div class="grid grid-cols-2 gap-4 text-xs text-gray-400">
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Spicy Grove</p>
+                <p>215 McLeod Ave, AB</p>
+              </div>
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Farmington</p>
+                <p>2619 Chapmans Ln, NM</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Follow</h4>
+            <div class="flex gap-4 text-xs text-gray-400">
+              <a href="https://instagram.com/marcy" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+              <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://behance.net" target="_blank" class="hover:text-white transition-colors">Behance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer details inside menu -->
+      <div class="relative z-10 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4 mt-8 mobile-menu-footer opacity-0">
+        <div>Marcy Studios</div>
+        <div>Creative Digital Agency</div>
+      </div>
+    </div>
+  </div>

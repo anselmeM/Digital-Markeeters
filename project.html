@@ -1,239 +1,441 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Marcy Studios — Vogue Essence</title>
   <meta name="description" content="Vogue Essence editorial web design project by Marcy Studios. Redefining editorial luxury through an immersive, typographically-driven digital experience.">
-  <link rel="canonical" href="https://marcy.com/project.html">
-  <meta property="og:title" content="Vogue Essence — Marcy Studios">
-  <meta property="og:description" content="Redefining editorial luxury through an immersive digital experience.">
-  <meta property="og:image" content="https://marcy.com/images/Digital Marketers2.jpg">
-  <meta property="og:url" content="https://marcy.com/project.html">
+  <meta property="og:title" content="Marcy Studios — Vogue Essence">
+  <meta property="og:description" content="Vogue Essence editorial web design project by Marcy Studios. Redefining editorial luxury through an immersive, typographically-driven digital experience.">
+  <meta property="og:image" content="https://anselmem.github.io/Digital-Markeeters/images/Digital Marketers2.jpg">
+  <meta property="og:url" content="https://anselmem.github.io/Digital-Markeeters/project.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vogue Essence — Marcy Studios">
-  <meta name="twitter:description" content="Redefining editorial luxury through an immersive digital experience.">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
+  <meta name="twitter:title" content="Marcy Studios — Vogue Essence">
+  <meta name="twitter:description" content="Vogue Essence editorial web design project by Marcy Studios. Redefining editorial luxury through an immersive, typographically-driven digital experience.">
+  <link rel="canonical" href="https://anselmem.github.io/Digital-Markeeters/project.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": "Vogue Essence",
-    "description": "Editorial web design project redefining luxury digital experiences.",
-    "url": "https://marcy.com/project.html"
-  }
-  </script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary:   "#964F4C",
-            accent:    "#B35A46",
-            secondary: "#CCAA6E",
-            background:"#F2EFE9",
-            dark:      "#1C1B1A",
-          },
-          fontFamily: {
-            serif:   ['"Bodoni Moda"', 'serif'],
-            display: ['"Instrument Serif"', 'serif'],
-            sans:    ['"Inter"', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
-  <style>
-    /* Accessibility: Skip link */
-    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; padding: 1rem; background: #fff; color: #000; }
-    .skip-link:focus { position: fixed; left: 0; }
-    /* Accessibility: Focus visible */
-    *:focus-visible { outline: 3px solid #B35A46; outline-offset: 2px; }
-    /* Accessibility: Reduced motion */
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
-    /* Mobile: Nav contrast fix */
-    @media (max-width: 767px) {
-      nav { mix-blend-mode: normal !important; background: #1C1B1A !important; }
-    }
-    /* Mobile: Touch targets */
-    @media (pointer: coarse) {
-      button, a[href], [role="button"] { min-height: 44px; min-width: 44px; }
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="css/build.css">
 
+</head>
 <body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white overflow-x-hidden">
 
-  <!-- Skip link for keyboard accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#B35A46] focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to main content
+  </a>
 
-  <!-- ═══ NAV (same as index.html) ═══ -->
+  <!-- ═══ NAV ═══ -->
   <nav role="navigation" aria-label="Main navigation" class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
-    <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
-    <div class="hidden md:flex gap-12 text-xs uppercase tracking-widest font-medium">
-      <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="index.html#philosophy">Agency</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="index.html#expertise">Expertise</a>
+    <a class="font-serif font-bold text-2xl tracking-tight logo-magnetic" href="index.html" style="cursor: none;">Marcy.</a>
+    
+    <!-- Desktop navigation with sliding hover pill -->
+    <div class="desktop-nav-wrapper hidden md:flex items-center absolute left-1/2 -translate-x-1/2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 gap-2">
+      <!-- Hover pill follower -->
+      <div class="nav-hover-pill absolute bg-white/10 border border-white/20 rounded-full h-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-0 scale-95" style="left: 0; width: 0;"></div>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="work.html" style="cursor: none;">Work</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="about.html" style="cursor: none;">Agency</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="expertise.html" style="cursor: none;">Expertise</a>
     </div>
-    <button class="group flex flex-col gap-1.5 w-8" aria-label="Open menu">
-      <span class="w-full h-[1px] bg-current transition-all group-hover:w-1/2 ml-auto"></span>
-      <span class="w-full h-[1px] bg-current"></span>
-      <span class="w-full h-[1px] bg-current transition-all group-hover:w-3/4 ml-auto"></span>
+
+    <!-- Mobile menu button toggle -->
+    <button 
+      class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="mobile-menu" 
+      onclick="toggleMenu()"
+    >
+      <span class="w-full h-[1px] bg-current menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current menu-line-3"></span>
     </button>
   </nav>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[40] pointer-events-none" style="display: none;">
+    <!-- Curtain Accent Panel -->
+    <div class="menu-curtain-accent absolute inset-0 bg-[#B35A46] transform -translate-y-full"></div>
+    
+    <!-- Curtain Main Panel -->
+    <div class="menu-curtain-main absolute inset-0 bg-[#1C1B1A] flex flex-col justify-between p-6 md:p-12 transform -translate-y-full text-[#EBE6DF] overflow-hidden">
+      <!-- Gridlines inside menu -->
+      <div class="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 md:px-12 w-full max-w-[90vw] left-1/2 -translate-x-1/2 opacity-5">
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+      </div>
+      
+      <!-- Top spacing for nav header clearance -->
+      <div class="h-20"></div>
+      
+      <!-- Menu Contents -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-grow">
+        <!-- Links column -->
+        <div class="lg:col-span-7 flex flex-col items-start gap-4">
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="work.html">Work</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="about.html">Agency</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="expertise.html">Expertise</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="#contact" onclick="toggleMenu()">Contact</a>
+          </div>
+        </div>
+        
+        <!-- Info Column -->
+        <div class="lg:col-span-5 flex flex-col gap-8 md:gap-12 border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-12 opacity-0 transform translate-y-8 mobile-menu-info">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Offices</h4>
+            <div class="grid grid-cols-2 gap-4 text-xs text-gray-400">
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Spicy Grove</p>
+                <p>215 McLeod Ave, AB</p>
+              </div>
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Farmington</p>
+                <p>2619 Chapmans Ln, NM</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Follow</h4>
+            <div class="flex gap-4 text-xs text-gray-400">
+              <a href="https://instagram.com/marcy" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+              <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://behance.net" target="_blank" class="hover:text-white transition-colors">Behance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer details inside menu -->
+      <div class="relative z-10 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4 mt-8 mobile-menu-footer opacity-0">
+        <div>Marcy Studios</div>
+        <div>Creative Digital Agency</div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ═══ HERO ═══ -->
   <header role="banner">
-  <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img
-        alt="Vogue Essence editorial hero"
-        class="w-full h-full object-cover"
-        src="images/Digital Marketers2.jpg"
-        fetchpriority="high"
-      />
-      <!-- Dark overlay -->
-      <div class="absolute inset-0 bg-[#1C1B1A]/50"></div>
-      <!-- Fade to background at the bottom — tall enough for a smooth transition -->
-      <div class="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-[#F2EFE9] via-[#F2EFE9]/60 to-transparent"></div>
-    </div>
+    <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <picture>
+          <source srcset="images/optimized/digital-marketers2-sm.webp 400w, images/optimized/digital-marketers2-md.webp 800w, images/optimized/digital-marketers2-lg.webp 1200w" sizes="100vw" type="image/webp">
+          <img
+            alt="Vogue Essence editorial hero"
+            class="w-full h-full object-cover"
+            src="images/optimized/digital-marketers2.webp"
+            fetchpriority="high"
+          />
+        </picture>
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-[#1C1B1A]/50"></div>
+        <!-- Fade to background at the bottom -->
+        <div class="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-[#F2EFE9] via-[#F2EFE9]/60 to-transparent"></div>
+      </div>
 
-    <div class="relative z-10 flex flex-col items-center justify-center px-6 text-center">
-      <p class="text-xs uppercase tracking-[0.25em] text-[#CCAA6E] mb-6">Editorial / Web Design · 2024</p>
-      <h1 class="font-serif text-[#EBE6DF] text-6xl md:text-8xl lg:text-[9rem] font-normal leading-none tracking-tight drop-shadow-xl mb-6">
-        Vogue<br/>
-        <span class="font-display italic font-light text-[#B35A46]">Essence</span>
-      </h1>
-      <p class="text-[#D6D1CA] text-lg md:text-xl font-light max-w-xl leading-relaxed drop-shadow">
-        Redefining editorial luxury through an immersive, typographically-driven digital experience.
-      </p>
-      <!-- Scroll cue -->
-      <a class="mt-16 flex flex-col items-center gap-2 text-[#EBE6DF] hover:text-[#CCAA6E] transition-colors cursor-pointer" href="#brief">
-        <span class="text-[10px] font-sans uppercase tracking-widest">Scroll to explore</span>
-        <span class="material-symbols-outlined text-2xl animate-bounce">arrow_downward</span>
-      </a>
-    </div>
-  </section>
+      <div class="relative z-10 flex flex-col items-center justify-center px-6 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-[#CCAA6E] mb-6">Editorial / Web Design · 2024</p>
+        <h1 class="font-serif text-[#EBE6DF] text-6xl md:text-8xl lg:text-[9rem] font-normal leading-none tracking-tight drop-shadow-xl mb-6">
+          <span class="split-line-mask block">
+            <span class="split-line-content block">Vogue</span>
+          </span>
+          <span class="split-line-mask block font-display italic font-light text-[#B35A46]">
+            <span class="split-line-content block">Essence</span>
+          </span>
+        </h1>
+        <p class="text-[#D6D1CA] text-lg md:text-xl font-light max-w-xl leading-relaxed drop-shadow">
+          Redefining editorial luxury through an immersive, typographically-driven digital experience.
+        </p>
+        <!-- Scroll cue -->
+        <a class="mt-16 flex flex-col items-center gap-2 text-[#EBE6DF] hover:text-[#CCAA6E] transition-colors cursor-pointer" href="#brief">
+          <span class="text-[10px] font-sans uppercase tracking-widest">Scroll to explore</span>
+          <span class="material-symbols-outlined text-2xl animate-bounce">arrow_downward</span>
+        </a>
+      </div>
+    </section>
   </header>
 
   <!-- ═══ CONTENT ═══ -->
   <main id="main-content" role="main">
-  <div class="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-20 pt-8 pb-32" id="brief">
+    <div class="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-20 pt-8 pb-32" id="brief">
 
-    <!-- Project Brief -->
-    <section class="py-24 border-b border-black/10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <!-- Project Brief -->
+      <section class="py-24 border-b border-black/10 reveal-fade-up">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-        <!-- Long-form copy -->
-        <div class="lg:col-span-8">
-          <h2 class="font-serif text-4xl md:text-5xl font-normal mb-8 text-[#B35A46]">Project Brief</h2>
-          <div class="space-y-6 text-[#2A2622]">
-            <p class="text-xl leading-relaxed font-light">
-              Vogue Essence approached Marcy Studios with a bold vision: to create a digital platform that mirrors the drama and intimacy of high-fashion editorial. The challenge was translating the tactile luxury of print into a web experience without sacrificing speed or accessibility.
-            </p>
-            <p class="text-base leading-relaxed text-gray-600">
-              We embarked on a journey to design a UI that feels weightless yet authoritative. By leveraging Bodoni Moda's editorial gravitas, a tightly constrained warm palette, and expansive negative space, we crafted an interface that acts as a quiet frame for their striking photography.
-            </p>
-            <p class="text-base leading-relaxed text-gray-600">
-              The resulting platform not only showcases their seasonal collections but serves as a living manifesto of their house identity — ensuring every scroll feels deliberate, every transition intentional.
-            </p>
-          </div>
-        </div>
-
-        <!-- Metadata sidebar -->
-        <div class="lg:col-span-4">
-          <div class="space-y-0">
-            <div class="flex flex-col gap-1 border-t border-black/10 py-6">
-              <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Client</p>
-              <p class="font-serif text-xl font-normal">Vogue Essence Magazine</p>
-            </div>
-            <div class="flex flex-col gap-1 border-t border-black/10 py-6">
-              <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Services</p>
-              <p class="font-serif text-xl font-normal">Web Design, Art Direction, Frontend Dev</p>
-            </div>
-            <div class="flex flex-col gap-1 border-t border-black/10 py-6">
-              <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Timeline</p>
-              <p class="font-serif text-xl font-normal">March 2024 — July 2024</p>
-            </div>
-            <div class="flex flex-col gap-1 border-t border-b border-black/10 py-6">
-              <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Recognition</p>
-              <p class="font-serif text-xl font-normal text-[#B35A46]">Awwwards SOTD · FWA of the Day</p>
+          <!-- Long-form copy -->
+          <div class="lg:col-span-8">
+            <h2 class="font-serif text-4xl md:text-5xl font-normal mb-8 text-[#B35A46]">Project Brief</h2>
+            <div class="space-y-6 text-[#2A2622]">
+              <p class="text-xl leading-relaxed font-light">
+                Vogue Essence approached Marcy Studios with a bold vision: to create a digital platform that mirrors the drama and intimacy of high-fashion editorial. The challenge was translating the tactile luxury of print into a web experience without sacrificing speed or accessibility.
+              </p>
+              <p class="text-base leading-relaxed text-gray-600">
+                We embarked on a journey to design a UI that feels weightless yet authoritative. By leveraging Bodoni Moda's editorial gravitas, a tightly constrained warm palette, and expansive negative space, we crafted an interface that acts as a quiet frame for their striking photography.
+              </p>
+              <p class="text-base leading-relaxed text-gray-600">
+                The resulting platform not only showcases their seasonal collections but serves as a living manifesto of their house identity — ensuring every scroll feels deliberate, every transition intentional.
+              </p>
             </div>
           </div>
+
+          <!-- Metadata sidebar -->
+          <div class="lg:col-span-4">
+            <div class="space-y-0">
+              <div class="flex flex-col gap-1 border-t border-black/10 py-6">
+                <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Client</p>
+                <p class="font-serif text-xl font-normal">Vogue Essence Magazine</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-black/10 py-6">
+                <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Services</p>
+                <p class="font-serif text-xl font-normal">Web Design, Art Direction, Frontend Dev</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-black/10 py-6">
+                <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Timeline</p>
+                <p class="font-serif text-xl font-normal">March 2024 — July 2024</p>
+              </div>
+              <div class="flex flex-col gap-1 border-t border-b border-black/10 py-6">
+                <p class="font-sans text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Recognition</p>
+                <p class="font-serif text-xl font-normal text-[#B35A46]">Awwwards SOTD · FWA of the Day</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- The Concept – imagery -->
+      <section class="py-24 reveal-fade-up">
+        <h2 class="font-serif text-4xl md:text-6xl font-normal leading-tight text-center mb-4">The Concept</h2>
+        <p class="text-center font-sans text-xs uppercase tracking-[0.2em] text-gray-400 mb-16">Process &amp; Visual Direction</p>
+
+        <!-- Wide hero image -->
+        <div class="w-full aspect-[21/9] rounded overflow-hidden mb-8 shadow-2xl">
+          <picture>
+            <source srcset="images/optimized/digital-marketers-sm.webp 400w, images/optimized/digital-marketers-md.webp 800w, images/optimized/digital-marketers-lg.webp 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px" type="image/webp">
+            <img
+              alt="Vogue Essence concept wide shot"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              src="images/optimized/digital-marketers.webp"
+              loading="lazy"
+            />
+          </picture>
         </div>
 
+        <!-- Two-column images -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="aspect-square rounded overflow-hidden shadow-xl">
+            <picture>
+              <source srcset="images/optimized/digital-marketers3-sm.webp 400w, images/optimized/digital-marketers3-md.webp 800w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp">
+              <img
+                alt="Editorial detail 1"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                src="images/optimized/digital-marketers3.webp"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+          <div class="aspect-square rounded overflow-hidden shadow-xl">
+            <picture>
+              <source srcset="images/optimized/digital-marketers4-sm.webp 400w, images/optimized/digital-marketers4-md.webp 800w" sizes="(max-width: 768px) 90vw, 45vw" type="image/webp">
+              <img
+                alt="Editorial detail 2"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                src="images/optimized/digital-marketers4.webp"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /content -->
+
+    <!-- Next Project CTA -->
+    <section class="py-32 border-t border-white/5 bg-[#1C1B1A] text-white text-center">
+      <p class="font-sans text-xs uppercase tracking-[0.25em] text-[#CCAA6E] mb-6">Next Project</p>
+      <a class="group relative inline-block mb-12" href="project.html">
+        <h2 class="font-serif text-6xl md:text-9xl font-normal italic text-[#EBE6DF] hover:text-[#CCAA6E] transition-colors duration-300">
+          Urban Canvas
+        </h2>
+        <span class="absolute -right-10 top-0 md:top-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#CCAA6E]">
+          <span class="material-symbols-outlined text-4xl md:text-6xl">north_east</span>
+        </span>
+      </a>
+      <div class="flex justify-center gap-8">
+        <a class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-colors" href="work.html">← All Work</a>
+        <a class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-colors" href="index.html#contact">Get in Touch</a>
       </div>
     </section>
-
-    <!-- The Concept – imagery -->
-    <section class="py-24">
-      <h2 class="font-serif text-4xl md:text-6xl font-normal leading-tight text-center mb-4">The Concept</h2>
-      <p class="text-center font-sans text-xs uppercase tracking-[0.2em] text-gray-400 mb-16">Process &amp; Visual Direction</p>
-
-      <!-- Wide hero image -->
-      <div class="w-full aspect-[21/9] rounded overflow-hidden mb-8 shadow-2xl">
-        <img
-          alt="Vogue Essence concept wide shot"
-          class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          src="images/Digital Marketers.jpg"
-          loading="lazy"
-        />
-      </div>
-
-      <!-- Two-column images -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-        <div class="aspect-square rounded overflow-hidden shadow-xl">
-          <img
-            alt="Editorial detail 1"
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            src="images/Digital Marketers3.jpg"
-            loading="lazy"
-          />
-        </div>
-        <div class="aspect-square rounded overflow-hidden shadow-xl">
-          <img
-            alt="Editorial detail 2"
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            src="images/Digital Marketers4.jpg"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /content -->
   </main>
 
-  <!-- ═══ NEXT PROJECT + FOOTER ═══ -->
-  <footer role="contentinfo" class="bg-[#1C1B1A] text-[#EBE6DF] py-32 px-6 md:px-12 text-center">
-    <p class="font-sans text-xs uppercase tracking-[0.25em] text-[#CCAA6E] mb-6">Next Project</p>
-    <a class="group relative inline-block" href="project.html">
-      <h2 class="font-serif text-6xl md:text-9xl font-normal italic text-[#EBE6DF] hover:text-[#CCAA6E] transition-colors duration-300">
-        Urban Canvas
-      </h2>
-      <span class="absolute -right-10 top-0 md:top-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#CCAA6E]">
-        <span class="material-symbols-outlined text-4xl md:text-6xl">north_east</span>
-      </span>
-    </a>
-    <div class="mt-12 flex justify-center gap-8">
-      <a class="text-xs uppercase tracking-widest text-gray-500 hover:text-[#EBE6DF] transition-colors" href="work.html">← All Work</a>
-      <a class="text-xs uppercase tracking-widest text-gray-500 hover:text-[#EBE6DF] transition-colors" href="index.html#contact">Get in Touch</a>
+    <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[#151413] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5" id="contact">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24 mb-24">
+      <!-- Brand / Email Column -->
+      <div>
+        <h2 class="font-serif text-6xl md:text-8xl leading-none tracking-tighter mb-6">Marcy.</h2>
+        <p class="text-gray-400 text-base max-w-sm leading-relaxed mb-8">
+          Digital experiences crafted with silence, strategy, and precision.
+        </p>
+        <a class="cta-button inline-block text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+          hello@marcy.com
+        </a>
+      </div>
+
+      <!-- Offices Column -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            215 McLeod Avenue<br />
+            Box 3497, AB T7XX<br />
+            +1 (780) 555-5555
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            2619 Chapmans Lane<br />
+            Farmington, NM 87402<br />
+            +1 (505) 860-6973
+          </p>
+        </div>
+      </div>
+
+      <!-- Newsletter & Links Column -->
+      <div class="flex flex-col justify-between pt-4">
+        <form class="w-full relative mb-8" aria-label="Newsletter signup" onsubmit="return validateEmail(this)">
+          <label for="newsletter-email" class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
+          <div class="flex border-b border-gray-700 pb-2 items-center">
+            <input
+              id="newsletter-email"
+              class="bg-transparent border-none p-0 w-full text-[#EBE6DF] placeholder-gray-600 focus:ring-0 text-sm"
+              placeholder="Your email address"
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              aria-describedby="email-hint"
+            />
+            <button class="cta-button text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors disabled:opacity-50" type="submit" id="newsletter-submit">Send</button>
+          </div>
+          <span id="email-hint" class="sr-only">Enter your email address to subscribe to our newsletter</span>
+          <p id="email-error" class="text-red-500 text-xs mt-1 hidden" role="alert" aria-live="polite">Please enter a valid email address.</p>
+        </form>
+
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Social</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="hover:text-white transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="hover:text-white transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Company</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="work.html">Work</a>
+              <a class="hover:text-white transition-colors" href="about.html">Agency</a>
+              <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="mt-12 font-sans text-xs text-gray-600">© 2024 Marcy Studios. All Rights Reserved.</p>
+
+    <!-- Bottom Copyright & Policies -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+      </div>
+      <div>© 2026 Marcy Studios. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Global Background Grid lines -->
+  <div class="grid-lines-bg">
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
   </div>
 
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-header">
+      <div>Marcy Studios</div>
+      <div id="preloader-date">Est. 2018</div>
+    </div>
+    <div class="preloader-center">
+      <div class="preloader-counter" id="loader-percent">00</div>
+      <div class="preloader-word-wrap">
+        <div class="preloader-word" style="opacity: 1; transform: translateY(0)">Silence</div>
+        <div class="preloader-word">Strategy</div>
+        <div class="preloader-word">Precision</div>
+        <div class="preloader-word">Alchemy</div>
+        <div class="preloader-word">Marcy.</div>
+      </div>
+    </div>
+    <div class="preloader-footer">
+      <div>Creative Digital Agency</div>
+      <div>©2026</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring">
+      <span class="custom-cursor-text" id="cursor-text">VIEW</span>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" style="cursor: none;">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- Global scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Email validation
+    function validateEmail(form) {
+      const emailInput = form.querySelector('input[type="email"]');
+      const errorMsg = form.querySelector('#email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailInput || !emailRegex.test(emailInput.value)) {
+        if (errorMsg) errorMsg.classList.remove('hidden');
+        return false;
+      }
+      
+      if (errorMsg) errorMsg.classList.add('hidden');
+      alert('Thank you for subscribing!');
+      emailInput.value = '';
+      return false;
+    }
+  </script>
 </body>
 </html>
+

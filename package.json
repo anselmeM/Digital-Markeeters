@@ -1,0 +1,32 @@
+{
+  "name": "digital-markeeters",
+  "version": "1.0.0",
+  "description": "https://anselmem.github.io/Digital-Markeeters/",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i css/style.css -o css/build.css --minify",
+    "watch:css": "tailwindcss -i css/style.css -o css/build.css --watch",
+    "build:html": "node build.js",
+    "optimize:images": "node optimize-images.js",
+    "build": "npm run optimize:images && npm run build:css && npm run build:html",
+    "dev": "npm run build:css && node build.js && npx -y browser-sync start --server --files \"*.html, css/build.css, js/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anselmeM/Digital-Markeeters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anselmeM/Digital-Markeeters/issues"
+  },
+  "homepage": "https://github.com/anselmeM/Digital-Markeeters#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.17"
+  }
+}

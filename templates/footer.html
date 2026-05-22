@@ -1,0 +1,156 @@
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[#151413] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5" id="contact">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24 mb-24">
+      <!-- Brand / Email Column -->
+      <div>
+        <h2 class="font-serif text-6xl md:text-8xl leading-none tracking-tighter mb-6">Marcy.</h2>
+        <p class="text-gray-400 text-base max-w-sm leading-relaxed mb-8">
+          Digital experiences crafted with silence, strategy, and precision.
+        </p>
+        <a class="cta-button inline-block text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+          hello@marcy.com
+        </a>
+      </div>
+
+      <!-- Offices Column -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            215 McLeod Avenue<br />
+            Box 3497, AB T7XX<br />
+            +1 (780) 555-5555
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            2619 Chapmans Lane<br />
+            Farmington, NM 87402<br />
+            +1 (505) 860-6973
+          </p>
+        </div>
+      </div>
+
+      <!-- Newsletter & Links Column -->
+      <div class="flex flex-col justify-between pt-4">
+        <form class="w-full relative mb-8" aria-label="Newsletter signup" onsubmit="return validateEmail(this)">
+          <label for="newsletter-email" class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
+          <div class="flex border-b border-gray-700 pb-2 items-center">
+            <input
+              id="newsletter-email"
+              class="bg-transparent border-none p-0 w-full text-[#EBE6DF] placeholder-gray-600 focus:ring-0 text-sm"
+              placeholder="Your email address"
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              aria-describedby="email-hint"
+            />
+            <button class="cta-button text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors disabled:opacity-50" type="submit" id="newsletter-submit">Send</button>
+          </div>
+          <span id="email-hint" class="sr-only">Enter your email address to subscribe to our newsletter</span>
+          <p id="email-error" class="text-red-500 text-xs mt-1 hidden" role="alert" aria-live="polite">Please enter a valid email address.</p>
+        </form>
+
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Social</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="hover:text-white transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="hover:text-white transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Company</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="work.html">Work</a>
+              <a class="hover:text-white transition-colors" href="about.html">Agency</a>
+              <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Policies -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+      </div>
+      <div>© 2026 Marcy Studios. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Global Background Grid lines -->
+  <div class="grid-lines-bg">
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+  </div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-header">
+      <div>Marcy Studios</div>
+      <div id="preloader-date">Est. 2018</div>
+    </div>
+    <div class="preloader-center">
+      <div class="preloader-counter" id="loader-percent">00</div>
+      <div class="preloader-word-wrap">
+        <div class="preloader-word" style="opacity: 1; transform: translateY(0)">Silence</div>
+        <div class="preloader-word">Strategy</div>
+        <div class="preloader-word">Precision</div>
+        <div class="preloader-word">Alchemy</div>
+        <div class="preloader-word">Marcy.</div>
+      </div>
+    </div>
+    <div class="preloader-footer">
+      <div>Creative Digital Agency</div>
+      <div>©2026</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring">
+      <span class="custom-cursor-text" id="cursor-text">VIEW</span>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" style="cursor: none;">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- Global scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Email validation
+    function validateEmail(form) {
+      const emailInput = form.querySelector('input[type="email"]');
+      const errorMsg = form.querySelector('#email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailInput || !emailRegex.test(emailInput.value)) {
+        if (errorMsg) errorMsg.classList.remove('hidden');
+        return false;
+      }
+      
+      if (errorMsg) errorMsg.classList.add('hidden');
+      alert('Thank you for subscribing!');
+      emailInput.value = '';
+      return false;
+    }
+  </script>
+</body>
+</html>

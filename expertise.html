@@ -1,136 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Marcy Studios — Expertise</title>
-  <meta name="description" content="Explore our services including digital strategy, brand identity, web design & development, and content production. Award-winning digital agency.">
-  <link rel="canonical" href="https://marcy.com/expertise.html">
+  <meta name="description" content="We merge data with design to build brands that matter in a digital-first world. Learn about our Digital Strategy, Brand Identity, Web Design, and Content Production.">
   <meta property="og:title" content="Marcy Studios — Expertise">
-  <meta property="og:description" content="Explore our services: digital strategy, brand identity, web design, and content production.">
-  <meta property="og:image" content="https://marcy.com/images/og-default.jpg">
-  <meta property="og:url" content="https://marcy.com/expertise.html">
+  <meta property="og:description" content="We merge data with design to build brands that matter in a digital-first world. Learn about our Digital Strategy, Brand Identity, Web Design, and Content Production.">
+  <meta property="og:image" content="https://anselmem.github.io/Digital-Markeeters/images/Digital Marketers3.jpg">
+  <meta property="og:url" content="https://anselmem.github.io/Digital-Markeeters/expertise.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Marcy Studios — Expertise">
-  <meta name="twitter:description" content="Explore our services: digital strategy, brand identity, web design, and content production.">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" as="style">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com" crossorigin>
+  <meta name="twitter:description" content="We merge data with design to build brands that matter in a digital-first world. Learn about our Digital Strategy, Brand Identity, Web Design, and Content Production.">
+  <link rel="canonical" href="https://anselmem.github.io/Digital-Markeeters/expertise.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ServicePage",
-    "name": "Our Expertise",
-    "description": "Digital strategy, brand identity, web design, and content production services.",
-    "url": "https://marcy.com/expertise.html"
-  }
-  </script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "var(--primary)",
-            secondary: "var(--secondary)",
-            background: "var(--background-light)",
-            "background-dark": "var(--background-dark)",
-            text: "var(--text-main)",
-            "text-light": "var(--text-light)",
-            accent: "var(--accent-terracotta)",
-            meron: "var(--meron)",
-          },
-          fontFamily: {
-            serif: ['"Bodoni Moda"', 'serif'],
-            display: ['"Instrument Serif"', 'serif'],
-            sans: ['"Inter"', 'sans-serif'],
-          },
-          fontSize: {
-            '10xl': '10rem',
-            '11xl': '12rem',
-          },
-          letterSpacing: {
-            'tighter-custom': '-0.04em',
-          }
-        },
-      },
-    };
-  </script>
-  <style type="text/tailwindcss">
-    .font-serif-display { font-family: 'Bodoni Moda', serif; }
-    .font-serif-italic  { font-family: 'Instrument Serif', serif; }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Accordion styles */
-    .service-details {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    details[open] .service-details {
-      max-height: 1000px;
-      opacity: 1;
-      padding-bottom: 2rem;
-    }
-    details > summary {
-      list-style: none;
-    }
-    details > summary::-webkit-details-marker {
-      display: none;
-    }
-    .service-image {
-      clip-path: inset(0 100% 0 0);
-      transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-    details[open] .service-image {
-      clip-path: inset(0 0 0 0);
-    }
-    /* Accessibility: Skip link */
-    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; padding: 1rem; background: #fff; color: #000; }
-    .skip-link:focus { position: fixed; left: 0; }
-    /* Accessibility: Focus visible */
-    *:focus-visible { outline: 3px solid #B35A46; outline-offset: 2px; }
-    /* Accessibility: Reduced motion */
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
-    /* Mobile: Nav contrast fix */
-    @media (max-width: 767px) {
-      nav { mix-blend-mode: normal !important; background: #1C1B1A !important; }
-    }
-    /* Mobile: Touch targets */
-    @media (pointer: coarse) {
-      button, a[href], [role="button"] { min-height: 44px; min-width: 44px; }
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="css/build.css">
 
+</head>
 <body class="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white min-h-screen overflow-x-hidden">
 
-  <!-- Skip link for keyboard accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#B35A46] focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to main content
+  </a>
 
   <!-- ═══ NAV ═══ -->
   <nav role="navigation" aria-label="Main navigation" class="fixed w-full top-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-[#F2EFE9]">
-    <a class="font-serif font-bold text-2xl tracking-tight" href="index.html">Marcy.</a>
-    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-lg uppercase tracking-widest font-medium">
-      <a class="hover:underline decoration-1 underline-offset-4" href="work.html">Work</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="about.html">Agency</a>
-      <a class="hover:underline decoration-1 underline-offset-4" href="expertise.html">Expertise</a>
+    <a class="font-serif font-bold text-2xl tracking-tight logo-magnetic" href="index.html" style="cursor: none;">Marcy.</a>
+    
+    <!-- Desktop navigation with sliding hover pill -->
+    <div class="desktop-nav-wrapper hidden md:flex items-center absolute left-1/2 -translate-x-1/2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 gap-2">
+      <!-- Hover pill follower -->
+      <div class="nav-hover-pill absolute bg-white/10 border border-white/20 rounded-full h-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-0 scale-95" style="left: 0; width: 0;"></div>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="work.html" style="cursor: none;">Work</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="about.html" style="cursor: none;">Agency</a>
+      <a class="nav-link relative z-10 px-4 py-1 text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors" href="expertise.html" style="cursor: none;">Expertise</a>
     </div>
+
+    <!-- Mobile menu button toggle -->
     <button 
       class="md:hidden group flex flex-col gap-1.5 w-8 relative z-[60]" 
       aria-label="Toggle menu" 
@@ -138,21 +50,82 @@
       aria-controls="mobile-menu" 
       onclick="toggleMenu()"
     >
-      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-1"></span>
-      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-2"></span>
-      <span class="w-full h-[1px] bg-current transition-all duration-300 menu-line-3"></span>
+      <span class="w-full h-[1px] bg-current menu-line-1"></span>
+      <span class="w-full h-[1px] bg-current menu-line-2"></span>
+      <span class="w-full h-[1px] bg-current menu-line-3"></span>
     </button>
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#1C1B1A] z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-400 ease-out">
-    <div class="flex flex-col gap-6 text-center text-4xl font-display italic text-[#EBE6DF]">
-      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="work.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 100ms">Work</a>
-      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="about.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 150ms">Agency</a>
-      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="expertise.html" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 200ms">Expertise</a>
-      <a class="mobile-menu-item hover:text-[#B35A46] transition-colors opacity-0 transform translate-y-4" href="index.html#contact" onclick="toggleMenu()" style="transition: opacity 0.4s ease-out, transform 0.4s ease-out; transition-delay: 250ms">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 z-[40] pointer-events-none" style="display: none;">
+    <!-- Curtain Accent Panel -->
+    <div class="menu-curtain-accent absolute inset-0 bg-[#B35A46] transform -translate-y-full"></div>
+    
+    <!-- Curtain Main Panel -->
+    <div class="menu-curtain-main absolute inset-0 bg-[#1C1B1A] flex flex-col justify-between p-6 md:p-12 transform -translate-y-full text-[#EBE6DF] overflow-hidden">
+      <!-- Gridlines inside menu -->
+      <div class="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 md:px-12 w-full max-w-[90vw] left-1/2 -translate-x-1/2 opacity-5">
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+        <div class="w-[1px] h-full bg-white"></div>
+      </div>
+      
+      <!-- Top spacing for nav header clearance -->
+      <div class="h-20"></div>
+      
+      <!-- Menu Contents -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-grow">
+        <!-- Links column -->
+        <div class="lg:col-span-7 flex flex-col items-start gap-4">
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="work.html">Work</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="about.html">Agency</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="expertise.html">Expertise</a>
+          </div>
+          <div class="overflow-hidden py-1">
+            <a class="mobile-menu-link font-serif text-5xl md:text-7xl lg:text-8xl italic font-light hover:text-[#CCAA6E] transition-colors block transform translate-y-full" href="#contact" onclick="toggleMenu()">Contact</a>
+          </div>
+        </div>
+        
+        <!-- Info Column -->
+        <div class="lg:col-span-5 flex flex-col gap-8 md:gap-12 border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-12 opacity-0 transform translate-y-8 mobile-menu-info">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Offices</h4>
+            <div class="grid grid-cols-2 gap-4 text-xs text-gray-400">
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Spicy Grove</p>
+                <p>215 McLeod Ave, AB</p>
+              </div>
+              <div>
+                <p class="font-semibold text-[#EBE6DF]">Farmington</p>
+                <p>2619 Chapmans Ln, NM</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-3">Follow</h4>
+            <div class="flex gap-4 text-xs text-gray-400">
+              <a href="https://instagram.com/marcy" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+              <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://behance.net" target="_blank" class="hover:text-white transition-colors">Behance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer details inside menu -->
+      <div class="relative z-10 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4 mt-8 mobile-menu-footer opacity-0">
+        <div>Marcy Studios</div>
+        <div>Creative Digital Agency</div>
+      </div>
     </div>
   </div>
+
 
   <!-- ═══ MAIN ═══ -->
   <main id="main-content" role="main" class="relative w-full pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
@@ -162,7 +135,9 @@
       <div class="max-w-3xl">
         <p class="text-sm uppercase tracking-[0.2em] mb-4 text-[#CCAA6E] border-l-2 border-[#CCAA6E] pl-4">What we do best</p>
         <h1 class="font-serif text-7xl md:text-[11rem] font-normal text-[#2A2622] leading-[0.85] tracking-tighter-custom mb-8">
-          <span class="font-display italic text-[#B35A46]">Expertise</span>
+          <span class="split-line-mask block">
+            <span class="split-line-content block font-display italic text-[#B35A46]">Expertise</span>
+          </span>
         </h1>
         <p class="text-2xl md:text-4xl font-light text-[#2A2622] max-w-xl leading-relaxed">
           We merge data with design to build brands that matter in a digital-first world.
@@ -174,7 +149,7 @@
     </section>
 
     <!-- Services Accordion List -->
-    <section class="flex flex-col border-t border-[#2A2622]/20">
+    <section class="flex flex-col border-t border-[#2A2622]/20 reveal-fade-up">
       
       <!-- Service Item 01 -->
       <details class="group border-b border-[#2A2622]/20 cursor-pointer" open>
@@ -217,7 +192,10 @@
             </div>
           </div>
           <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
-            <img alt="Data analytics methodology" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers2.jpg" loading="lazy" />
+            <picture>
+              <source srcset="images/optimized/digital-marketers2-sm.webp 400w, images/optimized/digital-marketers2-md.webp 800w, images/optimized/digital-marketers2-lg.webp 1200w" sizes="(max-width: 1024px) 90vw, 45vw" type="image/webp">
+              <img alt="Data analytics methodology" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/optimized/digital-marketers2.webp" loading="lazy" />
+            </picture>
           </div>
         </div>
       </details>
@@ -263,7 +241,10 @@
             </div>
           </div>
           <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
-            <img alt="Brand Identity" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers3.jpg" loading="lazy" />
+            <picture>
+              <source srcset="images/optimized/digital-marketers3-sm.webp 400w, images/optimized/digital-marketers3-md.webp 800w, images/optimized/digital-marketers3-lg.webp 1200w" sizes="(max-width: 1024px) 90vw, 45vw" type="image/webp">
+              <img alt="Brand Identity" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/optimized/digital-marketers3.webp" loading="lazy" />
+            </picture>
           </div>
         </div>
       </details>
@@ -303,13 +284,16 @@
               </li>
             </ul>
             <div class="mt-8">
-              <a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="javascript:void(0)">
+              <a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="work.html">
                 View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
               </a>
             </div>
           </div>
           <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
-            <img alt="Web Design and Development" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers.jpg" loading="lazy" />
+            <picture>
+              <source srcset="images/optimized/digital-marketers-sm.webp 400w, images/optimized/digital-marketers-md.webp 800w, images/optimized/digital-marketers-lg.webp 1200w" sizes="(max-width: 1024px) 90vw, 45vw" type="image/webp">
+              <img alt="Web Design and Development" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/optimized/digital-marketers.webp" loading="lazy" />
+            </picture>
           </div>
         </div>
       </details>
@@ -349,13 +333,16 @@
               </li>
             </ul>
             <div class="mt-8">
-              <a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="javascript:void(0)">
+              <a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#2A2622] border-b border-[#2A2622] pb-1 hover:text-[#B35A46] hover:border-[#B35A46] transition-colors" href="work.html">
                 View Case Studies <span class="material-symbols-outlined text-base">arrow_forward</span>
               </a>
             </div>
           </div>
           <div class="lg:col-span-6 lg:col-start-7 relative aspect-video md:aspect-[4/3] overflow-hidden bg-[#EBE6DF]">
-            <img alt="Content Production" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/Digital Marketers4.jpg" loading="lazy" />
+            <picture>
+              <source srcset="images/optimized/digital-marketers4-sm.webp 400w, images/optimized/digital-marketers4-md.webp 800w, images/optimized/digital-marketers4-lg.webp 1200w" sizes="(max-width: 1024px) 90vw, 45vw" type="image/webp">
+              <img alt="Content Production" class="service-image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="images/optimized/digital-marketers4.webp" loading="lazy" />
+            </picture>
           </div>
         </div>
       </details>
@@ -363,112 +350,161 @@
     </section>
   </main>
 
-  <!-- Accordion Script for exclusivity -->
-  <script>
-    const detailsElements = document.querySelectorAll('details');
-    detailsElements.forEach((targetDetail) => {
-      targetDetail.addEventListener('click', (e) => {
-        // Prevent default toggle behavior if it is already open, or let it work but close others
-        if (!targetDetail.open) {
-            detailsElements.forEach((detail) => {
-            if (detail !== targetDetail && detail.open) {
-                detail.removeAttribute('open');
-            }
-            });
-        }
-      });
-    });
-  </script>
 
-  <!-- Mobile Menu Toggle Script -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const button = document.querySelector('[aria-controls="mobile-menu"]');
-      const lines = document.querySelectorAll('.menu-line-1, .menu-line-2, .menu-line-3');
-      const menuItems = document.querySelectorAll('.mobile-menu-item');
-      
-      const isOpen = menu.classList.contains('opacity-100');
-      
-      if (isOpen) {
-        menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
-        button.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        
-        menuItems.forEach((item, index) => {
-          item.style.transitionDelay = `${(menuItems.length - index) * 50}ms`;
-          item.classList.remove('opacity-100', 'translate-y-0');
-          item.classList.add('opacity-0', 'translate-y-4');
-        });
-        
-        lines[0].style.transform = 'none';
-        lines[1].style.opacity = '1';
-        lines[2].style.transform = 'none';
-      } else {
-        menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
-        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-        button.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        
-        menuItems.forEach((item, index) => {
-          item.style.transitionDelay = `${(index + 1) * 50}ms`;
-          item.classList.remove('opacity-0', 'translate-y-4');
-          item.classList.add('opacity-100', 'translate-y-0');
-        });
-        
-        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-        lines[1].style.opacity = '0';
-        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      }
-    }
-  </script>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer class="bg-[#1C1B1A] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5 mt-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24 max-w-7xl mx-auto">
+    <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[#151413] text-[#EBE6DF] px-6 md:px-12 pt-24 pb-12 border-t border-white/5" id="contact">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24 mb-24">
+      <!-- Brand / Email Column -->
       <div>
-        <h2 class="font-serif text-7xl md:text-9xl leading-none tracking-tighter mb-8">
-          Marcy.
-        </h2>
+        <h2 class="font-serif text-6xl md:text-8xl leading-none tracking-tighter mb-6">Marcy.</h2>
         <p class="text-gray-400 text-base max-w-sm leading-relaxed mb-8">
           Digital experiences crafted with silence, strategy, and precision.
         </p>
-        <a class="inline-block text-2xl md:text-3xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
+        <a class="cta-button inline-block text-xl md:text-2xl border-b border-[#CCAA6E] pb-2 hover:text-[#CCAA6E] transition-colors" href="mailto:hello@marcy.com">
           hello@marcy.com
         </a>
       </div>
 
-      <div class="grid grid-cols-2 gap-8 md:gap-16 justify-end pt-4">
+      <!-- Offices Column -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
         <div>
-          <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-6">Social</h4>
-          <div class="flex flex-col gap-4 text-base text-gray-400">
-            <a class="hover:text-white transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a class="hover:text-white transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="hover:text-white transition-colors" href="https://twitter.com/marcy" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a class="hover:text-white transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
-          </div>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Spicy Grove</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            215 McLeod Avenue<br />
+            Box 3497, AB T7XX<br />
+            +1 (780) 555-5555
+          </p>
         </div>
         <div>
-          <h4 class="text-sm uppercase tracking-widest text-[#CCAA6E] mb-6">Company</h4>
-          <div class="flex flex-col gap-4 text-base text-gray-400">
-            <a class="hover:text-white transition-colors" href="work.html">Work</a>
-            <a class="hover:text-white transition-colors" href="about.html">Agency</a>
-            <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
-            <a class="hover:text-white transition-colors" href="index.html#contact">Contact</a>
+          <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Farmington</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            2619 Chapmans Lane<br />
+            Farmington, NM 87402<br />
+            +1 (505) 860-6973
+          </p>
+        </div>
+      </div>
+
+      <!-- Newsletter & Links Column -->
+      <div class="flex flex-col justify-between pt-4">
+        <form class="w-full relative mb-8" aria-label="Newsletter signup" onsubmit="return validateEmail(this)">
+          <label for="newsletter-email" class="block text-xs uppercase tracking-widest mb-2 text-gray-500">Subscribe to newsletter</label>
+          <div class="flex border-b border-gray-700 pb-2 items-center">
+            <input
+              id="newsletter-email"
+              class="bg-transparent border-none p-0 w-full text-[#EBE6DF] placeholder-gray-600 focus:ring-0 text-sm"
+              placeholder="Your email address"
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              aria-describedby="email-hint"
+            />
+            <button class="cta-button text-xs uppercase tracking-widest hover:text-[#CCAA6E] transition-colors disabled:opacity-50" type="submit" id="newsletter-submit">Send</button>
+          </div>
+          <span id="email-hint" class="sr-only">Enter your email address to subscribe to our newsletter</span>
+          <p id="email-error" class="text-red-500 text-xs mt-1 hidden" role="alert" aria-live="polite">Please enter a valid email address.</p>
+        </form>
+
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Social</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="https://instagram.com/marcy" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="hover:text-white transition-colors" href="https://linkedin.com/company/marcy-studios" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="hover:text-white transition-colors" href="https://behance.net/marcy" target="_blank" rel="noopener noreferrer">Behance</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-[#CCAA6E] mb-4">Company</h4>
+            <div class="flex flex-col gap-2 text-sm text-gray-400">
+              <a class="hover:text-white transition-colors" href="work.html">Work</a>
+              <a class="hover:text-white transition-colors" href="about.html">Agency</a>
+              <a class="hover:text-white transition-colors" href="expertise.html">Expertise</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-base uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
+    <!-- Bottom Copyright & Policies -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
       <div class="flex gap-6 mb-4 md:mb-0">
         <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
         <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
       </div>
-      <div>© 2024 Marcy Studios. All Rights Reserved.</div>
+      <div>© 2026 Marcy Studios. All Rights Reserved.</div>
     </div>
   </footer>
 
+  <!-- Global Background Grid lines -->
+  <div class="grid-lines-bg">
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+    <div class="grid-line-v"></div>
+  </div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-header">
+      <div>Marcy Studios</div>
+      <div id="preloader-date">Est. 2018</div>
+    </div>
+    <div class="preloader-center">
+      <div class="preloader-counter" id="loader-percent">00</div>
+      <div class="preloader-word-wrap">
+        <div class="preloader-word" style="opacity: 1; transform: translateY(0)">Silence</div>
+        <div class="preloader-word">Strategy</div>
+        <div class="preloader-word">Precision</div>
+        <div class="preloader-word">Alchemy</div>
+        <div class="preloader-word">Marcy.</div>
+      </div>
+    </div>
+    <div class="preloader-footer">
+      <div>Creative Digital Agency</div>
+      <div>©2026</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring">
+      <span class="custom-cursor-text" id="cursor-text">VIEW</span>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" style="cursor: none;">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- Global scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Email validation
+    function validateEmail(form) {
+      const emailInput = form.querySelector('input[type="email"]');
+      const errorMsg = form.querySelector('#email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailInput || !emailRegex.test(emailInput.value)) {
+        if (errorMsg) errorMsg.classList.remove('hidden');
+        return false;
+      }
+      
+      if (errorMsg) errorMsg.classList.add('hidden');
+      alert('Thank you for subscribing!');
+      emailInput.value = '';
+      return false;
+    }
+  </script>
 </body>
 </html>
+

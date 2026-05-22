@@ -31,6 +31,41 @@ This document outlines the complete enhancement plan for the Digital-Markeeters 
 | **Medium** | Moderate impact, improves quality but not essential | 1-3 months |
 | **Low** | Nice-to-have, polish items | 3-6 months |
 
+### Implementation Checklist
+- [x] Initialize project environment & dependencies
+  - [x] Initialize `package.json` at root
+  - [x] Install `tailwindcss` and `@tailwindcss/forms` / `@tailwindcss/typography`
+  - [x] Install `sharp` for image optimizations
+- [x] Configure Local Tailwind CSS Build
+  - [x] Create `tailwind.config.js`
+  - [x] Modify `css/style.css` to add Tailwind directives
+  - [x] Verify Tailwind CLI build compiles to `css/build.css`
+- [x] Extract and Build the Template System
+  - [x] Create `config.json` for site variables
+  - [x] Create `templates/head.html`
+  - [x] Create `templates/nav.html`
+  - [x] Create `templates/footer.html`
+  - [x] Write `build.js` compiler script
+- [x] Migrate Pages to Source Folder
+  - [x] Create `src/` directory
+  - [x] Migrate and clean `index.html` → `src/index.html`
+  - [x] Migrate and clean `about.html` → `src/about.html`
+  - [x] Migrate and clean `expertise.html` → `src/expertise.html`
+  - [x] Migrate and clean `work.html` → `src/work.html`
+  - [x] Migrate and clean `project.html` → `src/project.html`
+- [x] Run Compilation & Build
+  - [x] Run HTML compilation build
+  - [x] Verify output files generated correctly at root
+- [x] Build Image Optimization Pipeline
+  - [x] Write `optimize-images.js` script
+  - [x] Run image optimization script
+  - [x] Replace `<img>` tags in source files with responsive `<picture>` tags
+- [x] Correct Metadata & Sitemap URLs
+  - [x] Correct sitemap.xml and robots.txt
+- [x] Final Verification
+  - [x] Confirm zero errors in CLI or browser
+  - [x] Complete walkthrough
+
 ### Status Tracking
 
 | Status | Description |

@@ -12,6 +12,7 @@ const projects = [
   { title: 'Fashion Forward', slug: 'fashion-forward', category: 'Web Design' },
   { title: 'Brand Evolution', slug: 'brand-evolution', category: 'Strategy' },
   { title: 'Visual Narrative', slug: 'visual-narrative', category: 'Art Direction' },
+  { title: 'Glass Pavilion', slug: 'glass-pavilion', category: 'Photography' },
 ];
 
 export default function Navigation() {

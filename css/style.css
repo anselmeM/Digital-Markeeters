@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* 
  * Marcy Studios - Custom Styles
  * Digital Experience Agency Website
@@ -114,7 +118,7 @@ textarea:focus-visible {
 
 /* Utility Classes */
 .font-serif-display {
-  font-family: 'Bodoni Moda', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .font-serif-italic {
@@ -230,3 +234,336 @@ textarea:focus-visible {
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════
+   AWWWARDS PREMIUM REDESIGN STYLES
+   ═══════════════════════════════════════ */
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.custom-cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-terracotta);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.custom-cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text-light);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, width, height, background-color;
+}
+
+.custom-cursor-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #000;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Active cursor states */
+body.hover-interactive .custom-cursor-ring {
+  width: 60px;
+  height: 60px;
+  background-color: var(--text-light);
+  border-color: var(--text-light);
+}
+body.hover-interactive .custom-cursor-dot {
+  background-color: transparent;
+}
+
+body.hover-project .custom-cursor-ring {
+  width: 90px;
+  height: 90px;
+  background-color: var(--accent-terracotta);
+  border-color: var(--accent-terracotta);
+}
+body.hover-project .custom-cursor-text {
+  color: #fff;
+  opacity: 1;
+  transform: scale(1);
+}
+body.hover-project .custom-cursor-dot {
+  opacity: 0;
+}
+
+/* Hide native cursor for hover elements on desktop */
+@media (hover: hover) {
+  a, button, select, input, [role="button"], details summary {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #0d0d0c;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  color: var(--text-light);
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.preloader-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+.preloader-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.preloader-counter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.preloader-word-wrap {
+  height: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1.5rem;
+  width: 250px;
+}
+
+.preloader-word {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--secondary);
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.preloader-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+/* Background gridlines for architectural look */
+.grid-lines-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.grid-line-v {
+  width: 1px;
+  height: 100%;
+  background-color: var(--text-main);
+  opacity: 0.05;
+  transform-origin: top;
+  will-change: transform;
+}
+
+.dark-layout .grid-line-v {
+  background-color: var(--text-light);
+  opacity: 0.05;
+}
+
+/* Horizontal Pinned Scroll layout */
+.horizontal-scroll-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 300vw;
+  height: 100vh;
+  will-change: transform;
+}
+
+.horizontal-slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Text Line masking for GSAP reveals */
+.split-line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.split-line-content {
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+/* Floating Image on Row Hover (Work page) */
+.floating-img-container {
+  position: fixed;
+  width: 380px;
+  height: 250px;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.6) rotate(-5deg);
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  will-change: transform, left, top;
+}
+
+.floating-img-container img {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+  transform: scale(1.1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.floating-img-container.active {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.floating-img-container.active img {
+  transform: scale(1);
+}
+
+/* Magnetic Button support class */
+.magnetic-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+/* Active filter button styling */
+.filter-btn.active {
+  background-color: var(--text-main);
+  color: var(--background-light) !important;
+  border-color: var(--text-main);
+}
+
+/* Responsive project-image for desktop/mobile fallback */
+.project-image {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-image {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR & MOBILE MENU ENHANCEMENTS
+   ═══════════════════════════════════════ */
+
+/* Hamburger Line Transform Origins & rendering optimizations */
+.menu-line-1, .menu-line-2, .menu-line-3 {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* Desktop Navigation Glassmorphic styling */
+.desktop-nav-wrapper {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-hover-pill {
+  will-change: transform, left, width, opacity;
+  mix-blend-mode: normal;
+}
+
+/* Mobile Menu Curtain Layout styling */
+.menu-curtain-accent,
+.menu-curtain-main {
+  will-change: transform;
+}
+
+/* Ensure mobile links translate nicely */
+.mobile-menu-link {
+  will-change: transform, skewY;
+  display: block;
+}
+

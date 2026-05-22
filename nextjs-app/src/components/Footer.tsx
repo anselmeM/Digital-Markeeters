@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import CurrentYear from './CurrentYear';
 
 interface FooterProps {
   id?: string;
@@ -68,7 +67,7 @@ export default function Footer({ id = 'contact' }: FooterProps) {
           <Link href="/expertise" className="hover:text-[#B35A46] transition-colors">Expertise</Link>
         </div>
         <div>
-          &copy; {new Date().getFullYear()} Marcy Studios. All rights reserved.
+          &copy; <CurrentYear /> Marcy Studios. All rights reserved.
         </div>
       </div>
     </footer>
