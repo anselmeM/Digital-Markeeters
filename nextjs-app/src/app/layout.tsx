@@ -8,6 +8,7 @@ import BackToTop from "@/components/BackToTop";
 import SmoothScroll from "@/components/SmoothScroll";
 import PageTransition from "@/components/PageTransition";
 import CustomCursor from "@/components/CustomCursor";
+import GrainOverlay from "@/components/GrainOverlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${bodoni.variable} ${instrument.variable}`}>
       <body className="bg-[#F2EFE9] text-[#2A2622] font-sans antialiased selection:bg-[#B35A46] selection:text-white overflow-x-hidden">
         <CustomCursor />
+        <GrainOverlay />
         
         {/* Skip to main content link for accessibility */}
         <a 

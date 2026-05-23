@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -91,6 +91,36 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const cardRef = useRef<HTMLDivElement>(null);
 
+  const distortionScale = useMotionValue(0);
+  const baseFreq = useMotionValue(0.02);
+
+  useEffect(() => {
+    const freqAnimation = animate(baseFreq, 0.015, {
+      duration: 5,
+      repeat: Infinity,
+      repeatType: 'reverse',
+      ease: 'linear',
+    });
+    return () => freqAnimation.stop();
+  }, [baseFreq]);
+
+  useEffect(() => {
+    if (isHovered) {
+      const scaleAnimation = animate(distortionScale, [0, 30, 0], {
+        duration: 0.8,
+        times: [0, 0.35, 1],
+        ease: 'easeOut',
+      });
+      return () => scaleAnimation.stop();
+    } else {
+      const scaleAnimation = animate(distortionScale, 0, {
+        duration: 0.3,
+        ease: 'easeIn',
+      });
+      return () => scaleAnimation.stop();
+    }
+  }, [isHovered, distortionScale]);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (cardRef.current) {
       const rect = cardRef.current.getBoundingClientRect();
@@ -126,10 +156,33 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         }}
       >
+        {/* Localized Liquid Distortion SVG Filter */}
+        <svg className="absolute w-0 h-0 pointer-events-none opacity-0" aria-hidden="true">
+          <defs>
+            <filter id={`liquid-filter-card-${project.id}`}>
+              <motion.feTurbulence
+                type="fractalNoise"
+                baseFrequency={baseFreq}
+                numOctaves="2"
+                result="noise"
+                seed={project.id}
+              />
+              <motion.feDisplacementMap
+                in="SourceGraphic"
+                in2="noise"
+                scale={distortionScale}
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+        </svg>
+
         <motion.div
           className="w-full h-full relative"
           style={{
             transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+            filter: `url(#liquid-filter-card-${project.id})`,
           }}
           initial={{ scale: 1.15 }}
           animate={{ scale: isHovered ? 1 : 1.15 }}

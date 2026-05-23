@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CurrentYear from './CurrentYear';
+import GrainControl from './GrainControl';
 
 interface FooterProps {
   id?: string;
@@ -61,10 +62,12 @@ export default function Footer({ id = 'contact' }: FooterProps) {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-gray-600 pt-8 border-t border-white/5">
-        <div className="flex gap-6 mb-4 md:mb-0">
+        <div className="flex flex-wrap items-center gap-6 mb-4 md:mb-0">
           <Link href="/work" className="hover:text-[#B35A46] transition-colors">Work</Link>
           <Link href="/about" className="hover:text-[#B35A46] transition-colors">Agency</Link>
           <Link href="/expertise" className="hover:text-[#B35A46] transition-colors">Expertise</Link>
+          <span className="hidden md:inline text-white/10">|</span>
+          <GrainControl />
         </div>
         <div>
           &copy; <CurrentYear /> Marcy Studios. All rights reserved.

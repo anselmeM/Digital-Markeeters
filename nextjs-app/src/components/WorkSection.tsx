@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useMotionValue, animate, type Variants } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -85,6 +85,36 @@ function ProjectListItem({ project, index, itemVariants }: { project: Project; i
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  const distortionScale = useMotionValue(0);
+  const baseFreq = useMotionValue(0.02);
+
+  useEffect(() => {
+    const freqAnimation = animate(baseFreq, 0.015, {
+      duration: 5,
+      repeat: Infinity,
+      repeatType: 'reverse',
+      ease: 'linear',
+    });
+    return () => freqAnimation.stop();
+  }, [baseFreq]);
+
+  useEffect(() => {
+    if (isHovered) {
+      const scaleAnimation = animate(distortionScale, [0, 30, 0], {
+        duration: 0.8,
+        times: [0, 0.35, 1],
+        ease: 'easeOut',
+      });
+      return () => scaleAnimation.stop();
+    } else {
+      const scaleAnimation = animate(distortionScale, 0, {
+        duration: 0.3,
+        ease: 'easeIn',
+      });
+      return () => scaleAnimation.stop();
+    }
+  }, [isHovered, distortionScale]);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
@@ -152,11 +182,33 @@ function ProjectListItem({ project, index, itemVariants }: { project: Project; i
               transform: 'translate(-50%, -50%)',
             }}
           >
+            {/* Localized Liquid Distortion SVG Filter */}
+            <svg className="absolute w-0 h-0 pointer-events-none opacity-0" aria-hidden="true">
+              <defs>
+                <filter id={`liquid-filter-list-${project.id}`}>
+                  <motion.feTurbulence
+                    type="fractalNoise"
+                    baseFrequency={baseFreq}
+                    numOctaves="2"
+                    result="noise"
+                    seed={project.id}
+                  />
+                  <motion.feDisplacementMap
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale={distortionScale}
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                  />
+                </filter>
+              </defs>
+            </svg>
             <Image
               src={project.image}
               alt={project.title}
               fill
               className="object-cover"
+              style={{ filter: `url(#liquid-filter-list-${project.id})` }}
             />
           </motion.div>
         )}
